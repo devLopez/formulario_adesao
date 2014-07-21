@@ -1,4 +1,5 @@
 <?php
+
     /**
      * @package     - CI_Controller
      * @subpackage  - MY_Controller
@@ -6,8 +7,8 @@
      * @abstract    - Classe padrão. As outras sub-classes, todas, devem extender
      *                a esta classe, que por sua vez, extend o CI_Controller
      */
-    class MY_Controller extends CI_Controller
-    {
+    class MY_Controller extends CI_Controller {
+
         /**
          * Define algumas variáveis protegidas, que serão utilizadas no decorrer
          * da execução do sistema
@@ -16,23 +17,27 @@
         protected $dados;
         protected $view;
         protected $titulo;
-        
+
         /**
-         * @name        - __construction()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função que realiza a construção da classe.
-         * @param       - Bool $requer_autenticacao É utilizada para controlar as páginas que necessitam de login
+         * __construction()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função que realiza a construção da classe.
+         * @param       Bool $requer_autenticacao É utilizada para controlar as 
+         *              páginas que necessitam de login
+         * @param       bool $admin Indica se para acessar determinado arquivo é
+         *              necessário ser um funcionário, ou seja, o administrador
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct($requer_autenticacao = TRUE, $admin = NULL)
         {
             parent::__construct();
             session_start();
             $this->template = 'template/painel';
-            $this->titulo   = 'Formulário de inscrição';
-            $this->verifica_login($requer_autenticacao);
+            $this->titulo = 'Formulário de inscrição';
+            $this->verifica_login($requer_autenticacao, $admin);
         }
-        /**********************************************************************/
-        
+        //**********************************************************************
+
         /**
          * @name        - LoadView()
          * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -41,14 +46,14 @@
          */
         public function LoadView()
         {
-            $this->dados['view']        = $this->view;
-            $this->dados['titulo']      = $this->titulo;
-            $this->dados['protocolo']   = $this->verifica_inscricao();
-            
+            $this->dados['view'] = $this->view;
+            $this->dados['titulo'] = $this->titulo;
+            $this->dados['protocolo'] = $this->verifica_inscricao();
+
             $this->load->view($this->template, $this->dados);
         }
-        /**********************************************************************/
-        
+        //**********************************************************************
+
         /**
          * @name        - verifica_login()
          * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -56,19 +61,33 @@
          *              efetuado. Se o usuário não tiver efetuado o login, o
          *              redireciona para a página principal, para que possa
          *              efetuar o mesmo
+         * @param       Bool $requer_autenticacao É utilizada para controlar as 
+         *              páginas que necessitam de login
+         * @param       bool $admin Indica se para acessar determinado arquivo é
+         *              necessário ser um funcionário, ou seja, o administrador
          */
-        public function verifica_login($requer_autenticacao)
+        public function verifica_login($requer_autenticacao, $admin = NULL)
         {
-            if($requer_autenticacao)
+            if ($requer_autenticacao)
             {
-                if(!isset($_SESSION['usuario']))
+                if ($admin)
                 {
-                    redirect(app_baseUrl().'login');
+                    if (!isset($_SESSION['admin']))
+                    {
+                        redirect(app_baseurl() . 'LoginAdministrativo');
+                    }
+                }
+                else
+                {
+                    if (!isset($_SESSION['usuario']))
+                    {
+                        redirect(app_baseUrl() . 'login');
+                    }
                 }
             }
         }
-        /**********************************************************************/
-        
+        //**********************************************************************
+
         /**
          * verifica_inscricao()
          * 
@@ -78,12 +97,15 @@
          */
         function verifica_inscricao()
         {
-            if(isset($_SESSION['usuario']))
+            if (isset($_SESSION['usuario']))
             {
                 $this->load->model('usuarios_model');
-            
+
                 return $this->usuarios_model->verifica_protocolo();
             }
         }
+        //**********************************************************************
     }
-?>
+
+    /** End of File MY_Controller.php **/
+    /** Location ./application/core/MY_Controller.php **/

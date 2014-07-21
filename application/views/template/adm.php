@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title><?php echo $titulo ?></title>
 
+        <!-- Scripts e JQuery -->
         <link rel="stylesheet" type="text/css" href="./css/github-bootstrap.css">
         <link rel="stylesheet" type="text/css" href="./css/github-styles.css">
 
@@ -18,27 +19,21 @@
         <script type="text/javascript" src="./js/jquery.js"></script>
     </head>
     <body class="logged_in env-production windows page-dashboard">
+        <!-- Div onde é mostrado o relojinho -->
         <div class="doc-loader"></div>
+        <!--*****************************************************************-->
+
         <div class="wrapper">
 
             <!-- Topbar -->
             <div class="header header-logged-in true">
                 <div class="container clearfix">
-
-
                     <ul id="user-links">
                         <li>
                             <a href="#" class="name">
                                 Olá <span id="nome_usuario">
-                                    <?php echo $_SESSION['usuario']['nome_proponente'] ?>
+                                    <?php echo $_SESSION['admin']['nome'] ?>
                                 </span>
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a href="<?php echo app_baseurl() . 'painel/usuario' ?>" id="account_settings" class="tooltipped tooltipped-s" aria-label="Minha conta">
-                                <span class="octicon octicon-tools"></span>
                             </a>
                         </li>
                         <li>
@@ -53,64 +48,38 @@
             </div>
             <!--*************************************************************-->
 
-            <!-- Inicio do conteúdo -->
+            <!-- Conteúdo -->
             <div id="start-of-content" class="accessibility-aid"></div>
             <div class="site clearfix">
-                <div id="site-container" class="context-loader-container" data-pjax-container="">
-
+                <div id="site-container" class="context-loader-container">
                     <!-- Links do sistema -->
                     <div class="pagehead">
                         <div class="container">
                             <nav class="pagehead-nav">
-                                <a id="menu-painel" href="<?php echo app_baseurl() . 'painel/painel' ?>" class="js-selected-navigation-item pagehead-nav-item">
-                                    <span class="octicon octicon-dashboard"></span> Painel
+                                <a id="menu-painel" href="<?php echo app_baseurl() . 'administrativo/painel' ?>" class="js-selected-navigation-item pagehead-nav-item">
+                                    <span class="octicon octicon-dashboard"></span> Painel administrativo
                                 </a>
-                                <?php
-                                    if ($protocolo != "")
-                                    {
-                                        ?>
-                                        <a id="menu-dependentes" href="<?php echo app_baseurl() . 'painel/dependentes' ?>" class="js-selected-navigation-item pagehead-nav-item">
-                                            <span class="octicon octicon-organization"></span> Meus Dependentes
-                                        </a>
-                                        <a id="menu-referencias" href="<?php echo app_baseurl() . 'painel/referencias' ?>" class="js-selected-navigation-item pagehead-nav-item">
-                                            <span class="octicon octicon-megaphone"></span> Referências pessoais
-                                        </a>
-                                        </a>
-                                        <a id="menu-meusDados" href="<?php echo app_baseurl() . 'painel/meus_dados' ?>" class="pagehead-nav-item">
-                                            <i class="octicon octicon-tag"></i> Meus dados
-                                        </a>
-                                        <?php
-                                    } else
-                                    {
-                                        ?>
-                                        <a id="menu-solicitacoes" href="<?php echo app_baseurl() . 'painel/nova_solicitacao' ?>" class="pagehead-nav-item">
-                                            <span class="octicon octicon-repo"></span> Nova Solicitação
-                                        </a>
-                                        <?php
-                                    }
-                                ?>
                                 <a id="menu-mensagens" href="<?php echo app_baseurl() . 'painel/mensagens' ?>" class="pagehead-nav-item">
                                     <span class="octicon octicon-mail"></span> Mensagens
                                 </a>
                             </nav>
-                            <h1><a href="#">Painel do usuário</a></h1>
+                            <h1><a href="#"><i class="fa fa-dashboard"></i> Painel Administrativo</a></h1>
                         </div>
                     </div>
                     <!--*****************************************************-->
 
                     <!-- Chamada das visões -->
-                    <?php $this->load->view('paginas/' . $view); ?>
+                    <div class="container">
+                        <?php $this->load->view('paginas/' . $view); ?>
+                    </div>
                     <!--*****************************************************-->
 
                 </div>
             </div>
+            <!--*************************************************************-->
         </div>
         <script type="text/javascript" src="./js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./js/SmartNotification.min.js"></script>
-        <script type="text/javascript" src="./js/mask/jquery.maskedinput.min.js"></script>
-        <script type="text/javascript" src="./js/mask_money/monetario.js"></script>
-        <script type="text/javascript" src="./js/smart-wizard/js/jquery.smartWizard-2.0.js"></script>
-        <script type="text/javascript" src="./js/blockUi/blockUI.js"></script>
         <script type="text/javascript" src="./js/template.js"></script>
     </body>
 </html>
