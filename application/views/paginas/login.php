@@ -1,0 +1,73 @@
+<script>
+    /** Início do JQuery **/
+    $(document).ready(function() {
+
+        /** Adiciona uma máscara para campo cpf **/
+        $('#login_proponente').mask('99999999999', {placeholder: '*'});
+
+        /**
+         * função desenvolvida para realizar o login via ajax
+         */
+        $('#login').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '<?php echo app_baseurl().'login/fazer_login' ?>',
+                type: 'POST',
+                data: {
+                    login: $('#login_proponente').val(),
+                    senha: $('#senha_proponente').val()
+                },
+                dataType: "html",
+                success: function(sucesso)
+                {
+                    if (sucesso == 0)
+                    {
+                        $.smallBox({
+                            title: "<i class='fa fa-check'></i> Erro",
+                            content: "<strong>Usuário ou senha incorretos</strong>",
+                            iconSmall: "fa fa-thumbs-up bounce animated",
+                            color: "#FE1A00",
+                            timeout: 5000
+                        });
+                    }
+                    else if (sucesso == 1)
+                    {
+                        location.href = '<?php echo app_baseurl().'painel/painel'; ?>';
+                    }
+                },
+                error: function()
+                {
+                    $.smallBox({
+                        title: "<i class='fa fa-check'></i> Erro",
+                        content: "<strong>Ocorreu um erro. Tente novamente</strong>",
+                        iconSmall: "fa fa-thumbs-up bounce animated",
+                        color: "#FE1A00",
+                        timeout: 5000
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+<div class="auth-form">
+    <form accept-charset="UTF-8" id="login">
+        <div class="auth-form-header">
+            <h1 style="color: white"><i class="octicon octicon-lock"></i> Fazer Login</h1>
+        </div>
+        <div class="auth-form-body">
+            <label for="login_field">
+                Usuário
+            </label>
+            <input autofocus="autofocus" class="input-block" id="login_proponente" tabindex="1" type="text">
+
+            <label for="password">
+                Senha <a href="<?php echo app_baseurl().'alterar_senha'?>">(Esqueci minha senha)</a>
+            </label>
+            <input class="input-block" id="senha_proponente" name="password" tabindex="2" type="password">
+            
+
+            <input class="button" name="commit" tabindex="3" type="submit" value="Acessar minha conta">
+        </div>
+    </form>
+</div>

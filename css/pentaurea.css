@@ -1,0 +1,250 @@
+*:focus {
+    outline: 0 !important;
+} 
+
+textarea:focus,
+select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    outline: 0;
+    outline: thin dotted \9;
+    /* IE6-9 */
+
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+
+}
+
+/**
+ * Estilos utilizados nas imagens que aparecem na tela principal
+ */
+.mapa {
+    background: url('../img/reservado/mapa.gif') no-repeat 0 25px;
+}
+
+.arvore {
+    background: url('../img/reservado/arvore.gif') no-repeat 0 25px;
+}
+
+.casa {
+    background: url('../img/reservado/casa.gif') no-repeat 0 25px;
+}
+/*****************************************************************************/
+
+/**
+ * CSS para elementos textuais
+ */
+.justificado {
+    text-align: justify;
+}
+/******************************************************************************/
+
+/**
+ * Estilo utilizado no footer da página
+ */
+
+/* Set the fixed height of the footer here */
+.footer {
+    background-color: #f5f5f5;
+    bottom: 0;
+}
+/******************************************************************************/
+
+/**
+ * CSS para os erros do formulário
+ */
+.control-group.erro > label,
+.control-group.erro .help-block,
+.control-group.erro .help-inline {
+    color: #FE1A00;
+}
+
+.control-group.erro .checkbox,
+.control-group.erro .radio,
+.control-group.erro input,
+.control-group.erro select,
+.control-group.erro textarea {
+    color: #FE1A00;
+    border-color: #FE1A00;
+}
+
+/**
+ * Estilos Utilizados nos alerts
+ **/
+.erro {
+    color: #000;
+    background-color: #ffebe8;
+    border-color: #dd3c10;
+}
+
+.info {
+    color: #000;
+    background-color: #fff9d7;
+    border-color: #e2c822;
+}
+
+/** Estilos utilizados no formulário de login **/
+.form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+/**
+ * Estilos utilizados no sidenav das mensagens
+ */
+.bs-docs-sidenav {
+    width: 228px;
+    margin: 0 0 0;
+    padding: 0;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.bs-docs-sidenav > li > a {
+    display: block;
+    width: 190px \9;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+}
+.bs-docs-sidenav > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+.bs-docs-sidenav > li:last-child > a {
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+.bs-docs-sidenav > .active > a {
+    position: relative;
+    z-index: 2;
+    padding: 9px 15px;
+    border: 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+    -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+    box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+}
+/* Chevrons */
+.bs-docs-sidenav .icon-chevron-right {
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .25;
+}
+.bs-docs-sidenav > li > a:hover {
+    background-color: #f5f5f5;
+}
+.bs-docs-sidenav a:hover .icon-chevron-right {
+    opacity: .5;
+}
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
+    background-image: url(../img/glyphicons-halflings-white.png);
+    opacity: 1;
+}
+.bs-docs-sidenav.affix {
+    top: 40px;
+}
+.bs-docs-sidenav.affix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 270px;
+}
+
+/** Estilo utilizado nas tr da página de mensagem**/
+.highlight {
+    background: #ffffcc !important;
+    color: #333;
+}
+
+.inbox {
+    cursor: pointer;
+}
+
+/* Estilo utilizada nos erros de formulários */
+.success {
+    color: #390;
+}
+.error {
+    color: #900;
+}
+
+/** Estilo utilizado nos links **/
+a:hover, a:visited, a:focus {
+    text-decoration: none;
+}
+
+/** Estilo utilizado na logomarca do pentáure **/
+img.logo {
+    height: 40px;
+}
+
+/** Estilo utilizado nos loaders **/
+.loader {
+    position: absolute;
+    left: 0;
+    width: 100%; 
+    height: 70%; 
+    overflow: visible;
+    background: transparent url('../img/reservado/loading.gif') no-repeat center center;
+}
+
+/** Estilo utilizado no box do profile **/
+.corpo_perfil {
+    min-height: 100px;
+}
+
+/** Utilizado para mostrar um Loader nas páginas **/
+.doc-loader{
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: visible;
+    background: #ffffff url('../img/reservado/loading.gif') no-repeat center center;
+    z-index: 100000;
+}
