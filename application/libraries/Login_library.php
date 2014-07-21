@@ -40,6 +40,37 @@
                 return false;
             }
         }
+        //**********************************************************************
+        
+        /**
+         * login_administrativo()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para fazer o login da área administrativa
+         * @param       array   $dados  Contém o login e a senha do usuário
+         */
+        function login_administrativo($dados)
+        {
+            $CI = & get_instance();
+            
+            $this->load->model('LoginAd_model');
+            
+            $resposta = $this->LoginAd_model->buscar_usuario($dados);
+            
+            if($resposta)
+            {
+                foreach ($resposta as $row)
+                {
+                    $_SESSION['admin']['nome'] = $row->nome;
+                }
+                
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     /** End of file login.php **/

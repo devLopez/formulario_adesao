@@ -29,6 +29,7 @@
                     <div class="header-actions">
                         <a class="button primary" href="<?php echo app_baseurl().'novo_usuario' ?>">Quero me cadastrar</a>
                         <a class="button signin" href="<?php echo app_baseurl().'login' ?>">Fazer Login</a>
+                        <a class="button signin" href="<?php echo app_baseurl().'LoginAdministrativo'?>">Área Administrativa</a>
                     </div>
                 </div>
             </div>
