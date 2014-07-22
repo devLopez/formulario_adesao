@@ -33,8 +33,30 @@
             parent::__construct();
             session_start();
             $this->template = 'template/painel';
-            $this->titulo = 'Formulário de inscrição';
+            $this->titulo   = 'Formulário de inscrição';
+            
             $this->verifica_login($requer_autenticacao, $admin);
+            
+            /** Configurações que serão usadas pela paginação **/
+            $config['full_tag_open']    = '<ul class="pagination">';
+            $config['full_tag_close']   = '</ul>';
+            $config['first_link']       = 'Primeiro';
+            $config['first_tag_open']   = '<li>';
+            $config['first_tag_close']  = '</li>';
+            $config['last_link']        = 'Último';
+            $config['last_tag_open']    = '<li>';
+            $config['last_tag_close']   = '</li>';
+            $config['next_link']        = 'Próximo »';
+            $config['next_tag_open']    = '<li>';
+            $config['next_tag_close']   = '</li>';
+            $config['prev_link']        = '« Anterior';
+            $config['prev_tag_open']    = '<li>';
+            $config['prev_tag_close']   = '</li>';
+            $config['cur_tag_open']     = '<li class="active"><a>';
+            $config['cur_tag_close']    = '</a></li>';
+            $config['num_tag_open']     = '<li>';
+            $config['num_tag_close']    = '</li>';
+            $this->pagination->initialize($config);
         }
         //**********************************************************************
 
@@ -108,3 +130,4 @@
     }
     /** End of File MY_Controller.php **/
     /** Location ./application/core/MY_Controller.php **/
+    

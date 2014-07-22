@@ -198,7 +198,39 @@
             return $this->BD->query("SELECT COUNT(*) AS propostas FROM {$this->_tabela} WHERE status_aprovacao IS NULL AND numero_protocolo IS NOT NULL")->result();
         }
         //**********************************************************************
+        
+        /**
+         * buscar_allPropostas()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access      Public
+         * @abstract    Função desenvolvida para buscar os dados dos usuários do
+         *              sistema
+         * @param       int $limite Define o limite da pesquisa sql
+         * @param       int $offset Define o offset da pesquisa sql
+         * @return      array   Retorna array contendo os dados dos usuarios cadastrados
+         */
+        function buscar_allPropostas($limite, $offset)
+        {
+            $this->BD->limit($limite, $offset);
+            $this->BD->order_by('data_adesao', 'desc');
+            return $this->BD->get($this->_tabela)->result();
+        }
+        //**********************************************************************
+        
+        /**
+         * contar()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    função desenvolvida para contar a quantidade de usuarios
+         *              cadastrados
+         * @return      int Retorna a quantidade de usuários cadastrados
+         */
+        function contar()
+        {
+            return $this->BD->count_all_results($this->_tabela);
+        }
+        //**********************************************************************
     }
-    
     /** End of File usuarios_model.php **/
     /** Location ./application/models/usuarios_model.php **/

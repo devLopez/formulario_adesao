@@ -18,7 +18,7 @@
  * SETUPS DAS REQUISIÇÕES AJAX
  ******************************************************************************/
 /** Inicializa o BlockUI, mostrando uma mensagem nas requisições Ajax **/
-$(document).ajaxStart(function() {
+/*$(document).ajaxStart(function() {
     $.blockUI({css: {
             border: 'none',
             padding: '15px',
@@ -33,7 +33,7 @@ $(document).ajaxStart(function() {
     });
 });
 
-/** Destroi o BlockUI no término das requisições Ajax **/
+/** Destroi o BlockUI no término das requisições Ajax **
 $(document).ajaxComplete(function() {
     $.unblockUI();
 });
