@@ -38,12 +38,51 @@
          */
         function index()
         {
+            /** Seleciona o template, a visão e o título da página **/
             $this->template = 'template/adm';
             $this->view     = 'administrativo/painel';
             $this->titulo   = 'Painel administrativo';
             
+            /** Dados que serão exibidos na visão **/
+            $this->dados['propostas_abertas']   = $this->buscar_propostasAberto();
+            $this->dados['mensagens_abertas']   = $this->buscar_mensagensAbertas();
             $this->LoadView();
         }
+        //**********************************************************************
+        
+        /**
+         * buscar_propostasAberto()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para contar as propostas que estão 
+         *              em aberto
+         * @access      Private
+         * @return      int   Retorna a quantidade de propostas em aberto
+         */
+        private function buscar_propostasAberto()
+        {
+            $this->load->model('usuarios_model');
+            
+            return $this->usuarios_model->contar_propostasAbertas();
+        }
+        //**********************************************************************
+        
+        /**
+         * buscar_mensagensAbertas()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para contar a quantidade de mensagens 
+         *              não lidas pelo administrador do sistema
+         * @access      Private
+         * @return      int Retorna a qtde de mensagens não lidas pelo administrador
+         */
+        private function buscar_mensagensAbertas()
+        {
+            $this->load->model('mensagens_model');
+            
+            return $this->mensagens_model->contar_naoLidasAdmin();
+        }
+        //**********************************************************************
     }
     /** End of File painel.php **/
     /** Location ./application/controllers/administrativo/painel.css **/

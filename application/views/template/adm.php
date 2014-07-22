@@ -59,11 +59,18 @@
                                 <a id="menu-painel" href="<?php echo app_baseurl() . 'administrativo/painel' ?>" class="js-selected-navigation-item pagehead-nav-item">
                                     <span class="octicon octicon-dashboard"></span> Painel administrativo
                                 </a>
-                                <a id="menu-mensagens" href="<?php echo app_baseurl() . 'painel/mensagens' ?>" class="pagehead-nav-item">
+                                <a id="menu-propostas" href="<?php echo app_baseurl().'administrativo/propostas'?>" class="js-selected-navigation-item pagehead-nav-item">
+                                    <span class="octicon octicon-repo"></span> Propostas cadastradas
+                                </a>
+                                <a id="menu-mensagens" href="<?php echo app_baseurl() . 'administrativo/mensagens' ?>" class="pagehead-nav-item">
                                     <span class="octicon octicon-mail"></span> Mensagens
                                 </a>
                             </nav>
-                            <h1><a href="#"><i class="fa fa-dashboard"></i> Painel Administrativo</a></h1>
+                            <h1>
+                                <a href="#">
+                                    <i class="fa fa-dashboard"></i> Painel Administrativo
+                                </a>
+                            </h1>
                         </div>
                     </div>
                     <!--*****************************************************-->

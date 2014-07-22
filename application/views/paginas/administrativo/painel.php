@@ -9,15 +9,60 @@
     <!-- Lado esquerdo do painel -->
     <div class="span6">
         <div class="boxed-group">
-            <h3><i class="octicon octicon-graph"></i> Status da Aprovação</h3>
+            <h3><i class="octicon octicon-repo"></i> Propostas em aberto</h3>
             <div class="boxed-group-inner markdown-body">
-                Nenhuma proposta para ser aprovada
+                <?php
+                    foreach ($propostas_abertas as $row)
+                    {
+                        if($row->propostas > 0)
+                        {
+                            ?>
+                            <div class="alert info">
+                                <i class="octicon octicon-info"></i> Você possui 
+                                <span class="label label-success"><?php echo $row->propostas?></span>
+                                proposta(s) para aprovação. 
+                                <a href="<?php echo app_baseurl().'administrativo/propostas'?>">Visualizar</a>
+                            </div>
+                            <?php
+                        }
+                        else
+                        {
+                            ?>
+                            <div class="alert alert-info">
+                                <i class="octicon octicon-check"></i> Não existe propostas pendentes de
+                                aprovação
+                            </div>
+                            <?php
+                        }
+                    }
+                ?>
             </div>
         </div>
         <div class="boxed-group">
             <h3><i class="octicon octicon-mail"></i> Minhas Mensagens</h3>
             <div class="boxed-group-inner markdown-body">
-                Nenhuma mensagem
+                <?php
+                    if($mensagens_abertas > 0)
+                    {
+                        ?>
+                        <div class="alert info">
+                            <i class="octicon octicon-info"></i> Você possui 
+                            <span class="label label-success"><?php echo $mensagens_abertas?></span>
+                            mensagens não lidas. 
+                            <a href="<?php echo app_baseurl().'administrativo/mensagens'?>">Ler mensagens</a>
+                        </div>
+                        <?php
+                    }
+                    else
+                    {
+                        ?>
+                        <div class="alert alert-info">
+                            <i class="octicon octicon-check"></i> Você não possui
+                            mensagens pendentes
+                        </div>
+                        <?php
+                    }
+                ?>
             </div>
         </div>
     </div>

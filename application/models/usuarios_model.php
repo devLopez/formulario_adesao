@@ -1,16 +1,20 @@
 <?php
     /**
-     * @package     - usuarios_model
-     * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    - Classe desenvolvida para gerenciar as operações com os
+     * usuarios_model.php
+     * 
+     * @package     MY_Model
+     * @subpackage  usuarios_model
+     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     * @abstract    Classe desenvolvida para gerenciar as operações com os
      *              dados dos usuários
      */
     class Usuarios_model extends MY_Model
     {
         /**
-         * @name        - __construct()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Realiza a construção da classe
+         * __construct()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Realiza a construção da classe
          */
         public function __construct()
         {
@@ -18,13 +22,13 @@
             $this->_tabela  = 'usuarios';
             $this->_primary = 'id';
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
-         * @name        - verifica_cpf()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para buscar um cpf na base de
-         *              dados
+         * verifica_cpf()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para buscar um cpf na base de dados
          * @return      Integer retorna o número de cpfs cadastrados
          */
         function verifica_cpf($cpf_proponente)
@@ -32,16 +36,15 @@
             $this->BD->where('cpf_proponente', $cpf_proponente);
             return $this->BD->count_all_results($this->_tabela);
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
-         * @name        - salvar_usuario()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para salvar os dados de um novo
-         *                usuário
-         * @param       - Array - $dados - array que contém os dados do novo
-         *                usuário
-         * @return      - Bool retorna verdadeiro ou falso no caso do cadastro
+         * salvar_usuario()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para salvar os dados de um novo usuário
+         * @param       Array - $dados - array que contém os dados do novo usuário
+         * @return      Bool retorna verdadeiro ou falso no caso do cadastro
          */
         function salvar_usuario($dados)
         {
@@ -52,15 +55,16 @@
             );
             return $this->BD->insert($this->_tabela, $data);
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
-         * @name        - login()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para buscar os dados do usuário para efetuar o login
-         * @param       - String $dados['login'] CPF do usuário, que é usado como login
-         * @param       - String $dados['senha'] Contém a senha do usuário em md5
-         * @return      - Array retorna um array com os dados do usuário se true, e FALSE caso não encontre nada
+         * login()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para buscar os dados do usuário para efetuar o login
+         * @param       String $dados['login'] CPF do usuário, que é usado como login
+         * @param       String $dados['senha'] Contém a senha do usuário em md5
+         * @return      Array retorna um array com os dados do usuário se true, e FALSE caso não encontre nada
          */
         function login($dados)
         {
@@ -69,10 +73,11 @@
             $query = $this->BD->get($this->_tabela);
             return $query->result();
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
-         * @name        salva_protocolo()
+         * salva_protocolo()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar o numero de protocolo no cadastro do usuário
          * @param       array   $data   Variável que receberá o protocolo
@@ -84,14 +89,14 @@
                'numero_protocolo' => md5($_SESSION['usuario']['cpf_proponente'])
            );
 
-
            $this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
            return $this->BD->update($this->_tabela, $data);
        }
-       /***********************************************************************/
+       //***********************************************************************
 
        /**
-        * @name         verifica_protocolo()
+        * verifica_protocolo()
+        * 
         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
         * @abstract     Função desenvolvida para verifica se existe um numero de protocolo
         */
@@ -100,10 +105,11 @@
            $this->BD->where('numero_protocolo', md5($_SESSION['usuario']['cpf_proponente']));
            return $this->BD->count_all_results($this->_tabela);
        }
-       /************************************************************************/
+       //***********************************************************************
 
        /**
-        * @name         verifica_aprovacao()
+        * verifica_aprovacao()
+        * 
         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
         * @abstract     Função desenvolvida para verificar a aprovação da cota
         */
@@ -120,7 +126,7 @@
 
            return $status_aprovacao;
        }
-       /***********************************************************************/
+       //***********************************************************************
 
        /**
         * alterar_senha()
@@ -140,7 +146,7 @@
 
             return $this->BD->update($this->_tabela, $data);
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
          * buscar_todosDados()
@@ -156,7 +162,7 @@
             $query = $this->BD->get($this->_tabela);
             return $query->result();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
          * alterar_nome()
@@ -177,6 +183,21 @@
             
             return $this->BD->update($this->_tabela, $data);
         }
+        //**********************************************************************
+        
+        /**
+         * contar_propostasAbertas()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para contar a quantidade de propostas
+         *              que estão em aberto
+         * @return      int Retorna o número de propostas em aberto
+         */
+        function contar_propostasAbertas()
+        {
+            return $this->BD->query("SELECT COUNT(*) AS propostas FROM {$this->_tabela} WHERE status_aprovacao IS NULL AND numero_protocolo IS NOT NULL")->result();
+        }
+        //**********************************************************************
     }
     
     /** End of File usuarios_model.php **/

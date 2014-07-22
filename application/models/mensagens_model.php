@@ -39,6 +39,23 @@
         /**********************************************************************/
         
         /**
+         * contar_naoLidasAdmin()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para contar as mensagens recebidas
+         *              não lidas pelo administrador do sistema.
+         * @return      int Retorna a quantidade de mensagens recebidas não lidas
+         */
+        function contar_naoLidasAdmin()
+        {
+            $this->BD->where('direcao', 'e');
+            $this->BD->where('foi_lida', 1);
+            
+            return $this->BD->count_all_results($this->_tabela);
+        }
+        //**********************************************************************
+
+        /**
          * @name        salvar()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar uma mensagem
@@ -234,5 +251,7 @@
             
             return $resposta;
         }
+        //**********************************************************************
     }
-?>
+    /** End of File mensagens_model.php **/
+    /** Location ./application/models/mensagens_model.php **/
