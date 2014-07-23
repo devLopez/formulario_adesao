@@ -12,7 +12,7 @@
         $(document).on("click", ".pagination li a", function(e) {
             e.preventDefault();
             var href = $(this).attr("href");
-            $('#propostas_cadastradas').load(href).fadeIn('slow');
+            $('#propostas_cadastradas').load(href);
         });
 
         /** Chamada da função buscar_propostas **/

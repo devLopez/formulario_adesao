@@ -13,6 +13,7 @@
 
         <link rel="stylesheet" type="text/css" href="./css/pentaurea.css">
         <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="./js/pace_loader/css/flash.css">
 
         <script type="text/javascript" src="./js/jquery.js"></script>
     </head>
@@ -68,38 +69,14 @@
         <script type="text/javascript" src="./js/SmartNotification.min.js"></script>
         <script type="text/javascript" src="./js/smart-wizard/js/jquery.smartWizard-2.0.js"></script>
         <script type="text/javascript" src="./js/mask/jquery.maskedinput.min.js"></script>
-        <script type="text/javascript" src="./js/blockUi/blockUI.js"></script>
+        <script type="text/javascript" src="./js/template.js"></script>
+        <script type="text/javascript" src="./js/pace_loader/js/pace.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
 
                 /** Esconde o elemento carregando **/
                 $(window).load(function() {
                     $('.doc-loader').fadeOut('slow');
-                });
-                
-                /*
-                 * Inicializa o BlockUI, mostrando uma mensagem nas requisições Ajax
-                 */
-                $(document).ajaxStart(function() {
-                    $.blockUI({css: {
-                            border: 'none',
-                            padding: '15px',
-                            backgroundColor: '#000',
-                            'border-radius': '10px',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            opacity: .5,
-                            color: '#fff'
-                        },
-                        message: 'Processando Pedido...'
-                    });
-                });
-
-                /*
-                 * Destroi o BlockUI no término das requisições Ajax
-                 */
-                $(document).ajaxComplete(function() {
-                    $.unblockUI();
                 });
             });
         </script>

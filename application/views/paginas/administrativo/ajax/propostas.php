@@ -2,7 +2,7 @@
     if (!$propostas)
     {
         ?>
-        <div class="alert alert-block info">
+        <div class="alert alert-block info fadeIn">
             <h4 class="alert-heading">
                 <i class="fa fa-exclamation-triangle"></i> Atenção
             </h4>
@@ -12,7 +12,7 @@
     } else
     {
         ?>
-        <table class="table table-bordered table-hover table-striped table-condensed">
+        <table class="table table-bordered table-hover table-striped table-condensed fadeIn">
             <thead>
                 <tr>
                     <th>Nome</th>

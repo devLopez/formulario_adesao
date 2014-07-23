@@ -14,36 +14,11 @@
  * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
  */
 
-/*******************************************************************************
- * SETUPS DAS REQUISIÇÕES AJAX
- ******************************************************************************/
-/** Inicializa o BlockUI, mostrando uma mensagem nas requisições Ajax **/
-/*$(document).ajaxStart(function() {
-    $.blockUI({css: {
-            border: 'none',
-            padding: '15px',
-            backgroundColor: '#000',
-            'border-radius': '10px',
-            '-webkit-border-radius': '10px',
-            '-moz-border-radius': '10px',
-            opacity: .5,
-            color: '#fff'
-        },
-        message: 'Processando Pedido...'
-    });
-});
-
-/** Destroi o BlockUI no término das requisições Ajax **
-$(document).ajaxComplete(function() {
-    $.unblockUI();
-});
-//******************************************************************************
-
 /**
  * INICIALIZAÇÃO DO JQUERY
  */
 $(document).ready(function() {
-
+    
     /** Esconde o elemento carregando **/
     $(window).load(function() {
         $('.doc-loader').fadeOut('slow');
@@ -51,8 +26,6 @@ $(document).ready(function() {
 
     /** Bloco referente aos tooltips e popovers no corpo do site **/
     $('body').tooltip({selector: '[rel="tooltip"]'});
-
-
 
     /** Verificação se o usuário deseja realmente fazer o logoff **/
     $('.logout-form').submit(function(e) {
@@ -88,4 +61,3 @@ function logout(url)
 {
     location.href = url;
 }
-

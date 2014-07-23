@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="./css/botao.css">
         <link rel="stylesheet" type="text/css" href="./css/pentaurea.css">
+        <link rel="stylesheet" type="text/css" href="./js/pace_loader/css/flash.css">
 
         <script type="text/javascript" src="./js/jquery.js"></script>
     </head>
@@ -88,5 +89,6 @@
         <script type="text/javascript" src="./js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./js/SmartNotification.min.js"></script>
         <script type="text/javascript" src="./js/template.js"></script>
+        <script type="text/javascript" src="./js/pace_loader/js/pace.min.js"></script>
     </body>
 </html>
