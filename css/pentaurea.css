@@ -248,3 +248,10 @@ img.logo {
     background: #ffffff url('../img/reservado/loading.gif') no-repeat center center;
     z-index: 100000;
 }
+
+/** Estilo utilizado para criar um footer nos panels do github **/
+footer.form-actions {
+    margin-bottom: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}

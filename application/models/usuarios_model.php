@@ -231,6 +231,60 @@
             return $this->BD->count_all_results($this->_tabela);
         }
         //**********************************************************************
+        
+        /**
+         * buscar_byId()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Realiza a busca de um registro baseado no ID do proponente
+         * @param       int $id Contém o ID do registro a ser buscado
+         * @access      Public
+         */
+        function buscar_byId($id)
+        {
+            $this->BD->where($this->_primary, $id);
+            
+            return $this->BD->get($this->_tabela)->result();
+        }
+        //**********************************************************************
+        
+        /**
+         * deferir()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para deferir uma proposta
+         * @param       int $id Contém o id do registro a ser modificado
+         * @return      bool Retorna TRUE se salvar e FALSE se não salvar
+         */
+        function deferir($id)
+        {
+            /** Associa os dados os campos da tabela**/
+            $data = array('status_aprovacao' => 1);
+            
+            $this->BD->where($this->_primary, $id);
+            
+            return $this->BD->update($this->_tabela, $data);
+        }
+        //**********************************************************************
+        
+        /**
+         * indeferir()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para indeferir uma proposta
+         * @param       int $id Contém o id do registro a ser modificado
+         * @return      bool Retorna TRUE se salvar e FALSE se não salvar
+         */
+        function indeferir($id)
+        {
+            /** Associa os dados os campos da tabela**/
+            $data = array('status_aprovacao' => 0);
+            
+            $this->BD->where($this->_primary, $id);
+            
+            return $this->BD->update($this->_tabela, $data);
+        }
+        //**********************************************************************
     }
     /** End of File usuarios_model.php **/
     /** Location ./application/models/usuarios_model.php **/

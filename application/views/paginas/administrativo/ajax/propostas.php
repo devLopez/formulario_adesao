@@ -21,7 +21,6 @@
                     <th>Ficha Preenchida?</th>
                     <th>Adesão</th>
                     <th>Geração de Protocolo</th>
-                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +28,7 @@
                 foreach ($propostas as $row)
                 {
                     ?>
-                    <tr>
+                    <tr class="inbox" data-href="<?php echo app_baseurl().'administrativo/propostas/visualiza_proponente/'.$row->id?>">
                         <td><?php echo $row->nome_proponente ?></td>
                         <td><?php echo $row->cpf_proponente ?></td>
                         <td>
@@ -37,10 +36,12 @@
                             if ($row->status_aprovacao == NULL)
                             {
                                 echo '<label class="label label-reverse">Não avaliado</label>';
-                            } elseif ($row->status_aprovacao == 0)
+                            }
+                            elseif ($row->status_aprovacao == 0)
                             {
                                 echo '<label class="label label-important">Não Aprovado</label>';
-                            } elseif ($row->status_aprovacao == 1)
+                            }
+                            elseif ($row->status_aprovacao == 1)
                             {
                                 echo '<label class="label label-success">Aprovado</label>';
                             }
@@ -67,16 +68,6 @@
                                 } 
                              ?>
                         </td>
-                        <td>
-                            <div align="center">
-                                <a href="#" class="tooltipped tooltipped-n" aria-label="Adicionar observação">
-                                    <i class="fa fa-comments fa-fw"></i>
-                                </a>
-                                <a href="#" class="tooltipped tooltipped-n" aria-label="Aprovar proposta">
-                                    <i class="fa fa-check fa-fw"></i>
-                                </a>
-                            </div>
-                        </td>
                     </tr>
                     <?php
                 }
@@ -87,3 +78,13 @@
         echo $paginacao;
     }
 ?>
+
+<script type="text/javascript">
+    $('.inbox').click(function(e){
+        e.preventDefault();
+        
+        url = $(this).data('href');
+        
+        load_ajax(url, $('#propostas_cadastradas'));
+    });
+</script>

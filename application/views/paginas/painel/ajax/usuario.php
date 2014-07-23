@@ -1,11 +1,3 @@
-<style>
-    footer.form-actions {
-        margin-bottom: -10px;
-        margin-left: -10px;
-        margin-right: -10px;
-    }
-</style>
-
 <?php
     if(!isset($usuario))
     {

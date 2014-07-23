@@ -78,6 +78,57 @@
             $this->load->view('paginas/administrativo/ajax/propostas', $this->dados);
         }
         //**********************************************************************
+        
+        /**
+         * visualizar_proponente()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para que o administrador do sistema
+         *              possa visualizar de uma maneira melhor, os dados de um
+         *              proponente
+         * @param       int $id Contém o ID do usuário a ser buscado
+         */
+        function visualiza_proponente($id = NULL)
+        {
+            if(!$id)
+            {
+                $this->dados['erro'] = 'Parâmetro necessário passado incorretamente';
+            }
+            else
+            {
+                $this->dados['proponente'] = $this->usuarios_model->buscar_byId($id) ;
+            }
+            
+            $this->load->view('paginas/administrativo/ajax/visualizar_proponente', $this->dados);
+        }
+        //**********************************************************************
+        
+        /**
+         * deferir_proposta()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para deferir uma proposta de cota
+         */
+        function deferir_proposta()
+        {
+            $id = $this->input->post('id');
+            
+            echo $this->usuarios_model->deferir($id);
+        }
+        //**********************************************************************
+        
+        /**
+         * indeferir_proposta()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para deferir uma proposta de cota
+         */
+        function indeferir_proposta()
+        {
+            $id = $this->input->post('id');
+            
+            echo $this->usuarios_model->indeferir($id);
+        }
     }
     /** End of File propostas.php **/
     /** Location ./application/controllers/administrativo/propostas.php **/

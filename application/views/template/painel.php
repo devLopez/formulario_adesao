@@ -111,7 +111,7 @@
         <script type="text/javascript" src="./js/mask/jquery.maskedinput.min.js"></script>
         <script type="text/javascript" src="./js/mask_money/monetario.js"></script>
         <script type="text/javascript" src="./js/smart-wizard/js/jquery.smartWizard-2.0.js"></script>
-        <script type="text/javascript" src="./js/template.js"></script>
+        <script type="text/javascript" src="./js/app.js"></script>
         <script type="text/javascript" src="./js/pace_loader/js/pace.min.js"></script>
     </body>
 </html>

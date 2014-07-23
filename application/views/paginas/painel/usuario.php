@@ -18,10 +18,7 @@
         <div class="span9">
             <div class="boxed-group">
                 <h3><i class="octicon octicon-clippy"></i> Meus dados</h3>
-                <div class="boxed-group-inner markdown-body corpo_perfil">
-                    <!-- Exibe o Loader -->
-                    <div class="loader"></div>
-                    
+                <div class="boxed-group-inner markdown-body corpo_perfil">                    
                     <!-- Div que Exibirá os dados via AJAX -->
                     <div id="dados_usuario"></div>
                     <!--*****************************************************-->

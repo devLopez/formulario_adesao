@@ -4,6 +4,11 @@
 
         /** Adiciona a classe 'selected' ao menu selecionado **/
         $('#menu-propostas').addClass('selected');
+        
+        /**
+         * Define a url da função PHP que faz a busca dos resultados
+         */
+        var url = '<?php echo app_baseurl() . 'administrativo/propostas/buscar_propostas' ?>';
 
         /** 
          * Função que funciona como um helper, ajudando o bom funcionamento da
@@ -11,29 +16,14 @@
          **/
         $(document).on("click", ".pagination li a", function(e) {
             e.preventDefault();
-            var href = $(this).attr("href");
-            $('#propostas_cadastradas').load(href);
+            url = $(this).attr("href");
+            
+            load_ajax(url, $('#propostas_cadastradas'));
         });
 
         /** Chamada da função buscar_propostas **/
-        buscar_propostas();
+        load_ajax(url, $('#propostas_cadastradas'));
     });
-
-    /**
-     * buscar_propostas()
-     * 
-     * Função desenvolvida para buscar as propostas de cota cadastradas
-     * 
-     * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     */
-    function buscar_propostas()
-    {
-        $('#propostas_cadastradas').html('<h4><i class="fa fa-cog fa-spin"></i> Buscando...</h4>');
-
-        $.get('<?php echo app_baseurl() . 'administrativo/propostas/buscar_propostas' ?>', function(e) {
-            $('#propostas_cadastradas').html(e);
-        });
-    }
 </script>
 <!-- Cabeçalho da página -->
 <div class="row">
