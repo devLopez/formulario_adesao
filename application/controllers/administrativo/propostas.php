@@ -27,6 +27,7 @@
             parent::__construct($requer_autenticacao, $admin);
             
             $this->load->model('usuarios_model');
+            $this->load->model('observacoes_model', 'observacoes');
         }
         //**********************************************************************
         
@@ -129,6 +130,101 @@
             
             echo $this->usuarios_model->indeferir($id);
         }
+        //**********************************************************************
+        
+        /**
+         * salvar_observacao()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para salvar uma nova observação
+         * @access      Public
+         */
+        function salvar_observacao()
+        {
+            $dados['id_proponente'] = $this->input->post('id_proponente');
+            $dados['observacao']    = $this->input->post('observacao');
+            
+            echo $this->observacoes->salvar($dados);
+        }
+        //**********************************************************************
+        
+        /**
+         * buscar_observacoes()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para buscar as observações cadastradas
+         *              para um usuário
+         * @access      Public
+         * @param       int $id_usuario Recebe o ID do usuário que será usado no
+         *              sql
+         */
+        function buscar_observacoes($id_usuario = NULL)
+        {
+            if($id_usuario)
+            {
+                $this->dados['observacoes'] = $this->observacoes->buscar_todas($id_usuario);
+                
+                $this->load->view('paginas/administrativo/ajax/observacoes_cadastradas', $this->dados);
+            }
+        }
+        //**********************************************************************
+        
+        /**
+         * buscar_byId()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para buscar um registro do BD
+         */
+        function buscar_byId($id)
+        {
+            if($id)
+            {
+                $resposta = $this->observacoes->buscar($id);
+                
+                if(!$resposta)
+                {
+                    echo '<div class="alert info">Não foi possível resgatar os dados</div>';
+                }
+                else
+                {
+                    foreach ($resposta as $row)
+                    {
+                        echo "<textarea class='span6' rows='5' required autofocus id='nova_observacao'>$row->observacao</textarea>"
+                            ."<input type='hidden' id='id_tupla' value='$row->id'>";
+                    }
+                }
+            }
+        }
+        //**********************************************************************
+        
+        /**
+         * atualizar()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para atualizar uma observação
+         */
+        function atualizar()
+        {
+            $dados['observacao']    = $this->input->post('observacao');
+            $dados['id']            = $this->input->post('id');
+            
+            echo $this->observacoes->update($dados);
+        }
+        //**********************************************************************
+        
+        /**
+         * delete()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para atualizar uma observação
+         */
+        function apagar()
+        {
+            $id = $this->input->post('id');
+            
+            echo $this->observacoes->delete($id);
+        }
+        //**********************************************************************
     }
     /** End of File propostas.php **/
     /** Location ./application/controllers/administrativo/propostas.php **/

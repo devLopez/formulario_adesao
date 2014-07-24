@@ -5,7 +5,7 @@
  * 
  * @file        ./js/app.js
  * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
- * @version     v1.0.0
+ * @version     v1.2.0
  */
 
 /**
@@ -65,6 +65,19 @@ function msg_erro(msg)
     });
 }
 //******************************************************************************
+
+/**
+ * limpar_campos()
+ * 
+ * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+ * @abstract    Função desenvolvida para limpar os campos de um formulário
+ * @param       {string} form Contém o nome do formulário a ser limpo
+ */
+function limpar_campos(form)
+{
+    form.find('input, select, textarea, select').val("");
+    form.find('checkbox, radio').removeAttr('checked');
+}
 
 /*******************************************************************************
  * TEMPLATE.JS
