@@ -51,7 +51,8 @@
 <form id="atualiza_referencia">
     <div id="update" class="modal hide fade" data-backdrop="false" data-keyboard="false">
         <div class="modal-header">
-            <h3>Edição de Referência</h3>
+            <img src="./img/logo.gif" alt="Pentáurea Clube" class="logo">
+            <h4 class="pull-right">Edição de Referência</h4>
         </div>
         <div class="modal-body" id="dados_edicao"></div>
         <div class="modal-footer">

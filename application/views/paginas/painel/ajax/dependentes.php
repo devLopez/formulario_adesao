@@ -54,7 +54,8 @@
 <form id="atualiza_dependente">
     <div id="update" class="modal hide fade" data-backdrop="false" data-keyboard="false">
         <div class="modal-header">
-            <h3>Edição de dependente</h3>
+            <img src="./img/logo.gif" alt="Pentáurea Clube" class="logo">
+            <h4 class="pull-right">Edição de dependente</h4>
         </div>
         <div class="modal-body" id="dados_edicao"></div>
         <div class="modal-footer">

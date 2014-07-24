@@ -118,7 +118,8 @@
     <form id="cad_referencia">
         <div id="cadastrar_referencia" class="modal hide fade" data-backdrop="false" data-keyboard="true">
             <div class="modal-header">
-                <h3>Cadastro de Referência</h3>
+                <img src="./img/logo.gif" alt="Pentáurea Clube" class="logo">
+                <h4 class='pull-right'>Cadastro de Referência</h4>
             </div>
             <div class="modal-body">
                 <div class="control-group">

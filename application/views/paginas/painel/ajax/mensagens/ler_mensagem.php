@@ -145,6 +145,7 @@
     <div id="reply" class="modal hide fade" data-backdrop="false" data-keyboard="true">
         <div class="modal-header">
             <img class="logo" src="./img/logo.gif" alt="Clube Campestre Pentaurea">
+            <h4 class="pull-right">Responder Mensagem</h4>
         </div>
         <div class="modal-body">
             <label>Assunto:</label>

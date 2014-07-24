@@ -119,7 +119,8 @@
     <form id="cad_dependente">
         <div id="cadastrar_dependente" class="modal hide fade" data-backdrop="false" data-keyboard="false">
             <div class="modal-header">
-                <h3>Cadastro de dependentes</h3>
+                <img src="./img/logo.gif" alt="Pentáurea Clube" class="logo">
+                <h4 class="pull-right">Cadastro de dependentes</h4>
             </div>
             <div class="modal-body">
 
