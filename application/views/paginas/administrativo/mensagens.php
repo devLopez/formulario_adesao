@@ -1,9 +1,9 @@
 <script type="text/javascript" src="./js/mensagens_adm.js"></script>
 <script type="text/javascript">
-    /** Define a variável url como global **/
-    var url = $('.menu li a.selected').attr('href');
-
     $(document).ready(function() {
+        
+        /** Define a variável url como global **/
+        var url = $('.menu li a.selected').attr('href');
 
         /** Adiciona a classe selected ao menu de mensagens **/
         $('#menu-mensagens').addClass('selected');
@@ -108,13 +108,13 @@
                 </a>
             </li>
             <li>
-                <a id="enviados" href="<?php echo app_baseurl() . 'painel/mensagens/caixa_saida' ?>">
+                <a id="enviados" href="<?php echo app_baseurl() . 'administrativo/mensagens/caixa_saida' ?>">
                     <i class="octicon octicon-repo-pull"></i> 
                     Mensagens Enviadas
                 </a>
             </li>
             <li>
-                <a id="excluidos" href="<?php echo app_baseurl() . 'painel/mensagens/excluidos' ?>">
+                <a id="excluidos" href="<?php echo app_baseurl() . 'administrativo/mensagens/excluidos' ?>">
                     <i class="octicon octicon-trashcan"></i>     
                     Itens Excluídos
                 </a>

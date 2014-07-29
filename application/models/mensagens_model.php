@@ -256,6 +256,7 @@
         /***********************************************************************
          * SEÇÃO RESPONSÁVEL PELAS MENSAGENS DO ADMINISTRADOR DO SISTEMA
          **********************************************************************/
+        
         /**
          * adEntrada()
          * 
@@ -268,11 +269,48 @@
         function adEntrada()
         {
             $this->BD->where('direcao', 'e');
+            $this->BD->where('status', 1);
             $this->BD->order_by('data', 'desc');
             
             return $this->BD->get($this->_tabela)->result();
         }
-    
+        //**********************************************************************
+        
+        /**
+         * adEnviados()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para listas as mensagens enviadas
+         *              pelo administrador
+         * @return      Array de mensagens
+         * @access      Public
+         */
+        function adEnviados()
+        {
+            $this->BD->where('direcao', 'r');
+            $this->BD->where('status', 1);
+            $this->BD->order_by('data', 'desc');
+            
+            return $this->BD->get($this->_tabela)->result();
+        }
+        //**********************************************************************
+        
+        /**
+         * adExcluidos()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para buscar as 
+         * @access      Public
+         * @return      array   Retorna um array de mensagens
+         */
+        function adExcluidos()
+        {
+            $this->BD->where('status', 1);
+            $this->BD->order_by('data', 'desc');
+            
+            return $this->BD->get($this->_tabela)->result();
+        }
+        //**********************************************************************
     }
     /** End of File mensagens_model.php **/
     /** Location ./application/models/mensagens_model.php **/
