@@ -255,3 +255,7 @@ footer.form-actions {
     margin-left: -10px;
     margin-right: -10px;
 }
+/** Estilo utilizado para deixar uma fonte em formato bold **/
+.bold {
+    font-weight:bold;
+}

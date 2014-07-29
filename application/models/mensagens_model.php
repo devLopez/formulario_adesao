@@ -252,6 +252,27 @@
             return $resposta;
         }
         //**********************************************************************
+        
+        /***********************************************************************
+         * SEÇÃO RESPONSÁVEL PELAS MENSAGENS DO ADMINISTRADOR DO SISTEMA
+         **********************************************************************/
+        /**
+         * adEntrada()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para buscar as mensagens da caixa de
+         *              entrada
+         * @access      Public
+         * @return      array   Retorna um array de mensagenss
+         */
+        function adEntrada()
+        {
+            $this->BD->where('direcao', 'e');
+            $this->BD->order_by('data', 'desc');
+            
+            return $this->BD->get($this->_tabela)->result();
+        }
+    
     }
     /** End of File mensagens_model.php **/
     /** Location ./application/models/mensagens_model.php **/
