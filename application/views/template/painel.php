@@ -90,8 +90,8 @@
                                         <?php
                                     }
                                 ?>
-                                <a id="menu-mensagens" href="<?php echo app_baseurl() . 'painel/mensagens' ?>" class="pagehead-nav-item">
-                                    <span class="octicon octicon-mail"></span> Mensagens
+                                <a id="menu-observacoes" href="#" class="pagehead-nav-item">
+                                    <span class="octicon octicon-comment"></span> Observações
                                 </a>
                             </nav>
                             <h1><a href="#">Painel do usuário</a></h1>

@@ -32,7 +32,6 @@
             
             $this->dados['inscricao']   = $this->buscar_inscricao();
             $this->dados['aprovacao']   = $this->buscar_aprovacao();
-            $this->dados['mensagens']   = $this->conta_naoLidas();
 
             $this->LoadView();
         }
@@ -59,16 +58,5 @@
             return $this->usuarios_model->verifica_aprovacao();
         }
         /**********************************************************************/
-        
-        /**
-         * @name        conta_naoLidas()
-         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que realiza a contagem das mensagens não lidas
-         */
-        function conta_naoLidas()
-        {
-            $this->load->model('mensagens_model');
-            return $this->mensagens_model->contar_naoLidas();
-        }
     }
 ?>

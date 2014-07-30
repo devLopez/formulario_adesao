@@ -38,33 +38,6 @@
                 ?>
             </div>
         </div>
-        <div class="boxed-group">
-            <h3><i class="octicon octicon-mail"></i> Minhas Mensagens</h3>
-            <div class="boxed-group-inner markdown-body">
-                <?php
-                    if($mensagens_abertas > 0)
-                    {
-                        ?>
-                        <div class="alert info">
-                            <i class="octicon octicon-info"></i> Você possui 
-                            <span class="label label-success"><?php echo $mensagens_abertas?></span>
-                            mensagens não lidas. 
-                            <a href="<?php echo app_baseurl().'administrativo/mensagens'?>">Ler mensagens</a>
-                        </div>
-                        <?php
-                    }
-                    else
-                    {
-                        ?>
-                        <div class="alert alert-info">
-                            <i class="octicon octicon-check"></i> Você não possui
-                            mensagens pendentes
-                        </div>
-                        <?php
-                    }
-                ?>
-            </div>
-        </div>
     </div>
     <!--*********************************************************************-->
     

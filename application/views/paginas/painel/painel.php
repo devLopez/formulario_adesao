@@ -82,33 +82,6 @@
                     ?>
                 </div>
             </div>
-
-            <div class="boxed-group">
-                <h3><i class="octicon octicon-mail"></i> Minhas Mensagens</h3>
-                <div class="boxed-group-inner markdown-body">
-                    <?php
-                        if(empty($mensagens) || $mensagens == 0)
-                        {
-                            ?>
-                            <div class="alert alert-info">
-                                <i class="octicon octicon-check"></i>
-                                Você não possui nenhuma mensagem não lida
-                            </div>
-                            <?php
-                        }
-                        else
-                        {
-                            ?>
-                            <div class="alert alert-block info">
-                                Você possui <span class="label label-success"><?php echo $mensagens ?></span> 
-                                mensagem(ns) não lidas.<br>
-                                <a href="<?php echo app_baseurl().'painel/mensagens' ?>">Ver minhas mensagens</a>
-                            </div>
-                            <?php
-                        }
-                    ?>
-                </div>
-            </div>
         </div>
         <!--*****************************************************************-->
 

@@ -63,9 +63,6 @@
                                 <a id="menu-propostas" href="<?php echo app_baseurl().'administrativo/propostas'?>" class="js-selected-navigation-item pagehead-nav-item">
                                     <span class="octicon octicon-repo"></span> Propostas cadastradas
                                 </a>
-                                <a id="menu-mensagens" href="<?php echo app_baseurl() . 'administrativo/mensagens' ?>" class="pagehead-nav-item">
-                                    <span class="octicon octicon-mail"></span> Mensagens
-                                </a>
                             </nav>
                             <h1>
                                 <a href="#">

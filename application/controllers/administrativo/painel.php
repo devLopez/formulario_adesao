@@ -45,7 +45,6 @@
             
             /** Dados que serão exibidos na visão **/
             $this->dados['propostas_abertas']   = $this->buscar_propostasAberto();
-            $this->dados['mensagens_abertas']   = $this->buscar_mensagensAbertas();
             $this->LoadView();
         }
         //**********************************************************************
@@ -64,23 +63,6 @@
             $this->load->model('usuarios_model');
             
             return $this->usuarios_model->contar_propostasAbertas();
-        }
-        //**********************************************************************
-        
-        /**
-         * buscar_mensagensAbertas()
-         * 
-         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para contar a quantidade de mensagens 
-         *              não lidas pelo administrador do sistema
-         * @access      Private
-         * @return      int Retorna a qtde de mensagens não lidas pelo administrador
-         */
-        private function buscar_mensagensAbertas()
-        {
-            $this->load->model('mensagens_model');
-            
-            return $this->mensagens_model->contar_naoLidasAdmin();
         }
         //**********************************************************************
     }
