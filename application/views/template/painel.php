@@ -90,7 +90,7 @@
                                         <?php
                                     }
                                 ?>
-                                <a id="menu-observacoes" href="#" class="pagehead-nav-item">
+                                <a id="menu-observacoes" href="<?php echo app_baseurl().'painel/observacoes'?>" class="pagehead-nav-item">
                                     <span class="octicon octicon-comment"></span> Observações
                                 </a>
                             </nav>
