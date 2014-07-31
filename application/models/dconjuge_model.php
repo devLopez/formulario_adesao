@@ -1,5 +1,8 @@
 <?php
+
     /**
+     * dconjuge_model.php
+     * 
      * @package     MY_Model
      * @subpackage  Dconjuge_model
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -8,7 +11,8 @@
     class Dconjuge_model extends MY_Model
     {
         /**
-         * @name        __construct()
+         * __construct()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a construção da classe
          * @param       string $this->_tabela Indica a tabela que iremos trabalhar
@@ -20,10 +24,11 @@
             $this->_tabela  = 'dados_conjuge';
             $this->_primary = 'id';
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        salvar()
+         * salvar()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados do conjuge do proponente
          * @param       array $dados_conjuge Contém os dados do conjuge
@@ -57,10 +62,11 @@
             
             return $this->BD->insert($this->_tabela, $data);
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        busca_dadosConjuge()
+         * busca_dadosConjuge()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a busca dos dados pessoais do proponente
          */
@@ -68,10 +74,9 @@
         {
             $this->BD->where('id_proponente', base64_decode($_SESSION['usuario']['id_proponente']));
             
-            $query = $this->BD->get($this->_tabela);
-            return $query->result();
+            return $this->BD->get($this->_tabela)->result();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         function update($dados_conjuge)
         {
@@ -101,6 +106,7 @@
             
             return $this->BD->update($this->_tabela, $data);
         }
-    
+        //**********************************************************************
     }
-?>
+    /** End of File dconjuge_model.php **/
+    /** Location ./application/models/dconjuge_model.php **/

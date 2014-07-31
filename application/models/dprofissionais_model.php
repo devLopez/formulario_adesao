@@ -1,14 +1,19 @@
 <?php
+
     /**
+     * dprofissionais_model.php
+     * 
      * @package     MY_Model
      * @subpackage  Dprofissionais_model
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as transações envolvendo a tabela 'dados_profissionais'
+     * @abstract    Classe desenvolvida para gerenciar as transações envolvendo 
+     *              a tabela 'dados_profissionais'
      */
     class Dprofissionais_model extends MY_Model
     {
         /**
-         * @name        __construct
+         * __construct
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a construção da classe
          * @param       string $this->_tabela Indica a tabela que iremos trabalhar
@@ -21,10 +26,11 @@
             $this->_tabela  = 'dados_profissionais';
             $this->_primary = 'id';
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        salvar()
+         * salvar()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados profissionais do proponente
          * @param       array $dados_profissionais Variável que contém os dados profissionais do proponente
@@ -58,10 +64,11 @@
             
             return $this->BD->insert($this->_tabela, $data);
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        buscar_dadosProfissionais()
+         * buscar_dadosProfissionais()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a busca dos dados pessoais do proponente
          */
@@ -69,13 +76,13 @@
         {
             $this->BD->where('id_proponente', base64_decode($_SESSION['usuario']['id_proponente']));
             
-            $query = $this->BD->get($this->_tabela);
-            return $query->result();
+            return $this->BD->get($this->_tabela)->result();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        update()
+         * update()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @param       array   $dados_profissionais    Contém os dados profissionais do usuário
          * @param       array   $data                   Associa os campos da tabela aos dados
@@ -109,5 +116,7 @@
             
             return $this->BD->update($this->_tabela, $data);
         }
+        //**********************************************************************
     }
-?>
+    /** End of File dprofissionais_model.php **/
+    /** Location ./application/models/dprofissionais_model.php **/

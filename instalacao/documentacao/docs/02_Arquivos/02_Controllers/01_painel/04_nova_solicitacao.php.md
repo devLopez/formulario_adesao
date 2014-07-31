@@ -1,33 +1,55 @@
-<?php
+Esta classe fará o tratamento de solicitações referentes ao cadastro de uma nova ficha
 
+A classe é composta por 12 funções
+* __construct()
+	* Realiza a construção da classe
+* index()
+	* Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* salvar_dados()
+	* Função desenvolvida para realizar o salvamento dos dados de uma nova inscrição
+* salvar_dadosPessoais()
+	* Função desenvolvida para salvar os dados pessoais do proponente
+* salvar_dadosProfissionais()
+	* Função desenvolvida para salvar os dados profissionais do proponente
+* salvar_dadosConjuge()
+	* Função desenvolvida para salvar os dados do conjuge do proponente
+* gerar_protocolo()
+	* Função desenvolvida para gerar um protocolo no registro do usuário
+* formulario_edicao()
+	* Função desenvolvida para lançar os dados do usuário em um formulário para edição
+* atualizar_dados()
+	* Função desenvolvida para atualizar os dados do usuário
+* update_dadosPessoais()
+	* Função desenvolvida para chamar o update dos dados pessoais
+* update_dadosProfissionais()
+	* Função desenvolvida para chamar o update dos dados profissionais
+* update_dadosConjuge()
+	* Função desenvolvida para chamar o update dos dados do conjuge
+
+```
     /**
-     * nova_solicitacao()
-     * 
-     * @package     MY_Controller
-     * @subpackage  nova_solicitacao
-     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Esta classe fará o tratamento de solicitações referentes ao 
-     *              cadastro de uma nova ficha
+     * @package     - MY_Controller
+     * @subpackage  - nova_solicitacao
+     * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     * @abstract    - Esta classe fará o tratamento de solicitações referentes ao cadastro de uma nova ficha
      */
     class Nova_solicitacao extends MY_Controller
     {
         /**
-         * __construct()
-         * 
-         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que realiza a construção da classe
+         * @name        - __construct()
+         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    - Função que realiza a construção da classe
          */
         public function __construct($requer_autenticacao = TRUE)
         {
             parent::__construct($requer_autenticacao);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * index()
-         * 
-         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para mostrar a tela de cadastro
+         * @name        - index()
+         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    - Função desenvolvida para mostrar a tela de cadastro
          */
         function index()
         {
@@ -36,17 +58,14 @@
 
             $this->LoadView();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * salvar_dados()
-         * 
+         * @name        salvar_dados()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para realizar o salvamento dos dados de uma nova inscrição
-         * @param       int $id_proponente Variável que recebe, descriptografado, 
-         *              o ID proponente que está na seção
-         * @param       array $resposta Variável que receberá a resposta das 
-         *              outras funções de salvamento
+         * @param       int $id_proponente Variável que recebe, descriptografado, o ID proponente que está na seção
+         * @param       array $resposta Variável que receberá a resposta das outras funções de salvamente
          */
         function salvar_dados()
         {
@@ -151,11 +170,10 @@
             
             echo json_encode($retorno);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * salvar_dadosPessoais()
-         * 
+         * @name        salvar_dadosPessoais()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados pessoais do proponente
          * @param       array $dados_pessoais Variável que contém todos os dados pessoais do proponente
@@ -166,11 +184,10 @@
             $this->load->model('Dpessoais_model');
             return $this->Dpessoais_model->salvar($dados_pessoais);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * salvar_dadosProfissionais()
-         * 
+         * @name        salvar_dadosProfissionais()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados profissionais do proponente
          * @param       array $dados_profissionais Contém os dados profissionais do proponente
@@ -181,11 +198,10 @@
             $this->load->model('Dprofissionais_model');
             return $this->Dprofissionais_model->salvar($dados_profissionais);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * salvar_dadosConjuge()
-         * 
+         * @name        salvar_dadosConjuge()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados do conjuge do proponente
          * @param       array $dados_conjuge Contém os dados do conjuge do proponente
@@ -196,11 +212,10 @@
             $this->load->model('Dconjuge_model');
             return $this->Dconjuge_model->salvar($dados_conjuge);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * gerar_protocolo()
-         * 
+         * @name        gerar_protocolo();
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para gerar um protocolo no registro do usuário
          * @return      bool Retorna true se salvar e false se não salvar
@@ -211,11 +226,10 @@
             
             return $this->usuarios_model->salva_protocolo();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * formulario_edicao()
-         * 
+         * @name        formulario_edicao()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para lançar os dados do usuário em 
          *              um formulário para edição
@@ -232,11 +246,10 @@
             
             $this->load->view('paginas/edicao/solicitacao', $this->dados);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * atualizar_dados()
-         * 
+         * @name        atualizar_dados()
          * @author      Matheus Lopes Santos
          * @abstract    Função desenvolvida para atualizar os dados do usuário
          */
@@ -341,15 +354,14 @@
             
             echo json_encode($retorno);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /***********************************************************************
          * FUNÇÕES RESPONSÁVEIS PELA REALIZAÇÃO DO UPDATE NAS TABELAS
          **********************************************************************/
         
         /**
-         * update_dadosPessoais()
-         * 
+         * @name        update_dadosPessoais
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para chamar o update dos dados pessoais
          * @param       array   $dados_pessoais Contém os dados pessoais do usuário
@@ -360,11 +372,10 @@
             $this->load->model('Dpessoais_model');
             return $this->Dpessoais_model->update($dados_pessoais);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * update_dadosProfissionais()
-         * 
+         * @name        update_dadosProfissionais()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para chamar o update dos dados profissionais
          * @param       array   $dados_profissionais    Contém os dados profissionais
@@ -377,11 +388,10 @@
             
             return $this->Dprofissionais_model->update($dados_profissionais);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * update_dadosConjuge()
-         * 
+         * @name        update_dadosConjuge()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para chamar o update dos dados do conjuge
          * @param       array   $dados_conjuge  Contém os dados do conjuge do usuário
@@ -393,7 +403,4 @@
             
             return $this->Dconjuge_model->update($dados_conjuge);
         }
-        //**********************************************************************
     }
-    /** End of File nova_solicitacao.php **/
-    /** Location ./application/controllers/painel/nova_solicitacao.php **/

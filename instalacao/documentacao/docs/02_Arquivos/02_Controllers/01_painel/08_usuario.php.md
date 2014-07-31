@@ -1,10 +1,10 @@
 <?php
-    
     /**
      * usuario.php
      * 
      * @package     MY_Controller
      * @subpackage  usuario.php
+     * @version     1.0
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
      * @abstract    Controller desenvolvido para gerenciar o perfil do usuário
      */
@@ -22,7 +22,7 @@
             
             $this->load->model('usuarios_model');
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * index()
@@ -38,7 +38,7 @@
             
             $this->LoadView();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * buscar_dados()
@@ -46,6 +46,7 @@
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dados de acesso do
          *              usuário
+         * 
          */
         function buscar_dados()
         {
@@ -53,7 +54,7 @@
             
             $this->load->view('paginas/painel/ajax/usuario', $this->dados);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * atualizar_perfil()
@@ -80,7 +81,7 @@
             
             echo json_encode($resposta);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * alterar_senha()
@@ -98,7 +99,7 @@
             
             return $this->usuarios_model->alterar_senha($dados);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * alterar_nomeUsuario()
@@ -113,7 +114,6 @@
         {
             return $this->usuarios_model->alterar_nome($nome_proponente);
         }
-        //**********************************************************************
     }
     
     /** End of File usuario.php **/

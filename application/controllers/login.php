@@ -1,29 +1,33 @@
 <?php
+    
     /**
-     * @package     - MY_Controller
-     * @subpackage  - login
-     * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    - Classe desenvolvida para gerenciar operações de login
+     * login.php
+     * 
+     * @package     MY_Controller
+     * @subpackage  login
+     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     * @abstract    Classe desenvolvida para gerenciar operações de login
      */
     class Login extends MY_Controller
     {
         /**
-         * @name        - __construct()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para construção da classe
+         * __construct()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para construção da classe
          */
         public function __construct()
         {
             parent::__construct(false);
             $this->load->model('usuarios_model');
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
-         * @name        - index()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para mostrar a interface de login
-         * @todo        - Chamada para as visões
+         * index()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para mostrar a interface de login
          */
         function index()
         {
@@ -33,7 +37,7 @@
 
             $this->LoadView();
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
          * fazer_login()
@@ -57,13 +61,14 @@
                 echo 0; // Imprime 0 em caso de erro
             }
         }
-        /**********************************************************************/
+        //**********************************************************************
 
         /**
-         * @name        - logout()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Realiza o logoff da conta do usuário. Depois
-         *                redireciona para a página principal
+         * logout()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Realiza o logoff da conta do usuário. Depois
+         *              redireciona para a página principal
          */
         function logout()
         {
@@ -71,6 +76,7 @@
             session_destroy();
             redirect(app_baseurl());
         }
+        //**********************************************************************
     }
     /** End of File login.php **/
     /** Location ./application/controllers/login.php **/

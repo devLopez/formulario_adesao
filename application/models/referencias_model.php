@@ -9,7 +9,6 @@
      * @package     MY_Model
      * @subpackage  referencias_model
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @version     0.4.2
      */
     class referencias_model extends MY_Model
     {
@@ -77,8 +76,7 @@
             $this->BD->where('id_proponente', base64_decode($_SESSION['usuario']['id_proponente']));
             $this->BD->order_by('nome_referencia');
             
-            $query = $this->BD->get($this->_tabela);
-            return $query->result();
+            return $this->BD->get($this->_tabela)->result();
         }
         //**********************************************************************
         

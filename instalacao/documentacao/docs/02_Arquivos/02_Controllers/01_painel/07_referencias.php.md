@@ -1,5 +1,23 @@
-<?php
-    
+Classe desenvolvida para gerenciar as referencias do proponente
+
+A classe conta com 7 funções
+
+* __construct()
+	* Realiza a construção da classe
+* index()
+	* Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* salvar()
+	* Função desenvolvida para salvar os dados de uma nova referência
+* buscar_referencias()
+	* Função desenvolvida para buscar as referencias cadastradas
+* excluir()
+	* Função desenvolvida para excluir um registro
+* editar_referencia()
+	* Função desenvolvida para buscar dados de um registro para edição. A busca será baseada no ID do elemento
+* atualizar()
+	* Função desenvolvida para atualizar um registro
+
+```    
     /**
      * referencias.php
      * 
@@ -7,6 +25,7 @@
      * @abstract    Classe desenvolvida para gerenciar as referencias do proponente
      * @todo        Desenvolver função para atualizar os dados de uma referencia
      *              já cadastrada
+     * @version     0.5.1
      */
     class Referencias extends MY_Controller
     {
@@ -138,7 +157,7 @@
          */
         public function atualizar_dados()
         {
-            $dados['id']                     = $this->input->post('id');
+            $dados['id']                        = $this->input->post('id');
             $dados['nome_referencia']        = $this->input->post('ed_nome_referencia');
             $dados['endereco_referencia']    = $this->input->post('ed_endereco_referencia');
             $dados['telefone_referencia']    = $this->input->post('ed_telefone_referencia');
@@ -152,7 +171,6 @@
                 echo 0;
             }
         }
-        //**********************************************************************
     }
     /** End of File referencias.php **/
     /** Location ./application/controllers/painel/referencias.php **/

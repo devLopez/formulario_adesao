@@ -1,8 +1,26 @@
-<?php
+Classe que irá gerenciar as operações com os dependentes
 
+É composta por 8 funções
+
+* __contruct()
+	* Realiza a construção da classe
+* index()
+	* Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário. 
+* busca_parentesco()
+	* Função desenvolvida para buscar o grau de parentesco
+* buscar_dependentes()
+	* Função desenvolvida para buscar os dependentes cadastrados
+* salvar_dependente()
+	* Função desenvolvida para salvar os dados de um dependente
+* excluir_dependente()
+	* Função desenvolvida para excluir um registro de dependente
+* busca_dadosDepentente()
+	* Função que realiza a busca dos dados de um dependente para edição
+* atualizar_dependente()
+	* Função desenvolvida para atualizar os dados de um dependente
+
+```
     /**
-     * dependentes.php
-     * 
      * @package     MY_Controller
      * @subpackage  Dependentes
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -11,8 +29,7 @@
     class Dependentes extends MY_Controller
     {
         /**
-         * __contruct()
-         * 
+         * @name        __contruct()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para fazer a contrução da classe
          * @access      public
@@ -23,11 +40,10 @@
 
             $this->load->model('dependentes_model');
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * index()
-         * 
+         * @name        index()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função inicial do controller
          */
@@ -38,11 +54,10 @@
 
             $this->LoadView();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * busca_parentesco()
-         * 
+         * @name        busca_parentesco()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar o grau de parentesco
          */
@@ -68,11 +83,10 @@
                 echo 'Impossivel carregar os dados';
             }
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * buscar_dependentes()
-         * 
+         * @name        buscar_dependentes()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dependentes cadastrados
          */
@@ -82,11 +96,10 @@
 
             $this->load->view('paginas/painel/ajax/dependentes', $this->dados);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * salvar_dependente()
-         * 
+         * @name        salvar_dependente()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados de um dependente
          */
@@ -108,11 +121,10 @@
                 echo $resposta;
             }
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * excluir_dependente()
-         * 
+         * @name        excluir_dependente()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para excluir um registro de dependente
          * @param       int     $id         ID do registro que será excluido
@@ -133,11 +145,10 @@
                 echo 0;
             }
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * busca_dadosDepentente()
-         * 
+         * @name        busca_dadosDepentente()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função que realiza a busca dos dados de um dependente 
          *              para edição
@@ -150,11 +161,10 @@
             
             $this->load->view('paginas/edicao/dependentes', $this->dados);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * atualizar_dependente()
-         * 
+         * @name        atualizar_dependente()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para atualizar os dados de um dependente
          */
@@ -175,7 +185,4 @@
                 echo 0;
             }
         }
-        //**********************************************************************
     }
-    /** End of File dependentes.php **/
-    /** Location ./application/controllers/painel/dependentes.php **/

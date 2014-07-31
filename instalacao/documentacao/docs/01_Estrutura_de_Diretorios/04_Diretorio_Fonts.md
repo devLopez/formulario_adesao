@@ -1,0 +1,1 @@
+O diretório fonts é o local onde estão armazenadas os arquivos de fontes utilizados pelo sistema, como o Font Awesome e o Octicons. Recomenda-se então, ao utilizar fontes ou font icons, colocar os arquivos de fontes neste diretório.

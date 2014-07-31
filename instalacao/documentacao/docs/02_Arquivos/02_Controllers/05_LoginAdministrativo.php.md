@@ -1,13 +1,22 @@
-<?php
-    
+Classe desenvolvida para fazer o login para os administradores do sistema
+
+É composta de 3 funções:
+
+* __construct()
+    * Realiza a construção da classe
+* index()
+    * Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* fazer_login()
+    * Função desenvolvida para para fazer o login para a área administrativa
+
+```
     /**
      * LoginAdministrativo.php
      * 
      * @package     MY_Controller
      * @subpackage  loginAdministrativo
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para fazer o login para os administradores
-     *              do sistema
+     * @abstract    Classe desenvolvida para fazer o login para os administradores do sistema
      */
     class LoginAdministrativo extends MY_Controller
     {
@@ -48,8 +57,7 @@
          * fazer_login()
          * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para para fazer o login para a area 
-         *              administrativa
+         * @abstract    Função desenvolvida para para fazer o login para a área administrativa
          */
         function fazer_login()
         {
@@ -69,7 +77,6 @@
                 echo 0;
             }
         }
-        //**********************************************************************
     }
     /** End of File LoginAdministrativo.php **/
     /** Location ./application/controllers/LoginAdministrativo.php **/

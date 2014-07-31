@@ -6,6 +6,8 @@
     }
 
     /**
+     * pdf.php
+     * 
      * @package     Pdf.php
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
      * @abstract    Classe desenvolvida para realizar a geração de documentos 
@@ -16,12 +18,13 @@
         function pdf()
         {
             $CI = & get_instance();
-            log_message('Debug', 'mPDF class is loaded.');
+            log_message('Debug', 'A classe mPDF foi carregada.');
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name       gerar_pdf()
+         * gerar_pdf()
+         * 
          * @author     Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract   Função desenvolvida para gerar um documento em PDF
          * @param      array $opcoes    Contém as opções para geração do PDF
@@ -32,7 +35,7 @@
 
             return new mPDF('utf-8', 'A4');
         }
+        //**********************************************************************
     }
-
     /* End of File Pdf_library.php */
     /** Location ./application/libraries/pdf.php **/

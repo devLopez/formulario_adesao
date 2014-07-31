@@ -71,7 +71,7 @@
                 return false;
             }
         }
+        //**********************************************************************
     }
-
     /** End of file login.php **/
     /** location ./application/libraries/Login.php **/

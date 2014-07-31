@@ -48,6 +48,7 @@
             
             return $query->result();
         }
+        //**********************************************************************
     }
     /** End of File LoginAd_model.php **/
     /** Location ./application/models/LoginAd_model.php **/

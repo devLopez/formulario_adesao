@@ -1,8 +1,20 @@
-<?php
-    
+Classe desenvolvida para gerenciar os dados do usuário
+
+A classe é composta por 5 funções
+* __construct()
+	* Realiza a contrução da classe
+* index()
+	* Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* dados_pessoais()
+	* Busca os dados pessoais do usuário
+* dados_profissionais()
+	* Busca os dados profissionais do usuário
+* dados_conjuge()
+	* Função que busca os dados do conjuge do usuário
+
+
+```
     /**
-     * meus_dados.php
-     * 
      * @package     MY_Controller
      * @subpackage  Meus_dados
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -11,8 +23,7 @@
     class Meus_dados extends MY_Controller
     {
         /**
-         * __construct()
-         * 
+         * @name        __construct()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a contrução da classe
          */
@@ -20,11 +31,10 @@
         {
             parent::__construct($requer_autenticacao);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * index()
-         * 
+         * @name        index()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função principal da classe
          */
@@ -35,11 +45,9 @@
             
             $this->LoadView();
         }
-        //**********************************************************************
         
         /**
-         * dados_pessoais()
-         * 
+         * @name        dados_pessoais()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Busca os dados pessoais do usuário
          */
@@ -50,11 +58,10 @@
             
             $this->load->view('paginas/painel/ajax/dados_proponente/dados_pessoais', $this->dados);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * dados_profissionais()
-         * 
+         * @name        dados_profissionais()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Busca os dados profissionais do usuário
          */
@@ -65,11 +72,10 @@
             
             $this->load->view('paginas/painel/ajax/dados_proponente/dados_profissionais', $this->dados);
         }
-        //*********************************************************************
+        /**********************************************************************/
         
         /**
-         * dados_conjuge()
-         * 
+         * @name        dados_conjuge()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função que busca os dados do conjuge do usuário
          */
@@ -80,7 +86,4 @@
             
             $this->load->view('paginas/painel/ajax/dados_proponente/dados_conjuge', $this->dados);
         }
-        //**********************************************************************
     }
-    /** End of File meus_dados.php **/
-    /** Location ./application/controllers/painel/meus_dados.php **/

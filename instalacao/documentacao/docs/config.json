@@ -1,19 +1,17 @@
 {
-	"title": "DAUX.IO",
-	"tagline": "The Easiest Way To Document Your Project",
+	"title": "Sistema de Incrições On-line",
+	"tagline": "Inscreva seus futuros associados mais rapidamente",
 	"docs_path": "docs",
 	"image": "img/app.png",
-	"theme": "navy",
+	"theme": "red",
+    "file_editor": true,
+	"timezone": "America/Sao_Paulo",
 	"template":"default",
 	"toggle_code": true,
 	"date_modified": true,
-	"repo": "justinwalsh/daux.io",
-	"twitter": ["justin_walsh", "todaymade"],
-	"google_analytics": "UA-12653604-10",
+	"repo": "devLopez/formulario_adesao",
 	"links": {
-		"Download": "https://github.com/justinwalsh/daux.io/archive/master.zip",
-		"GitHub Repo": "https://github.com/justinwalsh/daux.io",
-		"Help/Support/Bugs": "https://github.com/justinwalsh/daux.io/issues",
-		"Made by Todaymade": "http://todaymade.com"
+            "Download": "https://github.com/devLopez/formulario_adesao/archive/master.zip",
+            "GitHub Repo": "https://github.com/devLopez/formulario_adesao"
 	}
 }

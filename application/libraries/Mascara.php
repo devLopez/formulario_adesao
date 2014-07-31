@@ -1,10 +1,10 @@
 <?php
+    
     /**
-     * Mascara
+     * Mascara.php
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
      * @abstract    Realiza a conversão de valores para valores com mascara
-     * 
      * @example     Entrada 11111111111     Saída 111.111.111-11
      */
     if(!defined('BASEPATH')) {exit('No direct script access allowed');}
@@ -12,7 +12,7 @@
     class Mascara {
         
         /**
-         * mascara
+         * mascarar_valor()
          * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a formatacao do valor
@@ -44,7 +44,7 @@
             
             return $mascarado;
         }
+        //**********************************************************************
     }
-
     /** End of file mascara_helper.php **/
     /** location ./application/libraries/Mascara.php **/

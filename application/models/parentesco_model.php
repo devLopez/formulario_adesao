@@ -1,5 +1,8 @@
 <?php
+
     /**
+     * parentesco_model.php
+     * 
      * @package     MY_Model
      * @subpackage  Parentesco_model
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -9,7 +12,8 @@
     class Parentesco_model extends MY_Model
     {
         /**
-         * @name        __construct()
+         * __construct()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a construção da classe
          * @access      public
@@ -23,10 +27,11 @@
             $this->_tabela  = 'parentesco';
             $this->_primary = 'id';
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        busca_parentesco()
+         * busca_parentesco()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os graus de parentesco
          *              cadastrados
@@ -36,9 +41,10 @@
         function busca_parentesco()
         {
             $this->BD->select('grau_parentesco');
-            $query = $this->BD->get($this->_tabela);
             
-            return $query->result();
+            return $this->BD->get($this->_tabela)->result();
         }
+        //**********************************************************************
     }
-?>
+    /** End of File parentesco_model.php **/
+    /** Location ./application/models/parentesco_model.php **/

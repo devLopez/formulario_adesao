@@ -1,15 +1,18 @@
 <?php
 
     /**
-     * @package		- MY_Controller
-     * @subpackage	- painel/painel
-     * @author		- Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract	- Esta classe chama a página de startup da área que necessita realizar o login
+     * painel.php
+     * 
+     * @package		MY_Controller
+     * @subpackage	painel/painel
+     * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     * @abstract	Esta classe chama a página de startup da área que necessita realizar o login
      */
     class Painel extends MY_Controller
     {
         /**
-         * @name        __construct()
+         * __construct()
+         * 
          * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract	Realiza a construção da classe
          */
@@ -18,10 +21,11 @@
             parent::__construct($requer_autenticacao);
             $this->load->model('usuarios_model');
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name	index()
+         * index()
+         * 
          * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract	Função inicial do controller. Irá chamar a visão do painel
          */
@@ -35,10 +39,11 @@
 
             $this->LoadView();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        buscar_inscricao()
+         * buscar_inscricao()
+         * 
          * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função que verificará se foi criada uma solicitação de cota
          */
@@ -46,10 +51,11 @@
         {   
             return $this->usuarios_model->verifica_protocolo();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        buscar_aprovacao()
+         * buscar_aprovacao()
+         * 
          * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para verificar o status da aprovacao
          */
@@ -57,6 +63,7 @@
         {
             return $this->usuarios_model->verifica_aprovacao();
         }
-        /**********************************************************************/
+        //**********************************************************************
     }
-?>
+    /** End of File painel.php **/
+    /** Location ./application/controllers/painel/painel.php **/

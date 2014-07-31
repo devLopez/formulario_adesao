@@ -1,19 +1,26 @@
-<?php
+Classe desenvolvida para gerenciar as trocas de mensagens entre o proponente à socio e a secretaria do clube
 
+A classe é composta de 3 funções
+
+* __construct()
+	* Função desenvolvida para construção da classe
+* index()
+	* Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* observacoes_cadastradas()
+	* Função desenvolvida para buscar as observações cadastradas
+
+```
     /**
-     * observacoes.php
-     * 
      * @package     MY_Controller
-     * @subpackage  observacoes
+     * @subpackage  Mensagens
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as observações recebidas
-     *              pelo proponente
+     * @abstract    Classe desenvolvida para gerenciar as trocas de mensagens entre
+     *              o proponente à socio e a secretaria do clube
      */
     class Observacoes extends MY_Controller
     {
         /**
-         * __construct()
-         * 
+         * @name        __construct()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para construção da classe
          * @param       bool    $requer_autenticacao    Se receber true, indica que,
@@ -25,11 +32,10 @@
             
             $this->load->model('observacoes_model', 'observacoes');
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * index()
-         * 
+         * @name        index()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função principal da classe
          * @param       string  $this->view     Indica a visão que se deseja trabalhar
@@ -42,7 +48,7 @@
             
             $this->LoadView();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * observacoes_cadastradas()
@@ -55,10 +61,9 @@
         {
             $id = base64_decode($_SESSION['usuario']['id_proponente']);
             
-            $this->dados['observacoes'] = $this->observacoes->buscar_todas($id);
+                $this->dados['observacoes'] = $this->observacoes->buscar_todas($id);
             $this->load->view('paginas/painel/ajax/observacoes', $this->dados);
         }
-        //**********************************************************************
     }
     /** End of File mensagens.php **/
     /** Location ./application/controllers/painel/mensagens **/

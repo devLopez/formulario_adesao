@@ -1,4 +1,5 @@
 <?php
+
     /**
      * usuarios_model.php
      * 
@@ -70,8 +71,8 @@
         {
             $this->BD->select('id, nome_proponente, cpf_proponente');
             $this->BD->where(array('cpf_proponente' => $dados['login'],'senha_proponente' => $dados['senha']));
-            $query = $this->BD->get($this->_tabela);
-            return $query->result();
+            
+            return $this->BD->get($this->_tabela)->result();
         }
         //**********************************************************************
 
@@ -159,8 +160,7 @@
         {
             $this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
             
-            $query = $this->BD->get($this->_tabela);
-            return $query->result();
+            $this->BD->get($this->_tabela)->result();
         }
         //**********************************************************************
         

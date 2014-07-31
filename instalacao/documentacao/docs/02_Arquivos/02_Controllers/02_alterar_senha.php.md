@@ -1,9 +1,17 @@
-<?php
+Classe desenvolvida para que o usuário possa trocar a sua senha
 
+É composta de 4 funções:
+* __construct()
+    * Responsável pela construção da classe
+* index()
+    * Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* verifica_cpf()
+    * Função que verifica se existe um cpf idêntico ao digitado
+* alterar()
+    * Função desenvolvida para alterar a senha do usuário
+
+```
     /**
-     * alterar_senha()
-     * 
-     * 
      * @package        MY_Controller
      * @subpackage     alterar_senha
      * @author         Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -23,7 +31,7 @@
 
             $this->load->model('usuarios_model');
         }
-        //**********************************************************************
+        /**********************************************************************/
 
         /**
          * index()
@@ -39,7 +47,7 @@
 
             $this->LoadView();
         }
-        //**********************************************************************
+        /**********************************************************************/
 
         /**
          * verifica_cpf()
@@ -54,7 +62,7 @@
             echo $this->usuarios_model->verifica_cpf($cpf);
 
         }
-        //**********************************************************************
+        /**********************************************************************/
 
         /**
          * alterar()
@@ -90,7 +98,6 @@
                 echo 0;
             }
         }
-        //**********************************************************************
     }
 
     /** End of file alterar_senha.php **/

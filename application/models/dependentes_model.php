@@ -1,5 +1,8 @@
 <?php
+
     /**
+     * dependentes_model()
+     * 
      * @package     MY_Model
      * @subpackage  Dependentes_model
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
@@ -8,7 +11,8 @@
     class Dependentes_model extends MY_Model
     {
         /**
-         * @name        __construct()
+         * __construct()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a construção da classe
          * @param       string $this->_tabela   Indica a tabela que será trabalhada
@@ -22,10 +26,11 @@
             $this->_tabela  = 'dependentes';
             $this->_primary = 'id';
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        buscar_dependentes()
+         * buscar_dependentes()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dependentes cadastrados
          *              para um usuário
@@ -35,14 +40,14 @@
         {
             $this->BD->where('id_proponente', base64_decode($_SESSION['usuario']['id_proponente']));
             $this->BD->order_by('parentesco_dependente', 'asc');
-            $query = $this->BD->get($this->_tabela);
             
-            return $query->result();
+            return $this->BD->get($this->_tabela)->result();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        salvar()
+         * salvar()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para salvar os dados de um dependente
          * @param       array $dados    Contém os dados que serão salvos
@@ -61,10 +66,11 @@
             
             return $this->BD->insert($this->_tabela, $data);
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        excluir()
+         * excluir()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função que exclui um registro pelo ID
          * @param       int $id Recebe o id do registro que será excluido
@@ -75,10 +81,11 @@
             $this->BD->where('id', $id);
             return $this->BD->delete($this->_tabela);
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        buscar_byId()
+         * buscar_byId()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dados de um dependente
          *              de acordo o ID passado
@@ -92,10 +99,11 @@
             
             return $query->result();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        update()
+         * update()
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para realizar o update em um dependente
          * @return      bool Retorna true se atualizar e false se não atualizar
@@ -114,5 +122,7 @@
             $this->BD->where('id', $dados['id']);
             return $this->BD->update($this->_tabela, $data);
         }
+        //**********************************************************************
     }
-?>
+    /** End of FIle dependentes_model.php **/
+    /** Location ./application/models/dependentes_model.php **/

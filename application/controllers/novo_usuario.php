@@ -1,29 +1,34 @@
 <?php
+    
     /**
-     * @package     - MY_Controller
-     * @subpackage  - novo_usuario
-     * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    - Classe desenvolvida para criação de usuários do sistema,
+     * novo_usuario.php
+     * 
+     * @package     MY_Controller
+     * @subpackage  novo_usuario
+     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     * @abstract    Classe desenvolvida para criação de usuários do sistema,
      *              para que o mesmo possa criar e editar seus formulários
      */
     class Novo_usuario extends MY_Controller
     {
         /**
-         * @name        - __construct()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função que realiza a construção da classe
+         * __construct()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função que realiza a construção da classe
          */
         public function __construct()
         {
             parent::__construct(FALSE);
             $this->load->model('usuarios_model');
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        - index()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função inicial do controller. Aqui será feira a 
+         * index()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função inicial do controller. Aqui será feira a 
          *              chamada da visão correspondente
          */
         function index()
@@ -33,12 +38,13 @@
             $this->titulo   = 'Criação de novo usuário';
             $this->LoadView();
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        - verifica_cpf()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para verificar se existe cpf 
+         * verifica_cpf()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para verificar se existe cpf 
          *              cadastrado na base de dados
          */
         function verifica_cpf()
@@ -49,12 +55,13 @@
             
             echo $resposta;
         }
-        /**********************************************************************/
+        //**********************************************************************
         
         /**
-         * @name        - salvar_usuario()
-         * @author      - Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    - Função desenvolvida para salvar um novo usuário no 
+         * salvar_usuario()
+         * 
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @abstract    Função desenvolvida para salvar um novo usuário no 
          *              sistema
          */
         function salvar_usuario()
@@ -74,8 +81,9 @@
             else 
             {
             	echo 0;
-            }
-            
+            }    
         }
+        //**********************************************************************
     }
-?>
+    /** End of File novo_usuario.php **/
+    /** Location ./application/controllers/novo_usuario.php **/

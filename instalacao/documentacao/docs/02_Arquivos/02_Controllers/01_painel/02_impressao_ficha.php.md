@@ -1,21 +1,42 @@
-<?php
-    
+Classe desenvolvida para realizar a impressão da ficha de inscrição
+
+A classe é composta por 10 funções
+* __construct()
+	* Realiza a construção da classe
+* index()
+	* Função principal do controller, responsável pela visão e dados iniciais que serão mostrados ao usuário
+* gerar_proposta()
+	* Função desenvolvidaindex.php para gerar uma nova proposta, caso no servidor não exista uma proposta já salva. 
+	Será criado um arquivo PDF cujo nome do arquivo será no seguinte modelo: proposta_cpf[criptografado].pdf
+* nome_mes()
+	* Função desenvolvida para converter o código do mês em nome
+* dados_pessoaisProposta()
+	* Função desenvolvida para buscar os dados pessoais do proponente
+* dados_profissionaisProposta()
+	* Função desenvolvida para buscar os dados profissionais do proponente
+* dados_profissionaisProposta()
+	* Função desenvolvida para buscar os dados profissionais do proponente
+* busca_dependentes()
+	* Função desenvolvida para buscar os dependentes
+* busca_referencias()
+	* Função desenvolvida para buscar as referencias pessoais e bancárias
+* mascara_cpf()
+	* Função desenvolvida para formatar o CPF do usuário
+
+```    
     /**
-     * impressao_ficha.php
-     * 
      * @package     MY_Controller
      * @subpackage  impressao_ficha
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
      * @abstract    Classe desenvolvida para realizar a impressão da ficha de
      *              inscrição
-     * @todo        Impressão das propostas em PDF. Afunção para tal já foi 
+     * @todo        Impressão das propostas em PDF. A função para tal já foi 
      *              criada. Resta apenas uma modificação da API geradora
      */
     class Impressao_ficha extends MY_Controller
     {
         /**
-         * __construct()
-         * 
+         * @name        __construct()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Realiza a construção da classe
          */
@@ -23,11 +44,10 @@
         {
             parent::__construct($requer_autenticacao);
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * index()
-         * 
+         * @name        index()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Funçao principal do controller
          */
@@ -35,11 +55,10 @@
         {
             $this->load->view('paginas/painel/ajax/dados_proponente/impressao_ficha');
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * gerar_proposta()
-         * 
+         * @name        gerar_proposta()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvidaindex.php para gerar uma nova proposta, caso 
          *              no servidor não exista uma proposta já salva. Será criado
@@ -47,7 +66,6 @@
          *              modelo: proposta_cpf[criptografafo].pdf
          * @param       int $documento  recebe qual o tipo de documento que será
          *              gerado (proposta ou adesao).
-         * @todo        Gerar a proposta em PDF para o proponente
          */
         function gerar_proposta($documento)
         {   
@@ -84,15 +102,14 @@
                 //$local_pdf = './downloads/adesao/adesao_'.md5($_SESSION['usuario']['cpf_proponente']).'.pdf';
             }
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * nome_mes()
-         * 
+         * @name        nome_mes()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para converter o código do mês em 
          *              nome, como:
-         * @example     01 -> Janeiro
+         * @example     01 Janeiro
          * @access      Private
          * @param       string  $mes    Recebe o nome do mês atual
          * @return      string  Retorna o nome do mês atual
@@ -117,11 +134,10 @@
             
             return $mes;
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * dados_pessoaisProposta()
-         * 
+         * @name        dados_pessoaisProposta()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dados pessoais do 
          *              proponente
@@ -133,11 +149,10 @@
             $this->load->model('dpessoais_model');
             return $this->dpessoais_model->busca_dadosPessoais();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * dados_profissionaisProposta()
-         * 
+         * @name        dados_profissionaisProposta()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dados profissionais do 
          *              proponente
@@ -149,11 +164,10 @@
             $this->load->model('dprofissionais_model');
             return $this->dprofissionais_model->busca_dadosProfissionais();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * dados_profissionaisProposta()
-         * 
+         * @name        dados_profissionaisProposta()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dados profissionais do 
          *              proponente
@@ -165,11 +179,10 @@
             $this->load->model('dconjuge_model');
             return $this->dconjuge_model->busca_dadosConjuge();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
-         * busca_dependentes()
-         * 
+         * @name        busca_dependentes()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para buscar os dependentes
          * @access      Private
@@ -179,7 +192,7 @@
             $this->load->model('dependentes_model');
             return $this->dependentes_model->buscar_dependentes();
         }
-        //**********************************************************************
+        /**********************************************************************/
         
         /**
          * busca_referencias()
@@ -212,13 +225,11 @@
             $this->load->library('mascara');
             return $this->mascara->mascarar_valor($val, $mask);
         }
-        //**********************************************************************
 
         /***********************************************************************
          * ESTA FUNÇÃO NÃO SERÁ IMPLEMENTADA POR ENQUANTO
          +**********************************************************************
-         * gerar_pdf()
-         * 
+         * @name        gerar_pdf()
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @abstract    Função desenvolvida para gerar os documentos em PDF para
          *              que o usuário possa fazer o download
