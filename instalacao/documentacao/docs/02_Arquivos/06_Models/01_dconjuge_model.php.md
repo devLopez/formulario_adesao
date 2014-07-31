@@ -1,5 +1,16 @@
-<?php
+Classe desenvolvida para gerenciar as transações na tabela 'dados_conjuge'
 
+É composta por 4 funções
+* __construct()
+	* Realiza a construção da classe
+* salvar()
+	* Função desenvolvida para salvar os dados do conjuge do proponente
+* busca_dadosConjuge()
+	* Realiza a busca dos dados pessoais do proponente
+* update()
+	* Função desenvolvida para atualizar os dados do conjuge
+
+```
     /**
      * dconjuge_model.php
      * 

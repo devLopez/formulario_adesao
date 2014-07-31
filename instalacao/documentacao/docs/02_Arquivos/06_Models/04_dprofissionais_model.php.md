@@ -1,5 +1,16 @@
-<?php
+Classe desenvolvida para gerenciar as transações envolvendo a tabela 'dados_profissionais'
 
+A classse é composta por 4 funções
+* __construct()
+	* Realiza a construção da classe
+* salvar()
+	* Função desenvolvida para salvar os dados profissionais do proponente
+* buscar_dadosProfissionais()
+	* Realiza a busca dos dados pessoais do proponente
+* update()
+	* Função desenvolvida para atualizar os dados profissionais do proponente
+
+```
     /**
      * dprofissionais_model.php
      * 
@@ -84,7 +95,6 @@
          * update()
          * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-		 * @abstract	Função desenvolvida para atualizar os dados profissionais do proponente
          * @param       array   $dados_profissionais    Contém os dados profissionais do usuário
          * @param       array   $data                   Associa os campos da tabela aos dados
          * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
