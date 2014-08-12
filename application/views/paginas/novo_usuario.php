@@ -1,4 +1,4 @@
-<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/bootstrap.css" rel="stylesheet">
 
 <script type="text/javascript" src="./js/validacao/valida_cpf.js"></script>
 <script type="text/javascript">
@@ -165,8 +165,6 @@
 <div class="container">
     <form id="adiciona_usuario">
         <fieldset>
-            <legend>Dados de acesso</legend>
-
             <label><strong>Nome completo:</strong></label>
             <input class="span5" type="text" id="nome_proponente" autofocus="">
             <span class="help-inline" id="resposta_nome"></span>
