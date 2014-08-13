@@ -74,9 +74,15 @@
             
             if($resposta == 1)
             {
-            	$_SESSION['usuario']['nome_proponente'] = $dados['nome_proponente'];
-            	$_SESSION['usuario']['cpf_proponente']	= $dados['cpf_proponente'];
-            	echo $resposta;
+                $this->load->library('login_library');
+                
+                $dados['login'] = $dados['cpf_proponente'];
+                $dados['senha'] = $dados['senha_proponente'];
+                
+                if($this->login_library->fazer_login($dados) == 1)
+                {
+                    echo 1;
+                }
             }
             else 
             {

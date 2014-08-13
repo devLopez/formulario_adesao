@@ -160,7 +160,7 @@
         {
             $this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
             
-            $this->BD->get($this->_tabela)->result();
+            return $this->BD->get($this->_tabela)->result();
         }
         //**********************************************************************
         

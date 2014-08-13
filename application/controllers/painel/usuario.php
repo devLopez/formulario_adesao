@@ -115,6 +115,5 @@
         }
         //**********************************************************************
     }
-    
     /** End of File usuario.php **/
     /** Location ./application/controllers/painel/usuario.php **/
