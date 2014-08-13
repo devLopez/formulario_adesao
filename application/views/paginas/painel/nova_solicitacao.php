@@ -97,7 +97,7 @@
                 {
                     $.SmartMessageBox({
                         title: '<i class="fa fa-thumbs-up" style="color:green;"></i> Sucesso',
-                        content: '<p><strong>Os seus dados foram salvos.</strong></p><p>Numero de protocolo: ' + sucesso.numero_protocolo + '</p>',
+                        content: '<p><strong>Os seus dados foram salvos.</strong></p><p>Numero de protocolo: ' + sucesso.numero_protocolo + '</p><p><strong>Deseja registrar seus dependentes agora?</strong></p>',
                         buttons: '[Agora não][Sim, registrar meus dependentes]'
                     }, function(e) {
                         if (e == "Sim, registrar meus dependentes")
