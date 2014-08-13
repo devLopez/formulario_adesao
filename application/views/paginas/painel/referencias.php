@@ -28,6 +28,7 @@
                 {
                     if (sucesso == 1)
                     {
+                        $('#cadastrar_referencia').modal('hide');
                         $.smallBox({
                             title: "<i class='fa fa-check'></i> Sucesso",
                             content: "<strong>Referência cadastrado</strong>",
@@ -35,8 +36,7 @@
                             color: "#3b5998",
                             timeout: 5000
                         });
-                        limpar_campos();
-                        $('#cadastrar_referencia').modal('hide');
+                        limpar_campos($('#cad_referencia'));
                         buscar_referencias();
                     }
                     else
@@ -86,10 +86,12 @@
      * @abstract    Função desenvolvida para limpar os campos do formulário de inclusão
      *              de referências
      */
-    function limpar_campos()
+    /*function limpar_campos()
     {
-        $('#cad_referencia').find('input').val('');
-    }
+        $('#nome_referencia').val("");
+        $('#endereco_referencia').val("");
+        $('#telefone_referencia').val("");
+    }*/
 </script>
 
 <div class="container">
