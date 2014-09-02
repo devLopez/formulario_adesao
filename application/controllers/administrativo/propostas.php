@@ -43,7 +43,7 @@
             /** Definição do template, view e título da página **/
             $this->template = 'template/adm';
             $this->view     = 'administrativo/propostas';
-            $this->titulo   = 'Propostas de cota cadastradas';
+            $this->titulo   = '.:: Propostas de cota cadastradas ::.';
             
             $this->LoadView();
         }

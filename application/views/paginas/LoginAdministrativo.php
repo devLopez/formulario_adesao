@@ -56,7 +56,7 @@
             <input autofocus="autofocus" class="input-block" id="login" tabindex="1" type="text">
 
             <label for="password">
-                Senha
+                Senha <a href="<?php echo app_baseurl().'alterar_senha/index/admin'?>">(Esqueci minha senha)</a>
             </label>
             <input class="input-block" id="senha" name="password" tabindex="2" type="password">
             <input class="button" name="commit" tabindex="3" type="submit" value="Entrar">

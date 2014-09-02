@@ -1,7 +1,6 @@
 <script type="text/javascript">
     /** Inicialização do Jquery **/
     $(document).ready(function() {
-
         /** Adiciona uma máscara para campo cpf **/
         $('#cpf_proponente').mask('99999999999', {placeholder: '*'});
 
@@ -9,9 +8,10 @@
         $('#recupera_p1').submit(function(e) {
             e.preventDefault();
 
-            cpf = $('#cpf_proponente').val();
+            cpf 	= $('#cpf_proponente').val();
+            nivel	= $('#nivel').val();
 
-            $.post('<?php echo app_baseurl().'alterar_senha/verifica_cpf' ?>', {cpf: cpf}).done(function(sucesso) {
+            $.post('<?php echo app_baseurl().'alterar_senha/verifica_cpf' ?>', {cpf: cpf, nivel: nivel}).done(function(sucesso) {
                 if (sucesso == 1)
                 {
                     $('#recupera_p1').hide();
@@ -49,13 +49,14 @@
         $('#form_novaSenha').submit(function(e) {
             e.preventDefault();
 
-            senha = $('#nova_senha').val();
-            cpf = $('#cpf_proponente').val();
+            senha 	= $('#nova_senha').val();
+            cpf 	= $('#cpf_proponente').val();
+            nivel	= $('#nivel').val();
 
             $.ajax({
                 url: '<?php echo app_baseurl().'alterar_senha/alterar' ?>',
                 type: 'POST',
-                data: {senha: senha, cpf: cpf},
+                data: {senha: senha, cpf: cpf, nivel: nivel},
                 success: function(sucesso)
                 {
                     if (sucesso == 0)
@@ -77,7 +78,14 @@
                         }, function(e) {
                             if (e === 'Ok')
                             {
-                                location.href = '<?php echo app_baseurl().'painel/painel'; ?>'
+                                if(nivel == 'admin')
+                                {
+                                    location.href = '<?php echo app_baseurl().'LoginAdministrativo'?>';
+                                }
+                                else
+                                {
+                                    location.href = '<?php echo app_baseurl().'painel/painel'; ?>'
+                                }
                             }
                             else
                             {
@@ -100,6 +108,23 @@
         });
     });
 </script>
+
+<!-- Campo hidden que receberá o valor do nível do usuário -->
+<?php
+	if (isset($nivel))
+	{
+		?>
+		<input type="hidden" id="nivel" value="<?php echo $nivel?>">
+		<?
+	}
+	else
+	{
+		?>
+		<input type="hidden" id="nivel" value="">
+		<?php
+	}
+?>
+<!--*************************************************************************-->
 
 <div class="auth-form">
 

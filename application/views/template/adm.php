@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title><?php echo $titulo ?></title>
-
+		<link rel="icon" type="image/png" href="./icon/icon.png" />
         <!-- Scripts e JQuery -->
         <link rel="stylesheet" type="text/css" href="./css/github-bootstrap.css">
         <link rel="stylesheet" type="text/css" href="./css/github-styles.css">
@@ -62,6 +62,9 @@
                                 </a>
                                 <a id="menu-propostas" href="<?php echo app_baseurl().'administrativo/propostas'?>" class="js-selected-navigation-item pagehead-nav-item">
                                     <span class="octicon octicon-repo"></span> Propostas cadastradas
+                                </a>
+                                <a id="menu-usuarios" href="<?php echo app_baseurl().'administrativo/usuarios'?>" class="js-selected-navigation-item pagehead-nav-item">
+                                	<span class="octicon octicon-organization"></span> Usuários do sistema
                                 </a>
                             </nav>
                             <h1>

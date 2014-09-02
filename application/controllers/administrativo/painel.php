@@ -41,7 +41,7 @@
             /** Seleciona o template, a visão e o título da página **/
             $this->template = 'template/adm';
             $this->view     = 'administrativo/painel';
-            $this->titulo   = 'Painel administrativo';
+            $this->titulo   = '.:: Painel administrativo ::.';
             
             /** Dados que serão exibidos na visão **/
             $this->dados['propostas_abertas']   = $this->buscar_propostasAberto();

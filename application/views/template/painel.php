@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title><?php echo $titulo ?></title>
-
+		<link rel="icon" type="image/png" href="./icon/icon.png" />
         <link rel="stylesheet" type="text/css" href="./css/github-bootstrap.css">
         <link rel="stylesheet" type="text/css" href="./css/github-styles.css">
 

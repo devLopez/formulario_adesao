@@ -9,10 +9,11 @@
             <p>Não há propostas cadastradas</p>
         </div>
         <?php
-    } else
+    }
+    else
     {
         ?>
-        <table class="table table-bordered table-hover table-striped table-condensed fadeIn">
+        <table class="table table-bordered table-hover table-striped fadeIn">
             <thead>
                 <tr>
                     <th>Nome</th>
