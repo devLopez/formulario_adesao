@@ -19,7 +19,7 @@
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
 	 * @package		CI_Model
-	 * @version		v1.1.0
+	 * @version		v1.2.0
 	 * @since		03/09/2014 
      */
     class MY_Model extends CI_Model
@@ -60,7 +60,14 @@
             parent::__construct();
             
             //Realiza a seleção do banco de dados
-            $this->BD = $this->load->database('default', TRUE);
+            if(ENVIRONMENT == 'production' || ENVIRONMENT == 'testing')
+            {
+            	$this->BD = $this->load->database('producao', TRUE);
+            }
+            else
+            {
+            	$this->BD = $this->load->database('default', TRUE);
+            }
         }
         //**********************************************************************
     }
