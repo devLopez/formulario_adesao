@@ -1,1 +1,0 @@
-O diretório <em>system</em> é onde o coração do CodeIgniter está instalado. Recomendo que não haja mudanças na estrutura interna deste diretório, ou o sistema não funcionará
