@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    Sistema de Inscrição On-line &raquo; \Observacoes_model
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">Sistema de Inscrição On-line</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                                            </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public inherited">
+        <a href="#method___construct" title="__construct :: __construct()">
+            <span class="description">__construct()</span><pre>__construct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_salvar" title="salvar :: salvar()">
+            <span class="description">salvar()</span><pre>salvar</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_buscar_todas" title="buscar_todas :: buscar_todas()">
+            <span class="description">buscar_todas()</span><pre>buscar_todas</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_buscar" title="buscar :: buscar()">
+            <span class="description">buscar()</span><pre>buscar</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_update" title="update :: update()">
+            <span class="description">update()</span><pre>update</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_delete" title="delete :: delete()">
+            <span class="description">delete()</span><pre>delete</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>Observacoes_model</h1>
+                <small style="display: block; text-align: right">
+                                            Extends <a href="../classes/MY_Model.html">\MY_Model</a>
+                                                        </small>
+                <p class="short_description">Observacoes_model</p>
+                <div class="details">
+                    <div class="long_description">
+                        <p>Classe desenvolvida para gerenciar as operações com a tabela observacoes</p>
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        author
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        access
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Public</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>CI_Model</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        subpackage
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>MY_Model</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        version
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>v1.1.0</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        since
+                                                                            </th>
+                                    <td>
+                                                                                    03/09/2014
+                                                                                
+                                    </td>
+                                </tr>
+                                                                                                                            </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method___construct"></a>
+                        <div class="element clickable method public  method___construct inherited" data-toggle="collapse" data-target=".method___construct .collapse">
+                            <h2>__construct()</h2>
+                            <pre>__construct() </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Realiza a construção da classe</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_salvar"></a>
+                        <div class="element clickable method public  method_salvar" data-toggle="collapse" data-target=".method_salvar .collapse">
+                            <h2>salvar()</h2>
+                            <pre>salvar(array $dados) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para salvar uma observação</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code>array</code><p><p>Contém os dados que serão salvos</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se salvar e FALSE se não salvar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_buscar_todas"></a>
+                        <div class="element clickable method public  method_buscar_todas" data-toggle="collapse" data-target=".method_buscar_todas .collapse">
+                            <h2>buscar_todas()</h2>
+                            <pre>buscar_todas(integer $id_proponente) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Realiza a busca de todas as observações cadastradas para um proponente</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id_proponente</h4>
+                                                <code>integer</code><p><p>Contém o id do proponente que será usado</p>
+<pre><code>         na consulta sql</code></pre></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna um array de observações</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_buscar"></a>
+                        <div class="element clickable method public  method_buscar" data-toggle="collapse" data-target=".method_buscar .collapse">
+                            <h2>buscar()</h2>
+                            <pre>buscar(integer $id) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar um registro</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>integer</code><p><p>Contém o ID do registro a ser buscado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna um array contendo o registro</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_update"></a>
+                        <div class="element clickable method public  method_update" data-toggle="collapse" data-target=".method_update .collapse">
+                            <h2>update()</h2>
+                            <pre>update(array $dados) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para atualizar uma observação</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code>array</code><p><p>Contém os dados a serem salvos</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se salvar e FALSE se não salvar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_delete"></a>
+                        <div class="element clickable method public  method_delete" data-toggle="collapse" data-target=".method_delete .collapse">
+                            <h2>delete()</h2>
+                            <pre>delete(integer $id) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para apagar uma observação</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>integer</code><p><p>Contém o ID do registro a ser apagado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se apagar e FALSE se não apagar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                    
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_BD"> </a>
+                            <div class="element clickable property  protected property_BD inherited" data-toggle="collapse" data-target=".property_BD .collapse">
+                                <h2>Variável que recebe o banco de dados que será trabalhado</h2>
+                                <pre>BD : string</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property__tabela"> </a>
+                            <div class="element clickable property  protected property__tabela inherited" data-toggle="collapse" data-target=".property__tabela .collapse">
+                                <h2>Variável que recebe a tabela na qual irá trabalhar</h2>
+                                <pre>_tabela : string</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property__primary"> </a>
+                            <div class="element clickable property  protected property__primary inherited" data-toggle="collapse" data-target=".property__primary .collapse">
+                                <h2>Variável que recebe o nome do campo de chave primária da tabela que
+se está trabalhando</h2>
+                                <pre>_primary : string</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\Observacoes_model"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/default.html">\</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/Observacoes_model.html">Observacoes_model</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Wed, 03 Sep 2014 14:21:48 +0000.<br/>
+    </footer>
+    </body>
+</html>

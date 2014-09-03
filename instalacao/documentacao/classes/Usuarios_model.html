@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    Sistema de Inscrição On-line &raquo; \Usuarios_model
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">Sistema de Inscrição On-line</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                                            </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public inherited">
+        <a href="#method___construct" title="__construct :: __construct()">
+            <span class="description">__construct()</span><pre>__construct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_verifica_cpf" title="verifica_cpf :: verifica_cpf()">
+            <span class="description">verifica_cpf()</span><pre>verifica_cpf</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_salvar_usuario" title="salvar_usuario :: salvar_usuario()">
+            <span class="description">salvar_usuario()</span><pre>salvar_usuario</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_login" title="login :: login()">
+            <span class="description">login()</span><pre>login</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_salva_protocolo" title="salva_protocolo :: salva_protocolo()">
+            <span class="description">salva_protocolo()</span><pre>salva_protocolo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_verifica_protocolo" title="verifica_protocolo :: verifica_protocolo()">
+            <span class="description">verifica_protocolo()</span><pre>verifica_protocolo</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_verifica_aprovacao" title="verifica_aprovacao :: verifica_aprovacao()">
+            <span class="description">verifica_aprovacao()</span><pre>verifica_aprovacao</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_alterar_senha" title="alterar_senha :: alterar_senha()">
+            <span class="description">alterar_senha()</span><pre>alterar_senha</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_buscar_todosDados" title="buscar_todosDados :: buscar_todosDados()">
+            <span class="description">buscar_todosDados()</span><pre>buscar_todosDados</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_alterar_nome" title="alterar_nome :: alterar_nome()">
+            <span class="description">alterar_nome()</span><pre>alterar_nome</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_contar_propostasAbertas" title="contar_propostasAbertas :: contar_propostasAbertas()">
+            <span class="description">contar_propostasAbertas()</span><pre>contar_propostasAbertas</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_buscar_allPropostas" title="buscar_allPropostas :: buscar_allPropostas()">
+            <span class="description">buscar_allPropostas()</span><pre>buscar_allPropostas</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_contar" title="contar :: contar()">
+            <span class="description">contar()</span><pre>contar</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_buscar_byId" title="buscar_byId :: buscar_byId()">
+            <span class="description">buscar_byId()</span><pre>buscar_byId</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_deferir" title="deferir :: deferir()">
+            <span class="description">deferir()</span><pre>deferir</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_indeferir" title="indeferir :: indeferir()">
+            <span class="description">indeferir()</span><pre>indeferir</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>Usuarios_model</h1>
+                <small style="display: block; text-align: right">
+                                            Extends <a href="../classes/MY_Model.html">\MY_Model</a>
+                                                        </small>
+                <p class="short_description">Usuarios_model</p>
+                <div class="details">
+                    <div class="long_description">
+                        <p>Classe desenvolvida para gerenciar as operações com os dados dos usuários</p>
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        author
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        access
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Public</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>CI_Model</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        subpackage
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>MY_Model</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        version
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>v1.1.0</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        since
+                                                                            </th>
+                                    <td>
+                                                                                    03/09/2014
+                                                                                
+                                    </td>
+                                </tr>
+                                                                                                                            </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method___construct"></a>
+                        <div class="element clickable method public  method___construct inherited" data-toggle="collapse" data-target=".method___construct .collapse">
+                            <h2>__construct()</h2>
+                            <pre>__construct() </pre>
+                            <div class="labels">
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Realiza a construção da classe</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_verifica_cpf"></a>
+                        <div class="element clickable method public  method_verifica_cpf" data-toggle="collapse" data-target=".method_verifica_cpf .collapse">
+                            <h2>verifica_cpf()</h2>
+                            <pre>verifica_cpf(integer $cpf_proponente) : Integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar um cpf na base de dados</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cpf_proponente</h4>
+                                                <code>integer</code><p><p>Contém o cpf a ser verificado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>Integer</code><p><p>retorna o número de cpfs cadastrados</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_salvar_usuario"></a>
+                        <div class="element clickable method public  method_salvar_usuario" data-toggle="collapse" data-target=".method_salvar_usuario .collapse">
+                            <h2>salvar_usuario()</h2>
+                            <pre>salvar_usuario(Array $dados) : Bool</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para salvar os dados de um novo usuário</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code>Array</code><p><p>array que contém os dados do novo usuário</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>Bool</code><p><p>retorna verdadeiro ou falso no caso do cadastro</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_login"></a>
+                        <div class="element clickable method public  method_login" data-toggle="collapse" data-target=".method_login .collapse">
+                            <h2>login()</h2>
+                            <pre>login( $dados) : Array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar os dados do usuário para efetuar o login</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>Array</code><p><p>retorna um array com os dados do usuário se true, e FALSE caso não encontre nada</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_salva_protocolo"></a>
+                        <div class="element clickable method public  method_salva_protocolo" data-toggle="collapse" data-target=".method_salva_protocolo .collapse">
+                            <h2>salva_protocolo()</h2>
+                            <pre>salva_protocolo() : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para salvar o numero de protocolo no cadastro do
+usuário</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna true se salvar e false se não salvar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_verifica_protocolo"></a>
+                        <div class="element clickable method public  method_verifica_protocolo" data-toggle="collapse" data-target=".method_verifica_protocolo .collapse">
+                            <h2>verifica_protocolo()</h2>
+                            <pre>verifica_protocolo() : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para verifica se existe um numero de protocolo</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p><p>Retorna a quantodade de protocolos cadastrados para</p>
+<pre><code>            um CPF, geralmente um só.</code></pre></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_verifica_aprovacao"></a>
+                        <div class="element clickable method public  method_verifica_aprovacao" data-toggle="collapse" data-target=".method_verifica_aprovacao .collapse">
+                            <h2>verifica_aprovacao()</h2>
+                            <pre>verifica_aprovacao() : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para verificar a aprovação da cota</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se aprovado e FALSE se indeferido e</p>
+<pre><code>            NULL se não foi avaliado</code></pre></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_alterar_senha"></a>
+                        <div class="element clickable method public  method_alterar_senha" data-toggle="collapse" data-target=".method_alterar_senha .collapse">
+                            <h2>alterar_senha()</h2>
+                            <pre>alterar_senha(array $dados) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para alterar a senha do usuário</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Pulic</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code>array</code><p><p>Contém o CPF e a Nova senha do usuário</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se alterar e FALSE se não alterar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_buscar_todosDados"></a>
+                        <div class="element clickable method public  method_buscar_todosDados" data-toggle="collapse" data-target=".method_buscar_todosDados .collapse">
+                            <h2>buscar_todosDados()</h2>
+                            <pre>buscar_todosDados() : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar todos os dados do usuário</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna um array com todos os dados do usuário</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_alterar_nome"></a>
+                        <div class="element clickable method public  method_alterar_nome" data-toggle="collapse" data-target=".method_alterar_nome .collapse">
+                            <h2>alterar_nome()</h2>
+                            <pre>alterar_nome(string $nome_proponente) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para alterar o nome do usuário</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$nome_proponente</h4>
+                                                <code>string</code><p><p>Contém o nome de usuário a ser trocado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se salvar e FALSE se não atualizar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_contar_propostasAbertas"></a>
+                        <div class="element clickable method public  method_contar_propostasAbertas" data-toggle="collapse" data-target=".method_contar_propostasAbertas .collapse">
+                            <h2>contar_propostasAbertas()</h2>
+                            <pre>contar_propostasAbertas() : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para contar a quantidade de propostas que estão em aberto</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p><p>Retorna o número de propostas em aberto</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_buscar_allPropostas"></a>
+                        <div class="element clickable method public  method_buscar_allPropostas" data-toggle="collapse" data-target=".method_buscar_allPropostas .collapse">
+                            <h2>buscar_allPropostas()</h2>
+                            <pre>buscar_allPropostas(integer $limite, integer $offset) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar os dados dos usuários do sistema</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$limite</h4>
+                                                <code>integer</code><p><p>Define o limite da pesquisa sql</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$offset</h4>
+                                                <code>integer</code><p><p>Define o offset da pesquisa sql</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna array contendo os dados dos usuarios cadastrados</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_contar"></a>
+                        <div class="element clickable method public  method_contar" data-toggle="collapse" data-target=".method_contar .collapse">
+                            <h2>contar()</h2>
+                            <pre>contar() : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>função desenvolvida para contar a quantidade de usuarios cadastrados</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p><p>Retorna a quantidade de usuários cadastrados</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_buscar_byId"></a>
+                        <div class="element clickable method public  method_buscar_byId" data-toggle="collapse" data-target=".method_buscar_byId .collapse">
+                            <h2>buscar_byId()</h2>
+                            <pre>buscar_byId(integer $id) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Realiza a busca de um registro baseado no ID do proponente</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>integer</code><p><p>Contém o ID do registro a ser buscado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna um array com os dados do usuário</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_deferir"></a>
+                        <div class="element clickable method public  method_deferir" data-toggle="collapse" data-target=".method_deferir .collapse">
+                            <h2>deferir()</h2>
+                            <pre>deferir(integer $id) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para deferir uma proposta</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>integer</code><p><p>Contém o id do registro a ser modificado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se salvar e FALSE se não salvar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_indeferir"></a>
+                        <div class="element clickable method public  method_indeferir" data-toggle="collapse" data-target=".method_indeferir .collapse">
+                            <h2>indeferir()</h2>
+                            <pre>indeferir(integer $id) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para indeferir uma proposta</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>integer</code><p><p>Contém o id do registro a ser modificado</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se salvar e FALSE se não salvar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                    
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_BD"> </a>
+                            <div class="element clickable property  protected property_BD inherited" data-toggle="collapse" data-target=".property_BD .collapse">
+                                <h2>Variável que recebe o banco de dados que será trabalhado</h2>
+                                <pre>BD : string</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property__tabela"> </a>
+                            <div class="element clickable property  protected property__tabela inherited" data-toggle="collapse" data-target=".property__tabela .collapse">
+                                <h2>Variável que recebe a tabela na qual irá trabalhar</h2>
+                                <pre>_tabela : string</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property__primary"> </a>
+                            <div class="element clickable property  protected property__primary inherited" data-toggle="collapse" data-target=".property__primary .collapse">
+                                <h2>Variável que recebe o nome do campo de chave primária da tabela que
+se está trabalhando</h2>
+                                <pre>_primary : string</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\Usuarios_model"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/default.html">\</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/Usuarios_model.html">Usuarios_model</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Wed, 03 Sep 2014 14:21:48 +0000.<br/>
+    </footer>
+    </body>
+</html>
