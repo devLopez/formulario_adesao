@@ -1,41 +1,52 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * LoginAdministrativo.php
+     * LoginAdministrativo
      * 
-     * @package     MY_Controller
-     * @subpackage  loginAdministrativo
+     * Classe desenvolvida para fazer o login para os administradores do sistema
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para fazer o login para os administradores
-     *              do sistema
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class LoginAdministrativo extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
          * @access      Public
-         * @param       BOOL    $requer_autenticacao    Setado como false por que
-         *              para acessar esta classe não é necessário estar logado no
-         *              sistema
          */
-        public function __construct($requer_autenticacao = FALSE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(FALSE);
         }
         //**********************************************************************
         
         /**
          * index()
          * 
+         * Função principal do sistema, responsável pela view inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal do sistema
+         * @access		Public
          */
         function index()
         {
-            /** Define o template, a view e o título da página **/
             $this->template = 'template/default';
             $this->view     = 'LoginAdministrativo';
             $this->titulo   = 'Login Administrativo';
@@ -47,9 +58,11 @@
         /**
          * fazer_login()
          * 
+         * Função desenvolvida para para fazer o login para a area administrativa
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para para fazer o login para a area 
-         *              administrativa
+         * @access		Public
+         * @return		bool Retorna TRUE se autenticar e FALSE se não autenticar
          */
         function fazer_login()
         {

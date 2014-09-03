@@ -1,24 +1,35 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * parentesco_model.php
+     * Parentesco_model
      * 
-     * @package     MY_Model
-     * @subpackage  Parentesco_model
+     * Classe desenvolvida para gerenciar as transações com a tabela parentesco
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as transações com a tabela
-     *              parentesco
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Parentesco_model extends MY_Model
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
-         * @access      public
-         * @param       string $this->_tabela   Indica qual será a tabela que trabalharemos
-         * @param       string $this->primary   Indica qual a chave primaria da tabela acima
+         * @access		Public
          */
         public function __construct()
         {
@@ -32,10 +43,10 @@
         /**
          * busca_parentesco()
          * 
+         * Função desenvolvida para buscar os graus de parentesco cadastrados
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os graus de parentesco
-         *              cadastrados
-         * @param       array $query    Recebe um array com os graus de parentesco
+         * @access		Public
          * @return      array   Retorna um array de graus de parentesco
          */
         function busca_parentesco()

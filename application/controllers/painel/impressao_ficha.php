@@ -1,13 +1,25 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * impressao_ficha.php
+     * Impressao_ficha
      * 
-     * @package     MY_Controller
-     * @subpackage  impressao_ficha
+     * Classe desenvolvida para realizar a impressão da ficha de inscrição
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para realizar a impressão da ficha de
-     *              inscrição
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014
      * @todo        Impressão das propostas em PDF. Afunção para tal já foi 
      *              criada. Resta apenas uma modificação da API geradora
      */
@@ -16,20 +28,24 @@
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
+         * @access		Public    
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
         }
         //**********************************************************************
         
         /**
          * index()
          * 
+         * Funçao principal do controller, responsável pela visão inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Funçao principal do controller
+         * @access		Public
          */
         function index()
         {
@@ -40,11 +56,12 @@
         /**
          * gerar_proposta()
          * 
+         * Função desenvolvidaindex.php para gerar uma nova proposta, caso 
+         * no servidor não exista uma proposta já salva. Será criado um arquivo
+         * PDF cujo nome do arquivo será no seguinte modelo: proposta_cpf[criptografafo].pdf
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvidaindex.php para gerar uma nova proposta, caso 
-         *              no servidor não exista uma proposta já salva. Será criado
-         *              um arquivo PDF cujo nome do arquivo será no seguinte 
-         *              modelo: proposta_cpf[criptografafo].pdf
+         * @access		Public
          * @param       int $documento  recebe qual o tipo de documento que será
          *              gerado (proposta ou adesao).
          * @todo        Gerar a proposta em PDF para o proponente
@@ -89,11 +106,11 @@
         /**
          * nome_mes()
          * 
+         * Função desenvolvida para converter o código do mês no nome do mês
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para converter o código do mês em 
-         *              nome, como:
+         * @access		Private
          * @example     01 -> Janeiro
-         * @access      Private
          * @param       string  $mes    Recebe o nome do mês atual
          * @return      string  Retorna o nome do mês atual
          */
@@ -122,9 +139,9 @@
         /**
          * dados_pessoaisProposta()
          * 
+         * Função desenvolvida para buscar os dados pessoais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dados pessoais do 
-         *              proponente
          * @access      Private
          * @return      array Retorna um array com os dados pessoais
          */
@@ -138,9 +155,9 @@
         /**
          * dados_profissionaisProposta()
          * 
+         * Função desenvolvida para buscar os dados profissionais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dados profissionais do 
-         *              proponente
          * @access      Private
          * @return      array Retorna um array com os dados profissionais
          */
@@ -154,9 +171,9 @@
         /**
          * dados_profissionaisProposta()
          * 
+         * Função desenvolvida para buscar os dados profissionais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dados profissionais do 
-         *              proponente
          * @access      Private
          * @return      array Retorna um array com os dados profissionais
          */
@@ -170,9 +187,11 @@
         /**
          * busca_dependentes()
          * 
+         * Função desenvolvida para buscar os dependentes
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dependentes
          * @access      Private
+         * @return		array Retorna um array de dependentes
          */
         private function busca_dependentes()
         {
@@ -201,8 +220,9 @@
         /**
          * mascara_cpf()
          * 
+         * Função desenvolvida para formatar o CPF do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para formatar o CPF do usuário
          * @access      Private
          * @param       int     $val    Recebe o valor que será mascarado
          * @param       string  $mask   Recebe a mascara que será aplicada
@@ -219,9 +239,10 @@
          +**********************************************************************
          * gerar_pdf()
          * 
+         * Função desenvolvida para gerar os documentos em PDF para que o 
+         * usuário possa fazer o download
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para gerar os documentos em PDF para
-         *              que o usuário possa fazer o download
          * @access      Private
          * @param       array  $dados  Contém os dados necessarios para criação do PDF
          * @todo        Verificar uma maneira de gerar um PDF mais sólido, pois,

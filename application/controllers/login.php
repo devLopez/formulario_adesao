@@ -1,24 +1,40 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * login.php
+     * Login
      * 
-     * @package     MY_Controller
-     * @subpackage  login
+     * Classe desenvolvida para gerenciar operações de login
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar operações de login
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Login extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para construção da classe
+         * @access		Public
          */
         public function __construct()
         {
             parent::__construct(false);
+            
             $this->load->model('usuarios_model');
         }
         //**********************************************************************
@@ -26,8 +42,10 @@
         /**
          * index()
          * 
+         * Função desenvolvida para mostrar a interface de login
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para mostrar a interface de login
+         * @access		Public
          */
         function index()
         {
@@ -41,9 +59,12 @@
 
         /**
          * fazer_login()
+         * 
+         * Função desenvolvida para realizar o login do usuário
          *
-         * @author        Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract      Função desenvolvida para realizar o login do usuário
+         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
+         * @return		bool Retorna TRUE se autenticar e FALSE se não autenticar
          */
         function fazer_login()
         {
@@ -54,11 +75,11 @@
 
             if($this->login_library->fazer_login($dados) == 1)
             {
-                echo 1; // Imprime 1 em caso de sucesso
+                echo 1;
             }
             else
             {
-                echo 0; // Imprime 0 em caso de erro
+                echo 0;
             }
         }
         //**********************************************************************
@@ -66,9 +87,11 @@
         /**
          * logout()
          * 
+         * Realiza o logoff da conta do usuário. Depois redireciona para a 
+         * página principal
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza o logoff da conta do usuário. Depois
-         *              redireciona para a página principal
+         * @access		Public
          */
         function logout()
         {

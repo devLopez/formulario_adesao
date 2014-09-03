@@ -1,28 +1,41 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * dprofissionais_model.php
+     * Dprofissionais_model
      * 
-     * @package     MY_Model
-     * @subpackage  Dprofissionais_model
+     * Classe desenvolvida para gerenciar as transações envolvendo a tabela 
+     * 'dados_profissionais'
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as transações envolvendo 
-     *              a tabela 'dados_profissionais'
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Dprofissionais_model extends MY_Model
     {
         /**
-         * __construct
+         * __construct()
+         * 
+         * Realiza a construção da classe
          * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
-         * @param       string $this->_tabela Indica a tabela que iremos trabalhar
-         * @param       string $this->_primary Indica o campo de chave primária da tabela anterior
-         * @return      bool Retorna verdadeiro se salvar e falso se não salvar
+         * @access		Public
          */
         public function __construct()
         {
             parent::__construct();
+            
             $this->_tabela  = 'dados_profissionais';
             $this->_primary = 'id';
         }
@@ -31,10 +44,11 @@
         /**
          * salvar()
          * 
+         * Função desenvolvida para salvar os dados profissionais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados profissionais do proponente
+         * @access		Public
          * @param       array $dados_profissionais Variável que contém os dados profissionais do proponente
-         * @param       array $data Variável que associará os campos da tabela aos respectivos dados
          * @return      bool Retorna verdadeiro se salvar e falso se não salvar
          */
         function salvar($dados_profissionais)
@@ -69,8 +83,12 @@
         /**
          * buscar_dadosProfissionais()
          * 
+         * Realiza a busca dos dados profissionais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a busca dos dados pessoais do proponente
+         * @access		Public
+         * @return		array Retorna um array com os dados profissionais do
+         * 				proponente
          */
         function busca_dadosProfissionais()
         {
@@ -83,10 +101,11 @@
         /**
          * update()
          * 
+         * Função desenvolvida para atualizar os dados profissionais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-		 * @abstract	Função desenvolvida para atualizar os dados profissionais do proponente
+		 * @access		Public
          * @param       array   $dados_profissionais    Contém os dados profissionais do usuário
-         * @param       array   $data                   Associa os campos da tabela aos dados
          * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
          */
         function update($dados_profissionais)

@@ -1,15 +1,25 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
 	/**
-	 * usuarios
+	 * Usuarios
 	 * 
 	 * Classe desenvolvida para gerenciar os usuarios cadastrados no sistema
 	 * 
-	 * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+	 * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+	 * @access		Public
 	 * @package		CI_Controller
 	 * @subpackage	MY_Controller
-	 * @version		v1.0.0
-	 * @since		29/08/2014
+	 * @version		v1.1.0
+	 * @since		03/09/2014
 	 */
 	class Usuarios extends MY_Controller
 	{

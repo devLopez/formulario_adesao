@@ -1,26 +1,40 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * dconjuge_model.php
+     * Dconjuge_model
      * 
-     * @package     MY_Model
-     * @subpackage  Dconjuge_model
+     * Classe desenvolvida para gerenciar as transações na tabela 'dados_conjuge'
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as transações na tabela 'dados_conjuge'
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Dconjuge_model extends MY_Model
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
-         * @param       string $this->_tabela Indica a tabela que iremos trabalhar
-         * @param       string $this->_primary Indica qual o campo é a chave primária da tabela anterior
+         * @access		Public
          */
         public function __construct()
         {
             parent::__construct();
+            
             $this->_tabela  = 'dados_conjuge';
             $this->_primary = 'id';
         }
@@ -29,10 +43,10 @@
         /**
          * salvar()
          * 
+         * Função desenvolvida para salvar os dados do conjuge do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados do conjuge do proponente
          * @param       array $dados_conjuge Contém os dados do conjuge
-         * @param       array $data Realiza a associação dos campos da tabela com seus respectivos dados
          * @return      bool retorna true se salvar e false se não salvar
          */
         function salvar($dados_conjuge)
@@ -67,8 +81,10 @@
         /**
          * busca_dadosConjuge()
          * 
+         * Realiza a busca dos dados pessoais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a busca dos dados pessoais do proponente
+         * @access		Public
          */
         function busca_dadosConjuge()
         {
@@ -80,9 +96,11 @@
         
 		/**
 		 * update()
+		 * 
+		 * Função desenvolvida para atualizar os dados do conjuge
 		 *
 		 * @author		Matheus Lopes Santos <fale_com_lopez@hotmail>
-		 * @abstract	Função desenvolvida para atualizar os dados do conjuge
+		 * @access		Public
 		 * @param		array $dados_conjuge Contém os dados que serão atualizados
 		 * @return		bool Retorna TRUE se atualizar e FALSE se não atualizar
 		 */

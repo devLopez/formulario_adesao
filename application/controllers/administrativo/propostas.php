@@ -1,21 +1,35 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * propostas.php
+     * Propostas
      * 
-     * @package     MY_Controller
-     * @subpackage  propostas
+     * Classe desenvolvida para gerenciar as propostas de cota que estão 
+     * cadastrados no sistema
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as propostas de cota que 
-     *              estão cadastrados no sistema
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014
      */
     class Propostas extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
          * @access      Public
          * @param       bool    $requer_autenticacao    Recebe TRUE pois indica 
          *              que é necessário o login para acesso a esta área
@@ -34,8 +48,9 @@
         /**
          * index()
          * 
+         * Função principal da classe, responsável pela visão inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal da classe
          * @access      Public
          */
         function index()
@@ -52,9 +67,10 @@
         /**
          * buscar_propostas()
          * 
+         * Função desenvolvida para chamar os dados dos usuarios cadastrados 
+         * via ajax
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para chamar os dados dos usuarios 
-         *              cadastrados via ajax
          * @access      Public
          * @param       int $offset Offset que será usado na paginação
          */
@@ -83,10 +99,11 @@
         /**
          * visualizar_proponente()
          * 
+         * Função desenvolvida para que o administrador do sistema possa 
+         * visualizar de uma maneira melhor, os dados de um proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para que o administrador do sistema
-         *              possa visualizar de uma maneira melhor, os dados de um
-         *              proponente
+         * @access		Public    
          * @param       int $id Contém o ID do usuário a ser buscado
          */
         function visualiza_proponente($id = NULL)
@@ -107,8 +124,10 @@
         /**
          * deferir_proposta()
          * 
+         * Função desenvolvida para deferir uma proposta de cota
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para deferir uma proposta de cota
+         * @access		Public
          */
         function deferir_proposta()
         {
@@ -121,8 +140,10 @@
         /**
          * indeferir_proposta()
          * 
+         * Função desenvolvida para deferir uma proposta de cota
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para deferir uma proposta de cota
+         * @access		Public
          */
         function indeferir_proposta()
         {
@@ -135,8 +156,9 @@
         /**
          * salvar_observacao()
          * 
+         * Função desenvolvida para salvar uma nova observação
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar uma nova observação
          * @access      Public
          */
         function salvar_observacao()
@@ -151,9 +173,10 @@
         /**
          * buscar_observacoes()
          * 
+         *  Função desenvolvida para buscar as observações cadastradas para 
+         *  um usuário
+         *  
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar as observações cadastradas
-         *              para um usuário
          * @access      Public
          * @param       int $id_usuario Recebe o ID do usuário que será usado no
          *              sql
@@ -172,8 +195,12 @@
         /**
          * buscar_byId()
          * 
+         * Função desenvolvida para buscar um registro do BD
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar um registro do BD
+         * @access		Public
+         * @param		int $id Contém o ID do registro a ser buscado
+         * @return		mixed
          */
         function buscar_byId($id)
         {
@@ -200,8 +227,11 @@
         /**
          * atualizar()
          * 
+         * Função desenvolvida para atualizar uma observação
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para atualizar uma observação
+         * @access		Public
+         * @return		bool Retorna TRUE se atualizar e FALSE se não atualizar
          */
         function atualizar()
         {
@@ -215,8 +245,11 @@
         /**
          * delete()
          * 
+         * Função desenvolvida para atualizar uma observação
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para atualizar uma observação
+         * @access		Public
+         * @return		bool Retorna TRUE se apagar e FALSE se não apagar
          */
         function apagar()
         {

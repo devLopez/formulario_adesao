@@ -1,27 +1,39 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * observacoes.php
+     * Observacoes
      * 
-     * @package     MY_Controller
-     * @subpackage  observacoes
+     * Classe desenvolvida para gerenciar as observações recebidas pelo proponente
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as observações recebidas
-     *              pelo proponente
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Observacoes extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Função desenvolvida para construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para construção da classe
-         * @param       bool    $requer_autenticacao    Se receber true, indica que,
-         *              para acessar esta página é necessário fazer login
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
             
             $this->load->model('observacoes_model', 'observacoes');
         }
@@ -30,10 +42,10 @@
         /**
          * index()
          * 
+         * Função principal da classe, responsável pela visão inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal da classe
-         * @param       string  $this->view     Indica a visão que se deseja trabalhar
-         * @param       string  $this->titulo   Indica o título da visão acima
+         * @access		Public
          */
         function index()
         {
@@ -47,8 +59,9 @@
         /**
          * observacoes_cadastradas()
          * 
+         * Função desenvolvida para buscar as observações cadastradas
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar as observações cadastradas
          * @access      Public
          */
         function observacoes_cadastradas()

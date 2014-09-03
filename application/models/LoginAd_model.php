@@ -1,23 +1,35 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * LoginAd_model.php
+     * LoginAd_model
      * 
-     * @package     MY_Model
-     * @subpackage  LoginAd_model.php
+     * Classe desenvolvida para gerenciar as transações com com a tabela 
+     * usuarios_administrativos
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as transações com com a tabela
-     *              usuarios_administrativos
-     * @version		v1.1.0
-     * @since		29/08/2014
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014
      */
     class LoginAd_model extends MY_Model
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
          * @access      Public
          */
         public function __construct()
@@ -33,9 +45,9 @@
         /**
          * buscar_usuario()
          * 
+         * Função desenvolvida para buscar os dados dos usuarios administrativos
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dados dos usuarios 
-         *              administrativos
          * @param       array   $dados  Contém os dados de login do usuário
          * @return      array   Retorna um array com os dados do usuario. Se não
          *              encontrar, retorna FALSE
@@ -99,8 +111,8 @@
          * 
          * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
          * @access		Public
-         * @param		mixed $parametro_adicional Receberá para determinadas
-         * 				consultadas
+         * @param		mixed $parametro_adicional Parâmetro que será passado 
+         * 				para complementar as consultas
          * @return		array Retorna um array de usuários cadastrados
          */
         function get($parametro_adicional = NULL)

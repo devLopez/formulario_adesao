@@ -1,27 +1,41 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * dpessoais_model.php
+     * Dpessoais_model
      * 
-     * @package     MY_Model
-     * @subpackage  Dpessoais_model
+     * Classe desenvolvida para gerenciar as transações envolvendo a tabela 
+     * dados_pessoais
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Class desenvolvida para gerenciar as transações envolvendo a
-     *              tabela dados_pessoais
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Dpessoais_model extends MY_Model
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
-         * @param       string $this->_tabela Indica a tabela que iremos trabalhar
-         * @param       string $this->_primary Indica qual o campo é a chave primária da tabela anterior
+         * @access    	Public
          */
         public function __construct()
         {
             parent::__construct();
+            
             $this->_tabela  = 'dados_pessoais';
             $this->_primary = 'id';
         }
@@ -30,10 +44,12 @@
         /**
          * salvar()
          * 
+         * Função desenvolvida para salvar os dados do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados do proponente
-         * @param       array $dados Variavel que contem os dados do proponente
-         * @param       array $data Variável que irá ajuntar os dados aos nomes dos campos da tabela
+         * @access		Public
+         * @param       array $dados_pessoais Variavel que contem os dados do proponente
+         * @return		bool Retorna TRUE se salvar e FALSE se não salvar
          */
         function salvar($dados_pessoais)
         {
@@ -71,8 +87,12 @@
         /**
          * buscar_dadosPessoais()
          * 
+         * Realiza a busca dos dados pessoais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a busca dos dados pessoais do proponente
+         * @access		Public
+         * @return		array Retorna um array com os dados pessoais do 
+         * 				proponente
          */
         function busca_dadosPessoais()
         {
@@ -85,12 +105,12 @@
         /**
          * update()
          * 
+         * Função desenvolvida para fazer o update na tupla cujo ID da tupla 
+         * será passado com parâmetro juntamente com os outros dados
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para fazer o update na tupla cujo ID
-         *              da tupla será passado com parâmetro juntamente com os outros
-         *              dados
+         * @access		Public
          * @param       array   $dados_pessoais Contém os dados pessoais do usuário
-         * @param       array   $data           Associa os dados aos campos da tabela
          * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
          */
         function update($dados_pessoais)

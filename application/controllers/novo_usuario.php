@@ -1,21 +1,36 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * novo_usuario.php
+     * Novo_usuario
      * 
-     * @package     MY_Controller
-     * @subpackage  novo_usuario
+     * Classe desenvolvida para criação de usuários do sistema, para que o 
+     * mesmo possa criar e editar seus formulários
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para criação de usuários do sistema,
-     *              para que o mesmo possa criar e editar seus formulários
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Novo_usuario extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Função que realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que realiza a construção da classe
+         * @access		Public
          */
         public function __construct()
         {
@@ -27,15 +42,17 @@
         /**
          * index()
          * 
+         * Função inicial do controller. Responsável pela view inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função inicial do controller. Aqui será feira a 
-         *              chamada da visão correspondente
+         * @access		Public
          */
         function index()
         {
             $this->view     = 'novo_usuario';
             $this->template = 'template/default';
             $this->titulo   = 'Criação de novo usuário';
+            
             $this->LoadView();
         }
         //**********************************************************************
@@ -43,26 +60,29 @@
         /**
          * verifica_cpf()
          * 
+         * Função desenvolvida para verificar se existe cpf cadastrado na 
+         * base de dados
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para verificar se existe cpf 
-         *              cadastrado na base de dados
+         * @access		Public
+         * @return		bool Retorna TRUE se encontrar o cpf e FALSE se não 
+         * 				encontrar
          */
         function verifica_cpf()
         {
-            $cpf_proponente = $this->input->post('cpf');
-            
-            $resposta = $this->usuarios_model->verifica_cpf($cpf_proponente);
-            
-            echo $resposta;
+            echo $this->usuarios_model->verifica_cpf($this->input->post('cpf'));
         }
         //**********************************************************************
         
         /**
          * salvar_usuario()
          * 
+         * Função desenvolvida para salvar um novo usuário no sistema. Após 
+         * salvar o novo usuário, realiza o login automaticamente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar um novo usuário no 
-         *              sistema
+         * @access		Public
+         * @return		bool Retorna TRUE se salvar e FALSE se não salvar
          */
         function salvar_usuario()
         {

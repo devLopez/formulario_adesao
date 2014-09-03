@@ -1,24 +1,39 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * painel.php
+     * Painel
      * 
-     * @package		MY_Controller
-     * @subpackage	painel/painel
-     * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract	Esta classe chama a página de startup da área que necessita realizar o login
+     * Esta classe chama a página de startup da área que necessita realizar o login
+     * 
+     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014	
      */
     class Painel extends MY_Controller
     {
         /**
          * __construct()
          * 
-         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract	Realiza a construção da classe
+         * Realiza a construção da classe
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
             $this->load->model('usuarios_model');
         }
         //**********************************************************************
@@ -26,8 +41,10 @@
         /**
          * index()
          * 
-         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract	Função inicial do controller. Irá chamar a visão do painel
+         * Função inicial do controller. Irá chamar a visão do painel
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
          */
         function index()
         {
@@ -44,8 +61,10 @@
         /**
          * buscar_inscricao()
          * 
-         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que verificará se foi criada uma solicitação de cota
+         * Função que verificará se foi criada uma solicitação de cota
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
          */
         function buscar_inscricao()
         {   
@@ -56,8 +75,10 @@
         /**
          * buscar_aprovacao()
          * 
-         * @author	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para verificar o status da aprovacao
+         * Função desenvolvida para verificar o status da aprovacao
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
          */
         function buscar_aprovacao()
         {

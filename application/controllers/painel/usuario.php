@@ -1,24 +1,39 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * usuario.php
+     * Usuario
      * 
-     * @package     MY_Controller
-     * @subpackage  usuario.php
+     * Classe desenvolvida para gerenciar o perfil do usuário
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Controller desenvolvido para gerenciar o perfil do usuário
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Usuario extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Função desenvolvida para construção do controller
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para construção do controller
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
             
             $this->load->model('usuarios_model');
         }
@@ -27,9 +42,10 @@
         /**
          * index()
          * 
+         * Função principal do controller, responsável pela view inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal do controller
-         * @access      public
+         * @access      Public
          */
         function index()
         {
@@ -43,9 +59,10 @@
         /**
          * buscar_dados()
          * 
+         * Função desenvolvida para buscar os dados de acesso do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dados de acesso do
-         *              usuário
+         * @access		Public
          */
         function buscar_dados()
         {
@@ -58,8 +75,11 @@
         /**
          * atualizar_perfil()
          * 
+         * Função desenvolvida para alterar os dados do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para alterar os dados do usuário
+         * @access		Public
+         * @return		bool Retorna TRUE se salvar e FALSE se não salvar
          */
         function atualizar_perfil()
         {
@@ -85,9 +105,10 @@
         /**
          * alterar_senha()
          * 
+         * Função desenvolvida para atualizar a senha do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para atualizar a senha do usuário
-         * @access      private
+         * @access      Private
          * @param       string $senha Contém a nova senha do usuario
          * @return      bool Retorna TRUE se salvar e FALSE se não salvar
          */
@@ -103,9 +124,10 @@
         /**
          * alterar_nomeUsuario()
          * 
+         * Função desenvolvida para atualizar o nome do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para atualizar o nome do usuário
-         * @access      provate
+         * @access      Private
          * @param       string  $nome Contém o nome do usuário
          * @return      bool Retorna TRUE se salvar e FALSE se não salvar
          */

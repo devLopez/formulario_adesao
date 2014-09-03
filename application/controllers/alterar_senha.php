@@ -1,25 +1,39 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * alterar_senha()
+     * Alterar_senha
      * 
+     * Classe desenvolvida para que o usuário possa trocar a sua senha
      * 
-     * @package        MY_Controller
-     * @subpackage     alterar_senha
-     * @author         Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract       Classe desenvolvida para que o usuário possa trocar a sua senha
+     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014
      */
     class Alterar_senha extends MY_Controller
     {
         /**
          * __construct()
+         * 
+         * Realiza a construção do controller
          *
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção do controller
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = FALSE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(FALSE);
 
             $this->load->model('usuarios_model');
         }
@@ -27,9 +41,11 @@
 
         /**
          * index()
+         * 
+         * Função principal do controller, responsável pela view inicial
          *
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal do controller
+         * @access		Public
          * @param		string $nivel Indica o nível do usuário. Se o nível for
          * 				igual a *admin* indica que a solicitação está sendo feita
          * 				por um usuário administrativo
@@ -51,9 +67,13 @@
 
         /**
          * verifica_cpf()
+         * 
+         * Função que verifica se existe um cpf identico ao digitado
          *
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que verifica se existe um cpf identico ao digitado
+         * @access		Public
+         * @return		bool Retorna TRUE se encontar o cpf e FALSE se não 
+         * 				encontar
          */
         function verifica_cpf()
         {
@@ -76,9 +96,12 @@
 
         /**
          * alterar()
+         * 
+         * Função desenvolvida para alterar a senha do usuário
          *
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para alterar a senha do usuário
+         * @access		Public
+         * @return		bool Retorna TRUE se alterar e FALSE se não alterar
          */
         function alterar()
         {

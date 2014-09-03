@@ -1,32 +1,49 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * meus_dados.php
+     * Meus_dados
      * 
-     * @package     MY_Controller
-     * @subpackage  Meus_dados
+     * Classe desenvolvida para gerenciar os dados do usuário
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar os dados do usuário
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Meus_dados extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Realiza a contrução da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a contrução da classe
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
         }
         //**********************************************************************
         
         /**
          * index()
          * 
+         * Função principal da classe, responsável pela visão inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal da classe
+         * @access		Public    
          */
         function index()
         {
@@ -40,8 +57,10 @@
         /**
          * dados_pessoais()
          * 
+         * Busca os dados pessoais do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Busca os dados pessoais do usuário
+         * @access		Public
          */
         function dados_pessoais()
         {
@@ -55,8 +74,10 @@
         /**
          * dados_profissionais()
          * 
+         * Busca os dados profissionais do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Busca os dados profissionais do usuário
+         * @access		Public
          */
         function dados_profissionais()
         {
@@ -70,8 +91,10 @@
         /**
          * dados_conjuge()
          * 
+         * Função que busca os dados do conjuge do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que busca os dados do conjuge do usuário
+         * @access		Public
          */
         function dados_conjuge()
         {

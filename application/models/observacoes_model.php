@@ -1,27 +1,40 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * observacoes_model.php
+     * Observacoes_model
      * 
-     * @package     MY_Model
-     * @subpackage  observacoes_model
+     * Classe desenvolvida para gerenciar as operações com a tabela observacoes
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as operações com a tabela
-     *              observacoes
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Observacoes_model extends MY_Model
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
+         * @access		Public
          */
         public function __construct()
         {
             parent::__construct();
             
-            /** Seleciona a tabela e a chave primária **/
             $this->_tabela  = 'observacoes';
             $this->_primary = 'id';
         }
@@ -30,15 +43,15 @@
         /**
          * salvar()
          * 
+         * Função desenvolvida para salvar uma observação
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar uma observação
-         * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
-         * @access      Public
+         * @access		Public
          * @param       array $dados Contém os dados que serão salvos
+         * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
          */
         public function salvar($dados)
         {
-            /** Associa os campos aos dados **/
             $data = array(
                 'id_proponente' => $dados['id_proponente'],
                 'observacao'    => $dados['observacao']
@@ -51,9 +64,10 @@
         /**
          * buscar_todas()
          * 
+         * Realiza a busca de todas as observações cadastradas para um proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a busca de todas as observações cadastradas para
-         *              um proponente
+         * @access		Public
          * @param       int $id_proponente  Contém o id do proponente que será usado
          *              na consulta sql
          * @return      array   Retorna um array de observações
@@ -69,8 +83,10 @@
         /**
          * buscar()
          * 
+         * Função desenvolvida para buscar um registro
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar um registro
+         * @access		Public
          * @param       int $id Contém o ID do registro a ser buscado
          * @return      array   Retorna um array contendo o registro
          */
@@ -85,8 +101,10 @@
         /**
          * update()
          * 
+         * Função desenvolvida para atualizar uma observação
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para atualizar uma observação
+         * @access		Public
          * @param       array   $dados  Contém os dados a serem salvos
          * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
          */
@@ -106,8 +124,10 @@
         /**
          * delete()
          * 
+         * Função desenvolvida para apagar uma observação
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para apagar uma observação
+         * @access		Public
          * @return      bool Retorna TRUE se apagar e FALSE se não apagar
          * @param       int $id Contém o ID do registro a ser apagado
          */

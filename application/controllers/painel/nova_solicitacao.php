@@ -1,38 +1,55 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * nova_solicitacao()
+     * Nova_solicitacao
      * 
-     * @package     MY_Controller
-     * @subpackage  nova_solicitacao
+     * Esta classe fará o tratamento de solicitações referentes ao cadastro de 
+     * uma nova ficha
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Esta classe fará o tratamento de solicitações referentes ao 
-     *              cadastro de uma nova ficha
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Nova_solicitacao extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Função que realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que realiza a construção da classe
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
         }
         //**********************************************************************
         
         /**
          * index()
          * 
+         * Função desenvolvida para mostrar a tela de cadastro
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para mostrar a tela de cadastro
+         * @access		Public
          */
         function index()
         {
-            $this->view = 'painel/nova_solicitacao';
-            $this->titulo = 'Nova solicitação de cota';
+            $this->view 	= 'painel/nova_solicitacao';
+            $this->titulo 	= 'Nova solicitação de cota';
 
             $this->LoadView();
         }
@@ -41,12 +58,12 @@
         /**
          * salvar_dados()
          * 
+         * Função desenvolvida para realizar o salvamento dos dados de uma nova
+         * inscrição
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para realizar o salvamento dos dados de uma nova inscrição
-         * @param       int $id_proponente Variável que recebe, descriptografado, 
-         *              o ID proponente que está na seção
-         * @param       array $resposta Variável que receberá a resposta das 
-         *              outras funções de salvamento
+         * @access		Public
+         * @return		bool Retorna TRUE se salvar e FALSE se não salvar
          */
         function salvar_dados()
         {
@@ -156,12 +173,15 @@
         /**
          * salvar_dadosPessoais()
          * 
+         * Função desenvolvida para salvar os dados pessoais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados pessoais do proponente
-         * @param       array $dados_pessoais Variável que contém todos os dados pessoais do proponente
+         * @access		Private
+         * @param       array $dados_pessoais Variável que contém todos os dados
+         * 				pessoais do proponente
          * @return      bool Retorna verdadeiro se salvar e falso se não salvar
          */
-        function salvar_dadosPessoais($dados_pessoais)
+        private function salvar_dadosPessoais($dados_pessoais)
         {
             $this->load->model('Dpessoais_model');
             return $this->Dpessoais_model->salvar($dados_pessoais);
@@ -171,12 +191,14 @@
         /**
          * salvar_dadosProfissionais()
          * 
+         * Função desenvolvida para salvar os dados profissionais do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados profissionais do proponente
+         * @access		Private
          * @param       array $dados_profissionais Contém os dados profissionais do proponente
          * @return      bool Retorna verdadeiro se salvar e falso se não salvar
          */
-        function salvar_dadosProfissionais($dados_profissionais)
+        private function salvar_dadosProfissionais($dados_profissionais)
         {
             $this->load->model('Dprofissionais_model');
             return $this->Dprofissionais_model->salvar($dados_profissionais);
@@ -186,12 +208,14 @@
         /**
          * salvar_dadosConjuge()
          * 
+         * Função desenvolvida para salvar os dados do conjuge do proponente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados do conjuge do proponente
+         * @access		Private
          * @param       array $dados_conjuge Contém os dados do conjuge do proponente
          * @return      bool Retorna verdadeiro se salvar e falso se não salvar
          */
-        function salvar_dadosConjuge($dados_conjuge)
+        private function salvar_dadosConjuge($dados_conjuge)
         {
             $this->load->model('Dconjuge_model');
             return $this->Dconjuge_model->salvar($dados_conjuge);
@@ -201,8 +225,10 @@
         /**
          * gerar_protocolo()
          * 
+         * Função desenvolvida para gerar um protocolo no registro do usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para gerar um protocolo no registro do usuário
+         * @access		Public
          * @return      bool Retorna true se salvar e false se não salvar
          */
         function gerar_protocolo()
@@ -216,9 +242,11 @@
         /**
          * formulario_edicao()
          * 
+         * Função desenvolvida para lançar os dados do usuário em um formulário
+         * para edição
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para lançar os dados do usuário em 
-         *              um formulário para edição
+         * @access		Public
          */
         function formulario_edicao()
         {
@@ -237,8 +265,11 @@
         /**
          * atualizar_dados()
          * 
+         * Função desenvolvida para atualizar os dados do usuário
+         * 
          * @author      Matheus Lopes Santos
-         * @abstract    Função desenvolvida para atualizar os dados do usuário
+         * @access		Public
+         * @return		bool Retorna TRUE se salvar e FALSE se não salvar
          */
         function atualizar_dados()
         {
@@ -350,12 +381,14 @@
         /**
          * update_dadosPessoais()
          * 
+         * Função desenvolvida para chamar o update dos dados pessoais
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para chamar o update dos dados pessoais
+         * @access		Private
          * @param       array   $dados_pessoais Contém os dados pessoais do usuário
          * @return      bool    Retorna TRUE se salvar e FALSE se não salvar
          */
-        function update_dadosPessoais($dados_pessoais)
+        private function update_dadosPessoais($dados_pessoais)
         {
             $this->load->model('Dpessoais_model');
             return $this->Dpessoais_model->update($dados_pessoais);
@@ -365,13 +398,15 @@
         /**
          * update_dadosProfissionais()
          * 
+         * Função desenvolvida para chamar o update dos dados profissionais
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para chamar o update dos dados profissionais
+         * @access		Private
          * @param       array   $dados_profissionais    Contém os dados profissionais
          *              do usuário
          * @return      bool retorna TRUE se salvar e FALSE se não salvar
          */
-        function update_dadosProfissionais($dados_profissionais)
+        private function update_dadosProfissionais($dados_profissionais)
         {
             $this->load->model('Dprofissionais_model');
             
@@ -382,12 +417,14 @@
         /**
          * update_dadosConjuge()
          * 
+         * Função desenvolvida para chamar o update dos dados do conjuge
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para chamar o update dos dados do conjuge
+         * @access		Private
          * @param       array   $dados_conjuge  Contém os dados do conjuge do usuário
          * @return      bool retorna TRUE se salvar e FALSE se não salvar
          */
-        function update_dadosConjuge($dados_conjuge)
+        private function update_dadosConjuge($dados_conjuge)
         {
             $this->load->model('Dconjuge_model');
             

@@ -1,23 +1,35 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * dependentes_model()
+     * Dependentes_model
      * 
-     * @package     MY_Model
-     * @subpackage  Dependentes_model
+     * Classe desenvolvida para gerenciar os dependentes
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar os dependentes
+	 * @access		Public
+	 * @package		CI_Model
+	 * @subpackage	MY_Model
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Dependentes_model extends MY_Model
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
-         * @param       string $this->_tabela   Indica a tabela que será trabalhada
-         * @param       string $this->_primary  Indica a chave primaria da tabela acima
-         * @access      public
+         * @access      Public
          */
         public function __construct()
         {
@@ -31,9 +43,11 @@
         /**
          * buscar_dependentes()
          * 
+         * Função desenvolvida para buscar os dependentes cadastrados para um 
+         * usuário
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dependentes cadastrados
-         *              para um usuário
+         * @access		Public
          * @return      array   Retorna um array de dependentes
          */
         function buscar_dependentes()
@@ -48,10 +62,11 @@
         /**
          * salvar()
          * 
+         * Função desenvolvida para salvar os dados de um dependente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para salvar os dados de um dependente
-         * @param       array $dados    Contém os dados que serão salvos
-         * @param       array $data     Faz a associação entre os dados e os campos da tabela
+         * @access		Public
+         * @param       array $dados Contém os dados que serão salvos
          * @return      bool    Retorna true se salvar e false se não salvar
          */
         function salvar($dados)
@@ -71,8 +86,10 @@
         /**
          * excluir()
          * 
+         * Função que exclui um registro pelo ID
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que exclui um registro pelo ID
+         * @access		Public
          * @param       int $id Recebe o id do registro que será excluido
          * @return      bool retorna true se excluir e false se não
          */
@@ -86,9 +103,11 @@
         /**
          * buscar_byId()
          * 
+         * Função desenvolvida para buscar os dados de um dependente de acordo 
+         * o ID passado
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar os dados de um dependente
-         *              de acordo o ID passado
+         * @access    	Public
          * @param       int $id ID da tupla, foi passado pela url
          * @return      array   Retorna um array contendo os dados de um dependente
          */
@@ -104,11 +123,12 @@
         /**
          * update()
          * 
+         * Função desenvolvida para realizar o update em um dependente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para realizar o update em um dependente
-         * @return      bool Retorna true se atualizar e false se não atualizar
+         * @access		Public
          * @param       array   $dados  Contém os dados a serem atualizados
-         * @param       array   $data   Associa os dados aos campos da tabela
+         * @return      bool Retorna true se atualizar e false se não atualizar
          */
         function update($dados)
         {

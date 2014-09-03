@@ -1,21 +1,35 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * painel
+     * Painel
      * 
-     * @package     MY_Controller
-     * @subpackage  Painel
+     * Classe desenvolvida para gerenciar o painel administrativo do sistema
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Função desenvolvida para gerenciar o painel administrativo
-     *              do sistema
+     * @access		Public
+     * @package		CI_Controller
+     * @subpackage	MY_Controller
+     * @version		v1.1.0
+     * @since		03/09/2014
      */
     class Painel extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
+         * @access		Public
          * @param       bool    $requer_autenticacao    Se setada como true, 
          *              indica que para acessar este controller é necessário ter
          *              feito login
@@ -31,10 +45,10 @@
         /**
          * index()
          * 
+         * Função principal da classe, responsável pela visão inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal do sistema
-         * @todo        Busca por proponentes não aprovados
-         * @todo        busca de mensagens não lidas
+         * @access		Public
          */
         function index()
         {
@@ -52,9 +66,10 @@
         /**
          * buscar_propostasAberto()
          * 
+         * Função desenvolvida para contar as propostas que estão em aberto
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para contar as propostas que estão 
-         *              em aberto
+         * @access		Public
          * @access      Private
          * @return      int   Retorna a quantidade de propostas em aberto
          */

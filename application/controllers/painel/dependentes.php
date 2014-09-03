@@ -1,25 +1,39 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
 
     /**
-     * dependentes.php
+     * Dependentes
      * 
-     * @package     MY_Controller
-     * @subpackage  Dependentes
+     * Classe que irá gerenciar as operações com os dependentes
+     * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe que irá gerenciar as operações com os dependentes
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014    
      */
     class Dependentes extends MY_Controller
     {
         /**
          * __contruct()
          * 
+         * Função desenvolvida para fazer a contrução da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para fazer a contrução da classe
-         * @access      public
+         * @access      Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
 
             $this->load->model('dependentes_model');
         }
@@ -28,8 +42,10 @@
         /**
          * index()
          * 
+         * Função inicial da classe, responsável pela visão inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função inicial do controller
+         * @access		Public
          */
         function index()
         {
@@ -43,8 +59,11 @@
         /**
          * busca_parentesco()
          * 
+         * Função desenvolvida para buscar o grau de parentesco
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para buscar o grau de parentesco
+         * @access		Public
+         * @return		string Retorna as opções que popularão o selectbox
          */
         function busca_parentesco()
         {
@@ -113,10 +132,13 @@
         /**
          * excluir_dependente()
          * 
+         * Função desenvolvida para excluir um registro de dependente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para excluir um registro de dependente
+         * @access		Public
          * @param       int     $id         ID do registro que será excluido
          * @param       bool    $resposta   Recebe a resposta se os dados foram excluidos ou não
+         * @return		bool Retorna TRUE se excluir e FALSE se não excluir
          */
         function excluir_dependente()
         {
@@ -138,9 +160,10 @@
         /**
          * busca_dadosDepentente()
          * 
+         * Função que realiza a busca dos dados de um dependente para edição
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função que realiza a busca dos dados de um dependente 
-         *              para edição
+         * @access		Public
          */
         function busca_dadosDepentente()
         {
@@ -155,8 +178,11 @@
         /**
          * atualizar_dependente()
          * 
+         * Função desenvolvida para atualizar os dados de um dependente
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função desenvolvida para atualizar os dados de um dependente
+         * @access		Public
+         * @return		bool Retorna TRUE se salvar e FALSE se não salvar
          */
         function atualizar_dependente()
         {

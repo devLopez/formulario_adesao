@@ -1,27 +1,39 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	/**
+	 * Sistema de Inscrições On-line
+	 * 
+	 * Sistema desenvolvido para facilitação de inscrições em empresas
+	 * 
+	 * @package		SIO
+	 * @author		Masterkey Informática
+	 * @copyright	Copyright (c) 2010 - 2014, Masterkey Informática LTDA
+	 */
     
     /**
-     * referencias.php
+     * Referencias
+     * 
+     * Classe desenvolvida para gerenciar as referencias do proponente
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @abstract    Classe desenvolvida para gerenciar as referencias do proponente
-     * @todo        Desenvolver função para atualizar os dados de uma referencia
-     *              já cadastrada
+	 * @access		Public
+	 * @package		CI_Controller
+	 * @subpackage	MY_Controller
+	 * @version		v1.1.0
+	 * @since		03/09/2014
      */
     class Referencias extends MY_Controller
     {
         /**
          * __construct()
          * 
+         * Realiza a construção da classe
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Realiza a construção da classe
-         * @param       bool $requer_autenticacao Se for TRUE, indica que, para
-         *              acessar esta classe é necessário ter feito login
-         * @access      public
+         * @access		Public
          */
-        public function __construct($requer_autenticacao = TRUE)
+        public function __construct()
         {
-            parent::__construct($requer_autenticacao);
+            parent::__construct(TRUE);
             
             $this->load->model('referencias_model');
         }
@@ -30,9 +42,10 @@
         /**
          * index()
          * 
+         * Função principal da classe, responsável pela view inicial
+         * 
          * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @abstract    Função principal da classe
-         * @access      public
+         * @access      Public
          */
         function index()
         {
