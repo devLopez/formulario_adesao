@@ -18,7 +18,7 @@
 	 * @access		Public
 	 * @package		CI_Model
 	 * @subpackage	MY_Model
-	 * @version		v1.1.0
+	 * @version		v1.1.1
 	 * @since		03/09/2014    
      */
     class Usuarios_model extends MY_Model
@@ -111,12 +111,15 @@
          **/
        function salva_protocolo()
        {
-           $data = array(
-               'numero_protocolo' => md5($_SESSION['usuario']['cpf_proponente'])
-           );
+       		date_default_timezone_set('America/Sao_Paulo');
+       		
+			$data = array(
+           		'numero_protocolo' => md5($_SESSION['usuario']['cpf_proponente']),
+           		'data_geracaoProtocolo' => date('Y-m-d H:i:s', time())
+           	);
 
-           $this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
-           return $this->BD->update($this->_tabela, $data);
+           	$this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
+           	return $this->BD->update($this->_tabela, $data);
        }
        //***********************************************************************
 
