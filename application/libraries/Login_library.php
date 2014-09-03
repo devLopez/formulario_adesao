@@ -74,9 +74,9 @@
         {
             $CI = & get_instance();
             
-            $this->load->model('LoginAd_model');
+            $this->load->model('Administrativos_model', 'usuarios');
             
-            $resposta = $this->LoginAd_model->buscar_usuario($dados);
+            $resposta = $this->usuarios->buscar_usuario($dados);
             
             if($resposta)
             {

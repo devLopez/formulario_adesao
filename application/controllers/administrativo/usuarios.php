@@ -35,7 +35,7 @@
 		{
 			parent::__construct(TRUE, TRUE);
 			
-			$this->load->model('LoginAd_model', 'usuarios');
+			$this->load->model('Administrativos_model', 'usuarios');
 		}
 		//**********************************************************************
 		

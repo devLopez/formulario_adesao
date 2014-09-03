@@ -82,9 +82,9 @@
             
             if($nivel == 'admin')
             {
-            	$this->load->model('LoginAd_model');
+            	$this->load->model('Administrativos_model');
             	
-            	echo $this->LoginAd_model->verifica_cpf($cpf);
+            	echo $this->Administrativos_model->verifica_cpf($cpf);
             }
             else
             {
@@ -111,7 +111,7 @@
             
             if ($dados['nivel'] == 'admin')
             {
-            	$this->load->model('LoginAd_model', 'administrativo');
+            	$this->load->model('Administrativos_model', 'administrativo');
             	
             	$resposta = $this->administrativo->alterar_senha($dados);
             	

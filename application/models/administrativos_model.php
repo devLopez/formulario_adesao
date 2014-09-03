@@ -10,7 +10,7 @@
 	 */
 
     /**
-     * LoginAd_model
+     * Administrativos_model
      * 
      * Classe desenvolvida para gerenciar as transações com com a tabela 
      * usuarios_administrativos
@@ -19,10 +19,10 @@
 	 * @access		Public
 	 * @package		CI_Model
 	 * @subpackage	MY_Model
-	 * @version		v1.1.0
+	 * @version		v2.0.0
 	 * @since		03/09/2014
      */
-    class LoginAd_model extends MY_Model
+    class Administrativos_model extends MY_Model
     {
         /**
          * __construct()
