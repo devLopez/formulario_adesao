@@ -18,7 +18,7 @@
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
-	 * @package		CI_Model
+	 * @package		Core
 	 * @version		v1.2.0
 	 * @since		03/09/2014 
      */

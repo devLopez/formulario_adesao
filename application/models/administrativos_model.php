@@ -17,8 +17,7 @@
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
-	 * @package		CI_Model
-	 * @subpackage	MY_Model
+	 * @package		Models
 	 * @version		v2.0.0
 	 * @since		03/09/2014
      */

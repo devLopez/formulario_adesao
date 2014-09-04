@@ -16,12 +16,10 @@
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
-	 * @package		CI_Controller
-	 * @subpackage	MY_Controller
+	 * @package		Controllers
+	 * @subpackage	Painel
 	 * @version		v1.1.0
 	 * @since		03/09/2014
-     * @todo        Impressão das propostas em PDF. Afunção para tal já foi 
-     *              criada. Resta apenas uma modificação da API geradora
      */
     class Impressao_ficha extends MY_Controller
     {
@@ -64,7 +62,6 @@
          * @access		Public
          * @param       int $documento  recebe qual o tipo de documento que será
          *              gerado (proposta ou adesao).
-         * @todo        Gerar a proposta em PDF para o proponente
          */
         function gerar_proposta($documento)
         {   
@@ -88,17 +85,11 @@
             /** Seleciona a visão de acordo o parâmetro que foi passado **/
             if($documento == 1)
             {
-                $html = $this->load->view('paginas/painel/download/proposta', $this->dados);
-                
-                /** Não será usado devido a classe geradora do pdf estar com defeito **/
-                //$local_pdf = './downloads/proposta/proposta_'.md5($_SESSION['usuario']['cpf_proponente']).'.pdf';
+                $this->load->view('paginas/painel/download/proposta', $this->dados);
             }
             elseif($documento == 2)
             {
-                $html = $this->load->view('paginas/painel/download/adesao', $this->dados);
-                
-                /** Não será usado devido a classe geradora do pdf estar com defeito **/
-                //$local_pdf = './downloads/adesao/adesao_'.md5($_SESSION['usuario']['cpf_proponente']).'.pdf';
+                $this->load->view('paginas/painel/download/adesao', $this->dados);
             }
         }
         //**********************************************************************
@@ -233,33 +224,6 @@
             return $this->mascara->mascarar_valor($val, $mask);
         }
         //**********************************************************************
-
-        /***********************************************************************
-         * ESTA FUNÇÃO NÃO SERÁ IMPLEMENTADA POR ENQUANTO
-         +**********************************************************************
-         * gerar_pdf()
-         * 
-         * Função desenvolvida para gerar os documentos em PDF para que o 
-         * usuário possa fazer o download
-         * 
-         * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-         * @access      Private
-         * @param       array  $dados  Contém os dados necessarios para criação do PDF
-         * @todo        Verificar uma maneira de gerar um PDF mais sólido, pois,
-         *              nos primeiros testes realizados, não houve êxito (A 
-         *              CLASSE ESTAVA QUEBRANDO O LAYOUT)
-         */
-        private function gerar_pdf($dados)
-        {
-            $this->load->library('pdf');
-            
-            /** Instancia da classe PDF, que chama o mPDF **/
-            $pdf = $this->pdf->gerar_pdf();
-            $pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822));
-            $pdf->WriteHTML($dados['html']);
-            $pdf->Output($dados['local_pdf'], 'F');
-        }
-        /**********************************************************************/
     }
     /** End of File impressao_fichas.php **/
     /** location ./application/controllers/painel/impressao_ficha.php **/

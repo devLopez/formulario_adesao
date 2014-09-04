@@ -16,8 +16,7 @@
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
-	 * @package		CI_Controller
-	 * @subpackage	MY_Controller
+	 * @package		Controllers
 	 * @version		v1.1.0
 	 * @since		03/09/2014    
      */

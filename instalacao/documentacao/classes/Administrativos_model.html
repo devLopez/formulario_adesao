@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    Sistema de Inscrições On-line &raquo; \referencias_model
+    <title>    Sistema de Inscrições On-line &raquo; \Administrativos_model
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -124,26 +124,38 @@
     </li>
 
                                                                                                         <li class="method public">
+        <a href="#method_buscar_usuario" title="buscar_usuario :: buscar_usuario()">
+            <span class="description">buscar_usuario()</span><pre>buscar_usuario</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_verifica_cpf" title="verifica_cpf :: verifica_cpf()">
+            <span class="description">verifica_cpf()</span><pre>verifica_cpf</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_alterar_senha" title="alterar_senha :: trocar_senha()">
+            <span class="description">trocar_senha()</span><pre>alterar_senha</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_get" title="get :: get()">
+            <span class="description">get()</span><pre>get</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
         <a href="#method_salvar" title="salvar :: salvar()">
             <span class="description">salvar()</span><pre>salvar</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_buscar" title="buscar :: buscar()">
-            <span class="description">buscar()</span><pre>buscar</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public">
-        <a href="#method_excluir" title="excluir :: excluir()">
-            <span class="description">excluir()</span><pre>excluir</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public">
-        <a href="#method_atualizar" title="atualizar :: atualizar()">
-            <span class="description">atualizar()</span><pre>atualizar</pre>
+        <a href="#method_update" title="update :: update()">
+            <span class="description">update()</span><pre>update</pre>
         </a>
     </li>
 
@@ -151,11 +163,11 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -169,15 +181,15 @@
 
         <div class="span8">
             <div class="element class">
-                <h1>referencias_model</h1>
+                <h1>Administrativos_model</h1>
                 <small style="display: block; text-align: right">
                                             Extends <a href="../classes/MY_Model.html">\MY_Model</a>
                                                         </small>
-                <p class="short_description">Referencias_model</p>
+                <p class="short_description">Administrativos_model</p>
                 <div class="details">
                     <div class="long_description">
-                        <p>Classe desenvolvida para gerenciar as operações envolvendo as referencias
-pessoais do usuário.</p>
+                        <p>Classe desenvolvida para gerenciar as transações com com a tabela
+usuarios_administrativos</p>
                     </div>
                     <table class="table table-bordered">
                                                                                     <tr>
@@ -213,7 +225,7 @@ pessoais do usuário.</p>
                                                                             </th>
                                     <td>
                                                                                     
-                                                                                <p>v1.1.0</p>
+                                                                                <p>v2.0.0</p>
                                     </td>
                                 </tr>
                                                                                                                 <tr>
@@ -277,6 +289,168 @@ pessoais do usuário.</p>
                                                                     </div>
                             </div>
                         </div>
+                                            <a id="method_buscar_usuario"></a>
+                        <div class="element clickable method public  method_buscar_usuario" data-toggle="collapse" data-target=".method_buscar_usuario .collapse">
+                            <h2>buscar_usuario()</h2>
+                            <pre>buscar_usuario(array $dados) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar os dados dos usuarios administrativos</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code>array</code><p><p>Contém os dados de login do usuário</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna um array com os dados do usuario. Se não</p>
+<pre><code>         encontrar, retorna FALSE</code></pre></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_verifica_cpf"></a>
+                        <div class="element clickable method public  method_verifica_cpf" data-toggle="collapse" data-target=".method_verifica_cpf .collapse">
+                            <h2>verifica_cpf()</h2>
+                            <pre>verifica_cpf(integer $cpf) : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para verificar existência de cpf cadastrado na
+base de dados. Será muito utilizado na redefinição de senha</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cpf</h4>
+                                                <code>integer</code><p><p>Contém o cpf que será buscado no BD</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p><p>Retorna o número de cpfs cadastrados</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_alterar_senha"></a>
+                        <div class="element clickable method public  method_alterar_senha" data-toggle="collapse" data-target=".method_alterar_senha .collapse">
+                            <h2>trocar_senha()</h2>
+                            <pre>alterar_senha(array $dados) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para alterar a senha de um usuário administrativo</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$dados</h4>
+                                                <code>array</code><p><p>Contém o CPF e a nova senha do usuário</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p><p>Retorna TRUE se atualizar e FALSE se não atualizar</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_get"></a>
+                        <div class="element clickable method public  method_get" data-toggle="collapse" data-target=".method_get .collapse">
+                            <h2>get()</h2>
+                            <pre>get(mixed $parametro_adicional = NULL) : array</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>Função desenvolvida para buscar todos os usuários cadastrados</p></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    author
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    access
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>Public</p>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$parametro_adicional</h4>
+                                                <code>mixed</code><p><p>Parâmetro que será passado</p>
+<pre><code>            para complementar as consultas</code></pre></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>array</code><p><p>Retorna um array de usuários cadastrados</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
                                             <a id="method_salvar"></a>
                         <div class="element clickable method public  method_salvar" data-toggle="collapse" data-target=".method_salvar .collapse">
                             <h2>salvar()</h2>
@@ -285,7 +459,7 @@ pessoais do usuário.</p>
                                                                                                                                                                                             </div>
                             <div class="row collapse">
                                 <div class="detail-description">
-                                    <div class="long_description"><p>Função desenvolvida para salvar uma nova referencia</p></div>
+                                    <div class="long_description"><p>Função desenvolvida para salvar um novo usuário</p></div>
 
                                     <table class="table">
                                                                                     <tr>
@@ -319,15 +493,15 @@ pessoais do usuário.</p>
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_buscar"></a>
-                        <div class="element clickable method public  method_buscar" data-toggle="collapse" data-target=".method_buscar .collapse">
-                            <h2>buscar()</h2>
-                            <pre>buscar(integer $id = NULL) : array</pre>
+                                            <a id="method_update"></a>
+                        <div class="element clickable method public  method_update" data-toggle="collapse" data-target=".method_update .collapse">
+                            <h2>update()</h2>
+                            <pre>update(array $data, array $id) : boolean</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
                                 <div class="detail-description">
-                                    <div class="long_description"><p>Função desenvolvida para buscar as referencias cadastradas</p></div>
+                                    <div class="long_description"><p>Função desenvolvida para salvar alterações no cadastro do usuário</p></div>
 
                                     <table class="table">
                                                                                     <tr>
@@ -352,77 +526,12 @@ pessoais do usuário.</p>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$id</h4>
-                                                <code>integer</code><p><p>Indica o ID na qual desejamos buscar. Caso não for</p>
-<pre><code>         passado nenhum valor como parâmetro, a busca retornará todos
-         os valores, ao invés de 1</code></pre></p>
-                                            </div>
-                                                                            
-                                                                            <h3>Response</h3>
-                                        <code>array</code><p><p>Retorna um array de referencias</p></p>
-                                                                    </div>
-                            </div>
-                        </div>
-                                            <a id="method_excluir"></a>
-                        <div class="element clickable method public  method_excluir" data-toggle="collapse" data-target=".method_excluir .collapse">
-                            <h2>excluir()</h2>
-                            <pre>excluir(integer $id) : Bool</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"><p>Função desenvolvida para excluir um registro</p></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    author
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$id</h4>
-                                                <code>integer</code><p><p>Contém o ID do registro a ser excluido</p></p>
-                                            </div>
-                                                                            
-                                                                            <h3>Response</h3>
-                                        <code>Bool</code><p><p>Retorna TRUE se excluir e FALSE se não excluir</p></p>
-                                                                    </div>
-                            </div>
-                        </div>
-                                            <a id="method_atualizar"></a>
-                        <div class="element clickable method public  method_atualizar" data-toggle="collapse" data-target=".method_atualizar .collapse">
-                            <h2>atualizar()</h2>
-                            <pre>atualizar(array $dados) : boolean</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"><p>Função desenvolvida para atualizar um registro, de acordo com o ID
-passado como parâmetro</p></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    author
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        <p>Matheus Lopes Santos <a href="mailto:fale_com_lopez@hotmail.com">fale_com_lopez@hotmail.com</a></p>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$dados</h4>
+                                                <h4>$data</h4>
                                                 <code>array</code><p><p>Contém os dados que serão atualizados</p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$id</h4>
+                                                <code>array</code><p><p>Contém o ID da tupla que será alterado</p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -514,14 +623,14 @@ se está trabalhando</h2>
                             </div>
                                                             </div>
             </div>
-            <a id="\referencias_model"></a>
+            <a id="\Administrativos_model"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
     <li><span class="divider">\</span><a href="../namespaces/default.html">\</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/referencias_model.html">referencias_model</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/Administrativos_model.html">Administrativos_model</a></li>
             </ul>
         </div>
     </div>

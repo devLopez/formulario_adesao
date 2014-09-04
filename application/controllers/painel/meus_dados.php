@@ -16,10 +16,10 @@
      * 
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
-	 * @package		CI_Controller
-	 * @subpackage	MY_Controller
+	 * @package		Controllers
+	 * @subpackage	Painel
 	 * @version		v1.1.0
-	 * @since		03/09/2014    
+	 * @since		03/09/2014
      */
     class Meus_dados extends MY_Controller
     {
