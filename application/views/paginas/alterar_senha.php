@@ -8,6 +8,8 @@
         $('#recupera_p1').submit(function(e) {
             e.preventDefault();
 
+            $('#btn-buscar').button('loading');
+
             cpf 	= $('#cpf_proponente').val();
             nivel	= $('#nivel').val();
 
@@ -17,6 +19,7 @@
                     $('#recupera_p1').hide();
                     $('#form_novaSenha').show('fade');
                     $('#nova_senha').focus();
+                    $('#btn-buscar').button('reset');
                 }
                 else
                 {
@@ -27,8 +30,9 @@
                         color: "#FE1A00",
                         timeout: 5000
                     });
-
+                    
                     $('#cpf_proponente').val("").focus();
+                    $('#btn-buscar').button('reset');
                 }
             });
         });
@@ -49,6 +53,8 @@
         $('#form_novaSenha').submit(function(e) {
             e.preventDefault();
 
+            $('#btn-salvar').button('loading');
+
             senha 	= $('#nova_senha').val();
             cpf 	= $('#cpf_proponente').val();
             nivel	= $('#nivel').val();
@@ -68,6 +74,8 @@
                             color: "#FE1A00",
                             timeout: 5000
                         });
+
+                        $('#btn-salvar').button('reset');
                     }
                     if (sucesso == 1)
                     {
@@ -92,6 +100,8 @@
                                 return false;
                             }
                         });
+
+                        $('#btn-salvar').button('reset');
                     }
                 },
                 error: function()
@@ -103,6 +113,8 @@
                         color: "#FE1A00",
                         timeout: 5000
                     });
+
+                    $('#btn-salvar').button('reset');
                 }
             });
         });
@@ -140,7 +152,7 @@
             </label>
             <input autofocus="autofocus" class="input-block" id="cpf_proponente" tabindex="1" type="text" required="">
 
-            <input class="button" tabindex="3" type="submit" value="Próximo passo">
+            <input class="button" id="btn-buscar" tabindex="3" type="submit" value="Próximo passo" data-loading-text="Buscando CPF...">
         </form>
         <!--*****************************************************************-->
 
@@ -158,7 +170,7 @@
             <input class="input-block" id="repetir_novaSenha" tabindex="1" type="password" required="">
             <span id="resposta_senha"></span>
 
-            <input class="button" tabindex="3" type="submit" value="Alterar minha senha">
+            <input class="button" id="btn-salvar" tabindex="3" type="submit" value="Alterar minha senha" data-loading-text="Salvando a nova senha...">
 
         </form>
         <!--*****************************************************************-->

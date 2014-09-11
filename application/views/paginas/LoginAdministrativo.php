@@ -6,6 +6,8 @@
         $('#login_admin').submit(function(e) {
             e.preventDefault();
 
+            $('#btn-login').button('loading');
+
             $.ajax({
                 url: '<?php echo app_baseurl() . 'LoginAdministrativo/fazer_login' ?>',
                 type: 'POST',
@@ -13,7 +15,6 @@
                 dataType: 'html',
                 success: function(sucesso)
                 {
-                    console.log(sucesso);
                     if (sucesso == 0)
                     {
                         $.smallBox({
@@ -23,6 +24,7 @@
                             color: "#FE1A00",
                             timeout: 5000
                         });
+                        $('#btn-login').button('reset');
                     }
                     else if (sucesso == 1)
                     {
@@ -38,6 +40,7 @@
                         color: "#FE1A00",
                         timeout: 5000
                     });
+                    $('#btn-login').button('reset');
                 }
             });
         });
@@ -59,7 +62,7 @@
                 Senha <a href="<?php echo app_baseurl().'alterar_senha/index/admin'?>">(Esqueci minha senha)</a>
             </label>
             <input class="input-block" id="senha" name="password" tabindex="2" type="password">
-            <input class="button" name="commit" tabindex="3" type="submit" value="Entrar">
+            <input class="button" id="btn-login" tabindex="3" type="submit" value="Entrar" data-loading-text="Acessando o Sistema...">
         </div>
     </form>
 </div>

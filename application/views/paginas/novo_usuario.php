@@ -86,6 +86,9 @@
         /** Função desenvolvida para salvar os dados do usuário **/
         $('#adiciona_usuario').submit(function(e) {
             e.preventDefault();
+
+            $('#submit').button('loading');
+            
             $.ajax({
                 url: '<?php echo app_baseurl().'novo_usuario/salvar_usuario' ?>',
                 type: 'POST',
@@ -108,6 +111,7 @@
                             timeout: 5000
                         });
                         $('#adiciona_usuario').find('input').val('');
+                        $('#submit').button('complete');
                     }
                     else
                     {
@@ -118,6 +122,7 @@
                             color: "#FE1A00",
                             timeout: 5000
                         });
+                        $('#submit').button('reset');
                     }
                 },
                 error: function()
@@ -129,6 +134,7 @@
                         color: "#FE1A00",
                         timeout: 5000
                     });
+                    $('#submit').button('reset');
                 }
             });
         });
@@ -182,7 +188,7 @@
             <span class="help-inline" id="resposta_senha"></span>
 
             <br>
-            <button id="submit" class="button primary" type="submit">Salvar e prosseguir</button>
+            <button id="submit" class="button primary" type="submit" data-loading-text="Criando Usuário..." data-complete-text="Acessando o Sistema...">Salvar e prosseguir</button>
         </fieldset>
     </form>
 </div>

@@ -10,6 +10,9 @@
          */
         $('#login').submit(function(e) {
             e.preventDefault();
+
+            $('#btn-login').button('loading');
+            
             $.ajax({
                 url: '<?php echo app_baseurl().'login/fazer_login' ?>',
                 type: 'POST',
@@ -29,6 +32,8 @@
                             color: "#FE1A00",
                             timeout: 5000
                         });
+
+                        $('#btn-login').button('reset');
                     }
                     else if (sucesso == 1)
                     {
@@ -44,6 +49,8 @@
                         color: "#FE1A00",
                         timeout: 5000
                     });
+
+                    $('#btn-login').button('reset');
                 }
             });
         });
@@ -67,7 +74,7 @@
             <input class="input-block" id="senha_proponente" name="password" tabindex="2" type="password">
             
 
-            <input class="button" name="commit" tabindex="3" type="submit" value="Acessar minha conta">
+            <input class="button" id="btn-login" tabindex="3" type="submit" value="Acessar minha conta">
         </div>
     </form>
 </div>
