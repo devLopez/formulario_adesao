@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <title>Ficha de Inscrição</title>
         <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+        	window.print();
+        </script>
     </head>
     <body>
         <!-- Contém o topo do site -->
@@ -359,108 +362,213 @@
 
                     <!-- DADOS DO CONJUGE -->
                     <?php
-                        foreach ($dados_conjuge as $row)
-                        {
-                            ?>
-                            <tr >
-                                <td colspan="3">
-                                    <strong>Nome Completo:</strong>
-                                    <br><?php echo $row->nome_conjuge ?>
-                                </td>
-                                <td colspan="2">
-                                    <strong>CPF(<small>número e controle</small>):</strong>
-                                    <br><?php echo $row->cpf_conjuge ?>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="1">
-                                    <strong>Número da Identidade:</strong>
-                                    <br><?php echo $row->identidade_conjuge ?>
-                                </td>
-                                <td colspan="1">
-                                    <strong>Data de expedição:</strong>
-                                    <br><?php echo $row->data_expedicao_conjuge ?>
-                                </td>
-                                <td colspan="1">
-                                    <strong>Órgão emissor/ estado:</strong>
-                                    <br><?php echo $row->orgao_emissor_conjuge ?>
-                                </td>
-                                <td colspan="2">
-                                    <strong>Data de nascimento:</strong>
-                                    <br><?php echo $row->data_nascimento_conjuge ?>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="2">
-                                    <strong>Naturalidade/ estado:</strong>
-                                    <br> <?php echo $row->naturalidade_estado_conjuge ?>
-                                </td>
-                                <td colspan="3">
-                                    <strong>Nacionalidade:</strong> 1 - Brasileira&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 - Estrangeira
-                                    <br>(&nbsp;&nbsp;<?php echo $row->nacionalidade_conjuge ?>&nbsp;&nbsp;)
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    2 - Naturalizado &nbsp;&nbsp;&nbsp;4 - Apátrida
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="1">
-                                    <strong>Trabalha?:</strong> 1 - Sim
-                                    <br>(&nbsp;&nbsp;<?php echo $row->situacao_emprego_conjuge ?>&nbsp;&nbsp;)
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    2 - Não
-                                </td>
-                                <td colspan="2">
-                                    <strong>Empresa onde trabalha:</strong>
-                                    <br><?php echo $row->empresa_conjuge ?>
-                                </td>
-                                <td colspan="1">
-                                    <strong>CNPJ:</strong>
-                                    <br><?php echo $row->cnpj_empresa_conjuge ?>
-                                </td>
-                                <td colspan="1">
-                                    <strong>Data de Admissão:</strong>
-                                    <br><?php echo $row->data_admissao_conjuge ?>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="2">
-                                    <strong>Endereço comercial (rua, avenida, praça, etc.):</strong>
-                                    <br><?php echo $row->endereco_comercial_conjuge ?>
-                                </td>
-                                <td colspan="1">
-                                    <strong>Número:</strong>
-                                    <br> <?php echo $row->numero_empresa_conjuge ?>
-                                </td>
-                                <td colspan="2">
-                                    <strong>Complemento:</strong>
-                                    <br> <?php echo $row->complemento_empresa_conjuge ?>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <strong>Telefone:</strong>
-                                    <br> <?php echo $row->telefone_empresa_conjuge ?>
-                                </td>
-                                <td>
-                                    <strong>Cargo:</strong>
-                                    <br><?php echo $row->cargo_empresa_conjuge ?>
-                                </td>
-                                <td>
-                                    <strong>Salário:</strong>
-                                    <br><?php echo $row->salario_conjuge ?>
-                                </td>
-                                <td colspan="2">
-                                    <strong>Profissão:</strong>
-                                    <br><?php echo $row->profissao_conjuge ?>
-                                </td>
-                            </tr>
-                            <?php
-                        }
+                    	if($dados_conjuge)
+                    	{
+							foreach ($dados_conjuge as $row)
+							{
+							?>
+	                            <tr >
+	                                <td colspan="3">
+	                                    <strong>Nome Completo:</strong>
+	                                    <br><?php echo $row->nome_conjuge ?>
+	                                </td>
+	                                <td colspan="2">
+	                                    <strong>CPF(<small>número e controle</small>):</strong>
+	                                    <br><?php echo $row->cpf_conjuge ?>
+	                                </td>
+	                            </tr>
+	
+	                            <tr>
+	                                <td colspan="1">
+	                                    <strong>Número da Identidade:</strong>
+	                                    <br><?php echo $row->identidade_conjuge ?>
+	                                </td>
+	                                <td colspan="1">
+	                                    <strong>Data de expedição:</strong>
+	                                    <br><?php echo $row->data_expedicao_conjuge ?>
+	                                </td>
+	                                <td colspan="1">
+	                                    <strong>Órgão emissor/ estado:</strong>
+	                                    <br><?php echo $row->orgao_emissor_conjuge ?>
+	                                </td>
+	                                <td colspan="2">
+	                                    <strong>Data de nascimento:</strong>
+	                                    <br><?php echo $row->data_nascimento_conjuge ?>
+	                                </td>
+	                            </tr>
+	
+	                            <tr>
+	                                <td colspan="2">
+	                                    <strong>Naturalidade/ estado:</strong>
+	                                    <br> <?php echo $row->naturalidade_estado_conjuge ?>
+	                                </td>
+	                                <td colspan="3">
+	                                    <strong>Nacionalidade:</strong> 1 - Brasileira&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 - Estrangeira
+	                                    <br>(&nbsp;&nbsp;<?php echo $row->nacionalidade_conjuge ?>&nbsp;&nbsp;)
+	                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                                    2 - Naturalizado &nbsp;&nbsp;&nbsp;4 - Apátrida
+	                                </td>
+	                            </tr>
+	
+	                            <tr>
+	                                <td colspan="1">
+	                                    <strong>Trabalha?:</strong> 1 - Sim
+	                                    <br>(&nbsp;&nbsp;<?php echo $row->situacao_emprego_conjuge ?>&nbsp;&nbsp;)
+	                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                                    2 - Não
+	                                </td>
+	                                <td colspan="2">
+	                                    <strong>Empresa onde trabalha:</strong>
+	                                    <br><?php echo $row->empresa_conjuge ?>
+	                                </td>
+	                                <td colspan="1">
+	                                    <strong>CNPJ:</strong>
+	                                    <br><?php echo $row->cnpj_empresa_conjuge ?>
+	                                </td>
+	                                <td colspan="1">
+	                                    <strong>Data de Admissão:</strong>
+	                                    <br><?php echo $row->data_admissao_conjuge ?>
+	                                </td>
+	                            </tr>
+	
+	                            <tr>
+	                                <td colspan="2">
+	                                    <strong>Endereço comercial (rua, avenida, praça, etc.):</strong>
+	                                    <br><?php echo $row->endereco_comercial_conjuge ?>
+	                                </td>
+	                                <td colspan="1">
+	                                    <strong>Número:</strong>
+	                                    <br> <?php echo $row->numero_empresa_conjuge ?>
+	                                </td>
+	                                <td colspan="2">
+	                                    <strong>Complemento:</strong>
+	                                    <br> <?php echo $row->complemento_empresa_conjuge ?>
+	                                </td>
+	                            </tr>
+	
+	                            <tr>
+	                                <td>
+	                                    <strong>Telefone:</strong>
+	                                    <br> <?php echo $row->telefone_empresa_conjuge ?>
+	                                </td>
+	                                <td>
+	                                    <strong>Cargo:</strong>
+	                                    <br><?php echo $row->cargo_empresa_conjuge ?>
+	                                </td>
+	                                <td>
+	                                    <strong>Salário:</strong>
+	                                    <br><?php echo $row->salario_conjuge ?>
+	                                </td>
+	                                <td colspan="2">
+	                                    <strong>Profissão:</strong>
+	                                    <br><?php echo $row->profissao_conjuge ?>
+	                                </td>
+	                            </tr>
+	                            <?php
+	                        }
+						}
+						else
+						{
+							?>
+							<tr>
+	                        	<td colspan="3">
+	                           		<strong>Nome Completo:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="2">
+	                            	<strong>CPF(<small>número e controle</small>):</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                        </tr>
+	
+	                        <tr>
+	                            <td colspan="1">
+	                                <strong>Número da Identidade:</strong>
+	                                <br>&nbsp;
+	                             </td>
+	                             <td colspan="1">
+	                             	<strong>Data de expedição:</strong>
+	                                <br>&nbsp;
+	                             </td>
+	                             <td colspan="1">
+	                                <strong>Órgão emissor/ estado:</strong>
+	                                <br>&nbsp;
+	                             </td>
+	                             <td colspan="2">
+	                                 <strong>Data de nascimento:</strong>
+	                                 <br>&nbsp;
+	                            </td>
+	                        </tr>
+	
+	                        <tr>
+	                            <td colspan="2">
+	                                <strong>Naturalidade/ estado:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="3">
+	                                <strong>Nacionalidade:</strong> 1 - Brasileira&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 - Estrangeira
+	                                <br>(&nbsp;&nbsp;&nbsp;&nbsp;)
+	                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                                2 - Naturalizado &nbsp;&nbsp;&nbsp;4 - Apátrida
+	                            </td>
+	                        </tr>
+	
+	                        <tr>
+	                            <td colspan="1">
+	                                <strong>Trabalha?:</strong> 1 - Sim
+	                                <br>(&nbsp;&nbsp;&nbsp;&nbsp;)
+	                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                                2 - Não
+	                            </td>
+	                            <td colspan="2">
+	                                <strong>Empresa onde trabalha:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="1">
+	                               <strong>CNPJ:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="1">
+	                               <strong>Data de Admissão:</strong>
+	                                 <br>&nbsp;
+	                            </td>
+	                        </tr>
+	
+	                        <tr>
+	                            <td colspan="2">
+	                        	    <strong>Endereço comercial (rua, avenida, praça, etc.):</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="1">
+	                        	    <strong>Número:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="2">
+	                                <strong>Complemento:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                        </tr>
+	
+	                        <tr>
+	                        	<td>
+	                            	<strong>Telefone:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td>
+	                            	<strong>Cargo:</strong>
+	                            	<br>&nbsp;
+	                            </td>
+	                            <td>
+	                            	<strong>Salário:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                            <td colspan="2">
+	                            	<strong>Profissão:</strong>
+	                                <br>&nbsp;
+	                            </td>
+	                        </tr>
+							<?php
+						}
                     ?>
                     <!--************************************************-->
 

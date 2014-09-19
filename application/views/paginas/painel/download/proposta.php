@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <title>Proposta de cota</title>
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <script type="text/javascript">
+        	window.print();
+        </script>
     </head>
     <body>
         <?php

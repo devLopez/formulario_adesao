@@ -6,13 +6,13 @@
                 <ul class="boxed-group-list">
                     <li>
                         Proposta de Cota
-                        <a target="_blank" href="<?php echo app_baseurl().'painel/impressao_ficha/gerar_proposta/1'?>" class="minibutton">
+                        <a href="#instrucao" data-toggle="modal" class="minibutton" id="proposta" data-href="<?php echo app_baseurl().'painel/impressao_ficha/gerar_proposta/1'?>">
                             <i class="fa fa-print"></i> Visualizar e imprimir
                         </a>
                     </li>
                     <li>
                         Cadastro de Associado
-                        <a target="_blank" href="<?php echo app_baseurl().'painel/impressao_ficha/gerar_proposta/2'?>" class="minibutton">
+                        <a href="#instrucao" data-toggle="modal" class="minibutton" id="cadastro" data-href="<?php echo app_baseurl().'painel/impressao_ficha/gerar_proposta/2'?>">
                             <i class="fa fa-print"></i> Visualizar e imprimir
                         </a>
                     </li>
@@ -68,3 +68,48 @@
     </div>
 </div>
 <!--*************************************************************************-->
+
+<!-- modal que exibe o instruções ao usuário -->
+<div id="instrucao" class="modal hide fade" data-backdrop="false">
+	<div class="modal-header">
+        <img src="./img/logo.gif" alt="Pentáurea Clube" class="logo">
+        <h4 class="pull-right">Atenção</h4>
+    </div>
+    <div class="modal-body">
+    	<p style="text-align: justify">
+    		Antes de imprimir os formulários que devem ser encaminhados à secretaria
+    		do clube, verifique se todos os dados necessários foram preenchidos.
+    	</p>
+    	<p style="text-align: justify">
+    		Caso as fichas forem encaminhadas para a secretaria do clube com
+    		defcit de dados, a sua proposta pode ser <em><strong>Indeferida</strong></em>
+    	</p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn danger" data-dismiss="modal">
+            Fechar esta janela
+        </a>
+        <a class="btn primary" id="abrir">
+        	Ok, entendi
+        </a>
+    </div>
+</div>
+<!--*************************************************************************-->
+<script type="text/javascript">
+	/**
+	 * Recebe a url que será processada e adiciona os atributos no botão da 
+	 * janela modal
+	 */
+	$('#proposta, #cadastro').click(function(){
+		url = $(this).data('href');
+
+		$('#abrir').attr('href', url).attr('target', '_blank');
+	});
+
+	/**
+	 * Esconde o modal quando a janela de impressão é aberta
+	 */
+	$('#abrir').click(function(){
+		$('#instrucao').modal('hide');
+	});
+</script>
