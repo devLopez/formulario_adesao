@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <title>Ficha de Inscrição</title>
         <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
+        <style>
+			body {
+				font-size: 12px;
+			}
+		</style>
         <script type="text/javascript">
         	window.print();
         </script>

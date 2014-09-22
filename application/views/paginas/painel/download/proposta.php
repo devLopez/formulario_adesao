@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <title>Proposta de cota</title>
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <style>
+			body {
+				font-size: 12px;
+			}
+		</style>
         <script type="text/javascript">
         	window.print();
         </script>
@@ -19,7 +24,6 @@
                 <?php
             }
         ?>
-
         <!-- Contém o HEADER do site -->
         <div class="header">
             <div class="container">

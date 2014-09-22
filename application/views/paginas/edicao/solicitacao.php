@@ -113,16 +113,6 @@
                         timeout: 5000
                     });
                 }
-            },
-            error: function()
-            {
-                $.smallBox({
-                    title: "<i class='fa fa-check'></i> Erro",
-                    content: "<strong>Não foi possível salvar os dados</strong>",
-                    iconSmall: "fa fa-thumbs-down bounce animated",
-                    color: "#FE1A00",
-                    timeout: 5000
-                });
             }
         });
     }
@@ -252,12 +242,13 @@
                                     <div class="controls">
                                         <select class="span5" id="escolaridade" name="escolaridade">
                                             <option value="">Selecione uma opção</option>
-                                            <option value="1">1º Grau Incompleto</option>
-                                            <option value="2">1º Grau Completo</option>
-                                            <option value="3">2º Grau</option>
-                                            <option value="4">Superior Incompleto</option>
-                                            <option value="5">Sup. Completo</option>
-                                            <option value="6">Pós-graduação</option>
+		                                    <option value="1">1º Grau Incompleto</option>
+		                                    <option value="2">1º Grau Completo</option>
+		                                    <option value="3">2º Grau Incompleto</option>
+		                                    <option value="4">2º Grau Completo</option>
+		                                    <option value="5">Superior Incompleto</option>
+		                                    <option value="6">Superior Completo</option>
+		                                    <option value="7">Pós-graduação</option>
                                         </select>
                                     </div>
                                 </div>

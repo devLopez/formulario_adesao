@@ -56,7 +56,7 @@
                     }
                     else
                     {
-                        $('#resposta_cpf').html('<span class="error"><i class="octicon octicon-stop"></i> Já existe um CPF cadastrado. Talvez você queira <a href="<?php echo app_baseurl().'inicio' ?>">fazer login</a> ou <a href="<?php echo app_baseurl().'alterar_senha'?>">alterar sua senha</a>?</span>');
+                        $('#resposta_cpf').html('<span class="error"><i class="octicon octicon-stop"></i> Já existe um CPF cadastrado. Talvez você queira <a href="<?php echo app_baseurl().'login' ?>">fazer login</a> ou <a href="<?php echo app_baseurl().'alterar_senha'?>">alterar sua senha</a>?</span>');
                         $('#submit').addClass('disabled').click(function(e) {
                             e.preventDefault();
                         });

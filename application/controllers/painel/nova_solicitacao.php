@@ -273,6 +273,9 @@
          */
         function atualizar_dados()
         {
+        	/** Id do usuário * */
+        	$id_proponente = base64_decode($_SESSION['usuario']['id_proponente']);
+        	
             /** Dados pessoais do usuário **/
             $dados_pessoais['id']                       = $this->input->post('id_pessoais');
             $dados_pessoais['nome_pai']                 = $this->input->post('nome_pai');
@@ -322,7 +325,8 @@
             $dados_profissionais['cargo_empresa']           = $this->input->post('cargo_empresa');
 
             /** Dados do conjuge **/
-            $dados_conjuge['id']                            =  $this->input->post('id_conjuge');
+            $dados_conjuge['id_proponente']					= $id_proponente;
+            $dados_conjuge['id']                            = $this->input->post('id_conjuge');
             $dados_conjuge['nome_conjuge']                  = $this->input->post('nome_conjuge');
             $dados_conjuge['cpf_conjuge']                   = $this->input->post('cpf_conjuge');
             $dados_conjuge['identidade_conjuge']            = $this->input->post('identidade_conjuge');
