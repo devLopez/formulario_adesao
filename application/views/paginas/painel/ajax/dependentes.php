@@ -93,35 +93,13 @@
                     {
                         if (sucesso == 1)
                         {
-                            $.smallBox({
-                                title: "<i class='fa fa-check'></i> Sucesso",
-                                content: "<strong>Dependente excluido</strong>",
-                                iconSmall: "fa fa-thumbs-up bounce animated",
-                                color: "#3b5998",
-                                timeout: 5000
-                            });
+                            msg_sucesso('Dependente excluido');
                             buscar();
                         }
                         else
                         {
-                            $.smallBox({
-                                title: "<i class='fa fa-check'></i> Erro",
-                                content: "<strong>Não foi possível excluir o dependente. Tente novamente</strong>",
-                                iconSmall: "fa fa-thumbs-down bounce animated",
-                                color: "#FE1A00",
-                                timeout: 5000
-                            });
+                            msg_erro('Não foi possível excluir o dependente. Tente novamente');
                         }
-                    },
-                    error: function()
-                    {
-                        $.smallBox({
-                            title: "<i class='fa fa-check'></i> Erro",
-                            content: "<strong>Ocorreu um erro. Tente novamente</strong>",
-                            iconSmall: "fa fa-thumbs-down bounce animated",
-                            color: "#FE1A00",
-                            timeout: 5000
-                        });
                     }
                 });
             }
@@ -133,9 +111,7 @@
         e.preventDefault();
         
         var href = $(this).data('href');
-        
-        $.get(href, function(e){
-            $('#dados_edicao').html(e);
-        });
+
+        load_ajax(href, $('#dados_edicao'));
     });
 </script>

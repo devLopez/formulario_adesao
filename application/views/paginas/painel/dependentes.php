@@ -52,8 +52,12 @@
     function busca_parentesco()
     {
         url = '<?php echo app_baseurl().'painel/dependentes/busca_parentesco' ?>';
-        
-        load_ajax(url, $('#parentesco_dependente, #ed_parentesco_dependente'));
+
+        $.get(url, function(e){
+        	$('#parentesco_dependente, #ed_parentesco_dependente').html(e);
+        }).done(function(e){
+        	verifica_select($('#parentescoCadastrado').val(), $('#ed_parentesco_dependente'));
+        });
     }
 
     /** Função desenvolvida para buscar os dependentes cadastrados **/

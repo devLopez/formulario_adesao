@@ -24,6 +24,7 @@
             <div class="control-group">
                 <label>Grau de parentesco</label>
                 <div class="controls">
+                	<input type="hidden" id="parentescoCadastrado" value="<?php echo $row->parentesco_dependente?>">
                     <select class="span5" id="ed_parentesco_dependente" required></select>
                 </div>
             </div>
@@ -38,6 +39,7 @@
             <div class="control-group">
                 <label>Estado civil</label>
                 <div class="controls">
+                	<input type="hidden" id="estadocCadastrado" value="<?php echo $row->estado_civil_dependente?>">
                     <select class="span5" id="ed_estado_civil_dependente" required="">
                         <option value="">Selecione uma opção</option>
                         <option value="Casado">Casado</option>
@@ -55,6 +57,11 @@
 <script type="text/javascript">
     /** Chama função que busca o parentesco **/
     busca_parentesco();
+
+    //Verifica o estado civil que foi cadastrado previamente
+    verifica_select($('#estadocCadastrado').val(), $('#ed_estado_civil_dependente'));
+    
+    
     /** Salva as novas informações do dependente **/
     $('#atualiza_dependente').submit(function(e) {
         e.preventDefault();
@@ -73,38 +80,37 @@
             {
                 if (sucesso == 1)
                 {
-                    $.smallBox({
-                        title: "<i class='fa fa-check'></i> Sucesso",
-                        content: "<strong>Dependente atualizado</strong>",
-                        iconSmall: "fa fa-thumbs-up bounce animated",
-                        color: "#3b5998",
-                        timeout: 5000
-                    });
+                    msg_sucesso('Dependente atualizado');
                     $('#atualiza_dependente').modal('hide');
-                    limpar_capos();
+                    limpar_capos($('#atualiza_dependente'));
                     buscar();
                 }
                 else
                 {
-                    $.smallBox({
-                        title: "<i class='fa fa-check'></i> Erro",
-                        content: "<strong>Não foi possível atualizar o dependente. Tente novamente</strong>",
-                        iconSmall: "fa fa-thumbs-down bounce animated",
-                        color: "#FE1A00",
-                        timeout: 5000
-                    });
+                    msg_erro('Não foi possível atualizar o dependente. Tente novamente');
                 }
-            },
-            error: function()
-            {
-                $.smallBox({
-                    title: "<i class='fa fa-check'></i> Erro",
-                    content: "<strong>Ocorreu um erro. Tente novamente</strong>",
-                    iconSmall: "fa fa-thumbs-down bounce animated",
-                    color: "#FE1A00",
-                    timeout: 5000
-                });
             }
         });
     });
+
+    /**
+     * verifica_select()
+     *
+     * Função desenvolvida para verificar se o valor que está cadastrado é igual
+     * a algum dos valores listados
+     *
+     * @author 	: Matheus Lopes Santos 
+     * @param	: {mixed}  valor_cadastrado Contém o valor que foi cadastrado previamente
+     * @param	: {string} elementoSelect	Contém o select que sera percorrido
+     */
+    function verifica_select(valor_cadastrado, elementoSelect)
+    {
+
+    	elementoSelect.find('option').each(function(){
+            if($(this).val() == valor_cadastrado)
+            {
+                $(this).prop('selected', true);
+            }
+        });
+    }
 </script>
