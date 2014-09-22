@@ -19,6 +19,7 @@
     </head>
     <body class="logged_out env-production windows signin">
         <div class="doc-loader"></div>
+        <div class="carregando"></div>
         <div class="wrapper">
 
             <!-- Topbar -->

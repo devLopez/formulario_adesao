@@ -15,7 +15,7 @@
 
         /** Limpa os campos do formulário ao fechar o modal **/
         $('#fechar').click(function() {
-            limpar_capos();
+            limpar_campos($('#cad_dependente'));
         });
 
         /** Adiciona uma máscara ao campo de data **/
@@ -34,37 +34,15 @@
                 {
                     if (sucesso == 1)
                     {
-                        $.smallBox({
-                            title: "<i class='fa fa-check'></i> Sucesso",
-                            content: "<strong>Dependente cadastrado</strong>",
-                            iconSmall: "fa fa-thumbs-up bounce animated",
-                            color: "#3b5998",
-                            timeout: 5000
-                        });
+                        msg_sucesso("Dependente cadastrado");
                         $('#cadastrar_dependente').modal('hide');
-                        limpar_capos();
+                        limpar_campos($('#cad_dependente'));
                         buscar();
                     }
                     else
                     {
-                        $.smallBox({
-                            title: "<i class='fa fa-check'></i> Erro",
-                            content: "<strong>Não foi possível salvar os dados. Tente novamente</strong>",
-                            iconSmall: "fa fa-thumbs-down bounce animated",
-                            color: "#FE1A00",
-                            timeout: 5000
-                        });
+                       	msg_erro("Não foi possível salvar os dados. Tente novamente");
                     }
-                },
-                error: function()
-                {
-                    $.smallBox({
-                        title: "<i class='fa fa-check'></i> Erro",
-                        content: "<strong>Ocorreu um erro. Tente novamente</strong>",
-                        iconSmall: "fa fa-thumbs-down bounce animated",
-                        color: "#FE1A00",
-                        timeout: 5000
-                    });
                 }
             });
         });
@@ -73,25 +51,17 @@
     /** Função que buscar os parentescos **/
     function busca_parentesco()
     {
-        $.get('<?php echo app_baseurl().'painel/dependentes/busca_parentesco' ?>', function(e) {
-            $('#parentesco_dependente, #ed_parentesco_dependente').html(e);
-        });
-    }
-
-    /** Função desenvolvida para limpar os campos do formlário **/
-    function limpar_capos()
-    {
-        $('#cad_dependente, #atualiza_dependente').find('input, select').val('');
+        url = '<?php echo app_baseurl().'painel/dependentes/busca_parentesco' ?>';
+        
+        load_ajax(url, $('#parentesco_dependente, #ed_parentesco_dependente'));
     }
 
     /** Função desenvolvida para buscar os dependentes cadastrados **/
     function buscar()
     {
-        $('#dependentes_cadastrados').html('<h4><i class="fa fa-cog fa-spin"></i> Buscando...</h4>');
+        url = '<?php echo app_baseurl().'painel/dependentes/buscar_dependentes' ?>';
 
-        $.get('<?php echo app_baseurl().'painel/dependentes/buscar_dependentes' ?>', function(e) {
-            $('#dependentes_cadastrados').html(e);
-        });
+        load_ajax(url, $('#dependentes_cadastrados'));
     }
 </script>
 

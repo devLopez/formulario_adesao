@@ -20,6 +20,7 @@
     </head>
     <body class="logged_in env-production windows page-dashboard">
         <div class="doc-loader"></div>
+        <div class="carregando"></div>
         <div class="wrapper">
 
             <!-- Topbar -->

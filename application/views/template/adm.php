@@ -22,6 +22,7 @@
     <body class="logged_in env-production windows page-dashboard">
         <!-- Div onde é mostrado o relojinho -->
         <div class="doc-loader"></div>
+        <div class="carregando"></div>
         <!--*****************************************************************-->
 
         <div class="wrapper">

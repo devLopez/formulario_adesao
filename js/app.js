@@ -75,9 +75,60 @@ function msg_erro(msg)
  */
 function limpar_campos(form)
 {
-    form.find('input, select, textarea, select').val("");
-    form.find('checkbox, radio').removeAttr('checked');
+	form.find("input, textarea").val("");
+    form.find('radio, checkbox').prop('checked', false);
+    form.find('select').prop('selected', false);
 }
+//******************************************************************************
+
+/**
+ * show_loading()
+ * 
+ * Função desenvolvida para exibir o elemento Loading
+ * 
+ * @author	:	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+ */
+function show_loading()
+{
+    $('.carregando').fadeIn('fast');
+}
+//******************************************************************************
+
+/**
+ * hide_loading()
+ * 
+ * Função desenvolvida para esconder o elemento Loading
+ * 
+ * @author	:	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+ */
+function hide_loading()
+{
+    $('.carregando').fadeOut('slow');
+}
+//******************************************************************************
+
+/*******************************************************************************
+ * SETUP DAS REQUISIÇÕES AJAX
+ *******************************************************************************
+ * Funções responsáveis por exibição de mensagem quando uma requisição ajax 
+ * iniciar ou terminar
+ * 
+ * @author 	:	Matheus Lopes Santos
+ */
+$(document).ajaxStart(function() {
+    show_loading();
+});
+
+$(document).ajaxComplete(function() {
+    hide_loading();
+});
+
+$.ajaxSetup({
+    error: function(){
+        msg_erro('Ocorreu um erro. Tente novamente');
+    }
+});
+//******************************************************************************
 
 /*******************************************************************************
  * TEMPLATE.JS
@@ -104,6 +155,8 @@ $(document).ready(function() {
     $(window).load(function() {
         $('.doc-loader').fadeOut('slow');
     });
+    
+    hide_loading();
 
     /** Bloco referente aos tooltips e popovers no corpo do site **/
     $('body').tooltip({selector: '[rel="tooltip"]'});
