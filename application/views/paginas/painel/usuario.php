@@ -46,9 +46,6 @@
     function buscar_dados()
     {
         $.get('<?php echo app_baseurl().'painel/usuario/buscar_dados'?>', function(e){
-            /** Esconde o loader **/
-            //$('.loader').fadeOut('slow');
-            
             /** Lança a response na DIV **/
             $('#dados_usuario').html(e);
         });

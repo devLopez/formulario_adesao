@@ -17,8 +17,8 @@
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
 	 * @package		Models
-	 * @version		v1.1.1
-	 * @since		03/09/2014    
+	 * @version		v1.2.0
+	 * @since		01/10/2014    
      */
     class Usuarios_model extends MY_Model
     {
@@ -71,6 +71,7 @@
             $data = array(
                 'nome_proponente'   => $dados['nome_proponente'],
                 'cpf_proponente'    => $dados['cpf_proponente'],
+            	'email_proponente'	=> $dados['email_proponente'],
                 'senha_proponente'  => $dados['senha_proponente']
             );
             return $this->BD->insert($this->_tabela, $data);
@@ -113,7 +114,7 @@
        		date_default_timezone_set('America/Sao_Paulo');
        		
 			$data = array(
-           		'numero_protocolo' => md5($_SESSION['usuario']['cpf_proponente']),
+           		'numero_protocolo' 		=> md5($_SESSION['usuario']['cpf_proponente']),
            		'data_geracaoProtocolo' => date('Y-m-d H:i:s', time())
            	);
 
@@ -330,6 +331,52 @@
             $this->BD->where($this->_primary, $id);
             
             return $this->BD->update($this->_tabela, $data);
+        }
+        //**********************************************************************
+        
+        /**
+         * update_email()
+         * 
+         * Função desenvolvida para atualizar o endereço de email do usuário
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
+         * @param 		string $email Contém o novo endereço de email
+         * @return		bool Retorna TRUE se atualizar e FALSE se não atualizar
+         */
+        function update_email($email)
+        {
+        	$data = array(
+        		'email_proponente' => $email
+        	);
+        	
+        	$this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
+        	
+        	return $this->BD->update($this->_tabela, $data);
+        }
+        //**********************************************************************
+        
+        /**
+         * contar_email()
+         * 
+         * Função desenvolvida para contar os emails cadastrados para um usuário
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
+         * @return		int Retorna o número de endereços de email cadastrados
+         */
+        function contar_email()
+        {
+        	$this->BD->select('email_proponente');
+        	$this->BD->where('id', base64_decode($_SESSION['usuario']['id_proponente']));
+        	
+        	foreach($this->BD->get($this->_tabela)->result() as $row)
+        	{
+        		if($row->email_proponente != "")
+        		{
+        			return TRUE;
+        		}
+        	}
         }
         //**********************************************************************
     }

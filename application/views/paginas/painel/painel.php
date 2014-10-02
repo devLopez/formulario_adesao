@@ -1,10 +1,114 @@
 <script>
+	//Chama a função que verifica se existe e-mail cadastrado
+	verifica_email();
+	
     /** Inicialização do jquery **/
     $(document).ready(function() {
 
         /** Adiciona a classe 'active' ao menu correspondente **/
         $('#menu-painel').addClass('selected');
     });
+
+    /**
+     * verifica_email()
+     *
+     * Função que verifica a existência de um email cadastrado no sistema. Caso
+     * Não exista, exige que o usuário cadasre um email
+     *
+     * @author	:	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     */
+	function verifica_email()
+    {
+        url = '<?php echo app_baseurl().'painel/painel/verifica_email' ?>';
+
+        $.get(url, function(e){
+            if(e == 1)
+            {
+                return false;
+            }
+            else
+            {
+            	notificar_sem_email();
+            }
+        });
+    }
+    //**************************************************************************
+
+    /**
+     * notificar_sem_email()
+     *
+     * Função desenvolvida para exibir uma notificação ao usuário, informando-o
+     * caso não haja e-mail cadastrado
+     *
+     * @author	:	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     */
+    function notificar_sem_email()
+    {
+    	$.SmartMessageBox({
+			title : "Atenção",
+			content : "Não foi detectado em seu cadastro um endereço de email. Favor inserir um email válido",
+			buttons : "[Sair do sistema][Salvar o meu e-mail]",
+			input : "email",
+			placeholder : ""
+		}, function(botao, email) {
+			if(botao == 'Sair do sistema')
+			{
+				logout($('.logout-form').attr('action'));
+			}
+			else
+			{
+				if(email)
+				{
+					er = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+					if( !er.test(email) )
+					{
+						alert('Email inválido');
+						notificar_sem_email();
+						return false;
+					}
+					else
+					{
+						salvar(email);
+					}
+				}
+				else
+				{
+					notificar_sem_email();
+				}
+			}
+		});
+    }
+
+    /**
+     * salvar()
+     *
+     * Função desenvolvida salvar o email digitado pelo usuário
+     *
+     * @author	:	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     * @param	:	{string} email Contém o email que será salvo
+     */
+    function salvar(email)
+    {
+    	$.ajax({
+        	url: '<?php echo app_baseurl().'painel/painel/salvar_email'?>',
+        	type: 'POST',
+        	data: {email_proponente: email},
+        	dataType: 'html',
+        	success: function(e)
+        	{
+            	if(e == 1)
+            	{
+                	msg_sucesso('O novo endereço de e-mail foi salvo');
+                }
+            	else
+            	{
+                	msg_erro('Não foi possível salvar o e-mail. Tente novamente');
+                	notificar_sem_email();
+                }
+            }
+        });
+    }
 </script>
 
 <div class="container">
@@ -113,3 +217,33 @@
         <!--*****************************************************************-->
     </div>
 </div>
+<!-- Modal que exige do usuáiro a inserção de um endereço de email -->
+<form id="cad_email">
+	<div id="cadastrar_email" class="modal hide fade" data-backdrop="false" data-keyboard="false">
+		<div class="modal-header">
+			<img src="./img/logo.gif" alt="Pentáurea Clube" class="logo">
+			<h4 class="pull-right">Cadastro de E-mail</h4>
+		</div>
+		<div class="modal-body">
+					        	
+			<div class="flash-messages">
+				<div class="flash flash-error" style="text-align: justify">
+					Você deve adicionar um endereço de email válido para que possamos
+				    entrar em contato com você
+				</div>
+			</div>
+					
+			<div class="control-group">
+				<label>Digite o seu endereço de e-mail</label>
+				<div class="controls">
+					<input class="span5" type="text" name="email_proponente" autofocus required>
+				</div>
+			</div>
+				
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn primary">Salvar meu endereço de e-mail</button>
+		</div>
+	</div>
+</form>
+<!--*************************************************************************-->

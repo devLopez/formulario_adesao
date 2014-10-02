@@ -18,8 +18,8 @@
 	 * @access		Public
 	 * @package		Controllers
 	 * @subpackage	Painel
-	 * @version		v1.1.0
-	 * @since		03/09/2014	
+	 * @version		v1.2.0
+	 * @since		01/10/2014	
      */
     class Painel extends MY_Controller
     {
@@ -85,6 +85,36 @@
             return $this->usuarios_model->verifica_aprovacao();
         }
         //**********************************************************************
+        
+        /**
+         * verifica_email()
+         * 
+         * Função desenvolvida para verificar se existe um  email salvo no
+         * cadastro do usuario
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
+         * @return		int Retorna 1 se existir email cadastrado
+         */
+        function verifica_email()
+        {
+        	echo $this->usuarios_model->contar_email();
+        }
+        //**********************************************************************
+        
+        /**
+         * salvar_email()
+         * 
+         * Função desenvolvida para salvar o endereço de email do usuário, caso 
+         * o mesmo não o tenha cadastrado
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Public
+         */
+        function salvar_email()
+        {
+        	echo $this->usuarios_model->update_email(mysql_real_escape_string($this->input->post('email_proponente')));
+        }
     }
     /** End of File painel.php **/
     /** Location ./application/controllers/painel/painel.php **/

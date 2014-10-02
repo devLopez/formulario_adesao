@@ -26,6 +26,12 @@
                     </div>
                 </div>
                 <div class="control-group">
+                    <label><strong>E-mail:</strong></label>
+                    <div class="controls">
+                        <input id="email_proponente" class="span5" type="text" value="<?php echo $row->email_proponente ?>" required>
+                    </div>
+                </div>
+                <div class="control-group">
                     <label><strong>Número do Protocolo:</strong></label>
                     <div class="controls">
                         <input id="nome_proponente" class="span5" type="text" readonly="" value="<?php echo $row->numero_protocolo ?>">
@@ -89,76 +95,28 @@
         $('#editar_dadosUsuario').submit(function(e) {
             e.preventDefault();
 
-            senha = $('#senha').val();
-            nome_proponente = $('#nome_proponente').val();
+            senha 				= $('#senha').val();
+            nome_proponente 	= $('#nome_proponente').val();
+            email_proponente	= $('#email_proponente').val(); 
 
             $.ajax({
                 url: '<?php echo app_baseurl().'painel/usuario/atualizar_perfil' ?>',
                 type: 'POST',
-                data: {senha: senha, nome_proponente: nome_proponente},
+                data: {senha: senha, nome_proponente: nome_proponente, email_proponente: email_proponente},
                 dataType: 'json',
                 success: function(sucesso)
                 {
-                    if (sucesso.r_nome == 1)
-                    {
-                        sucesso("Nome Atualizado");
+                	sucesso.r_nome == 1 ? msg_sucesso("Nome Atualizado") : msg_erro("Não foi possível alterar seu nome. Tente novamente");
+                	sucesso.r_email == 1 ? msg_sucesso("E-mail Atualizado") : msg_erro("Não foi possível alterar seu email. Tente novamente");
+
+                	if(sucesso.r_senha != "")
+                	{
+                    	sucesso.r_senha == 1 ? msg_sucesso("Senha Atualizada"): msg_erro("Não foi possível alterar a senha. Tente novamente");
                     }
-                    else
-                    {
-                        erro("Não foi possível alterar seu nome. Tente novamente");
-                    }
-                    if(sucesso.r_senha == 1)
-                    {
-                        sucesso("Senha Atualizada");
-                    }
-                    else
-                    {
-                        sucesso("Não foi possível alterar a senha. Tente novamente");
-                    }
-                    
+                	
                     buscar_dados();
-                },
-                error: function()
-                {
-                    erro("Ocorreu um erro. Tente novamente");
                 }
             });
         });
     });
-
-    /**
-     * erro()
-     * 
-     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @description Função desenvolvida para mostrar uma mensagem de erro
-     * @param       {string} mensagem contém a mensagem que será exibida
-     */
-    function erro(mensagem) {
-        $.smallBox({
-            title: "<i class='fa fa-check'></i> Erro",
-            content: "<strong>"+mensagem+"</strong>",
-            iconSmall: "fa fa-thumbs-down bounce animated",
-            color: "#FE1A00",
-            timeout: 5000
-        });
-    }
-    /**************************************************************************/
-
-    /**
-     * sucesso()
-     * 
-     * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @description Função desenvolvida para mostrar uma mensagem de sucesso
-     * @param       {string} mensagem contém a mensagem que será exibida
-     */
-    function sucesso(mensagem)
-    {
-        $.smallBox({
-            title: "<i class='fa fa-check'></i> Sucesso",
-            content: "<strong>" + mensagem + "</strong>",
-            iconSmall: "fa fa-thumbs-up bounce animated",
-            color: "#3b5998",
-            timeout: 5000
-        });
-    }
 </script>

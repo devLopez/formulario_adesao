@@ -18,8 +18,8 @@
 	 * @access		Public
 	 * @package		Controllers
 	 * @subpackage	Painel
-	 * @version		v1.1.0
-	 * @since		03/09/2014    
+	 * @version		v1.2.0
+	 * @since		01/10/2014    
      */
     class Usuario extends MY_Controller
     {
@@ -83,19 +83,21 @@
          */
         function atualizar_perfil()
         {
+        	// Recebe os dados via POST
             $senha              = $this->input->post('senha');
             $nome_proponente    = $this->input->post('nome_proponente');
+            $email_proponente	= $this->input->post('email_proponente');
             
-            $resposta_nome = $this->alterar_nomeUsuario($nome_proponente);
+            // Realiza as alterações no cadastro
+            $resposta_nome 	= $this->alterar_nomeUsuario($nome_proponente);
+            $resposta_email	= $this->alterar_email($email_proponente);
             
-            if(isset($senha))
-            {
-                $resposta_senha = $this->alterar_senha($senha);
-            }
+            $resposta_senha = $senha != "" ? $this->alterar_senha($senha) : "";
             
             $resposta = array (
                 'r_nome'    => $resposta_nome,
-                'r_senha'   => $resposta_senha
+                'r_senha'   => $resposta_senha,
+            	'r_email'	=> $resposta_email
             );
             
             echo json_encode($resposta);
@@ -134,6 +136,22 @@
         private function alterar_nomeUsuario($nome_proponente)
         {
             return $this->usuarios_model->alterar_nome($nome_proponente);
+        }
+        //**********************************************************************
+        
+        /**
+         * alterar_email()
+         * 
+         * Função desenvolvida para alterar o email de contato do usuário
+         * 
+         * @author		Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+         * @access		Private
+         * @param		string $email Contém o endereço de email que será atualizado
+         * @return		bool Retorna TRUE se atualizar e FALSE se não atualizar
+         */
+        private function alterar_email($email)
+        {
+        	return $this->usuarios_model->update_email($email);
         }
         //**********************************************************************
     }

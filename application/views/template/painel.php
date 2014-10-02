@@ -103,7 +103,6 @@
                     <!-- Chamada das visões -->
                     <?php $this->load->view('paginas/' . $view); ?>
                     <!--*****************************************************-->
-
                 </div>
             </div>
         </div>

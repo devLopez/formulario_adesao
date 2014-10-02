@@ -150,6 +150,9 @@ $.ajaxSetup({
  * INICIALIZAÇÃO DO JQUERY
  */
 $(document).ready(function() {
+	
+	// Cria a Div Overlay, para ser usado como background do Modal
+	$('body').append('<div id="overlay" class="facebox-overlay facebox-overlay-hide facebox-overlay-active hidden"></div>');
 
     /** Esconde o elemento carregando **/
     $(window).load(function() {

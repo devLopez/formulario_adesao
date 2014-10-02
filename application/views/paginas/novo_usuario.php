@@ -88,52 +88,32 @@
             e.preventDefault();
 
             $('#submit').button('loading');
+
+            formulario = $('#adiciona_usuario').serialize();
             
             $.ajax({
                 url: '<?php echo app_baseurl().'novo_usuario/salvar_usuario' ?>',
                 type: 'POST',
-                data: {
-                    nome_proponente: $('#nome_proponente').val(),
-                    cpf_proponente: $('#cpf_proponente').val(),
-                    senha_proponente: $('#senha_proponente').val()
-                },
+                data: formulario,
                 dataType: 'html',
                 success: function(sucesso)
                 {
+                    alert(sucesso);
                     if (sucesso == 1)
                     {
                         contagem_regressiva();
-                        $.smallBox({
-                            title: "<i class='fa fa-check'></i> Sucesso",
-                            content: "<strong>Usuário salvo com sucesso.</strong><br><p id='tempo'></p>",
-                            iconSmall: "fa fa-thumbs-up bounce animated",
-                            color: "#3b5998",
-                            timeout: 5000
-                        });
-                        $('#adiciona_usuario').find('input').val('');
+                        msg_sucesso("Usuário salvo com sucesso.</strong><br><p id='tempo'></p>");
+                        limpar_campos($('#adiciona_usuario'));
                         $('#submit').button('complete');
                     }
                     else
                     {
-                        $.smallBox({
-                            title: "<i class='fa fa-check'></i> Erro",
-                            content: "<strong>Não foi possível salvar os dados</strong>",
-                            iconSmall: "fa fa-thumbs-up bounce animated",
-                            color: "#FE1A00",
-                            timeout: 5000
-                        });
+                        msg_erro('Ocorreu um erro ao salvar. Tente novamente')
                         $('#submit').button('reset');
                     }
                 },
                 error: function()
                 {
-                    $.smallBox({
-                        title: "<i class='fa fa-check'></i> Erro",
-                        content: "<strong>Ocorreu um erro. Tente novamente</strong>",
-                        iconSmall: "fa fa-thumbs-up bounce animated",
-                        color: "#FE1A00",
-                        timeout: 5000
-                    });
                     $('#submit').button('reset');
                 }
             });
@@ -172,15 +152,18 @@
     <form id="adiciona_usuario">
         <fieldset>
             <label><strong>Nome completo:</strong></label>
-            <input class="span5" type="text" id="nome_proponente" autofocus="">
+            <input class="span5" type="text" id="nome_proponente" name="nome_proponente" autofocus required>
             <span class="help-inline" id="resposta_nome"></span>
 
             <label><strong>CPF <small>(somente números)</small>:</strong></label>
-            <input class="span5" type="text" id="cpf_proponente">
+            <input class="span5" type="text" id="cpf_proponente" name="cpf_proponente" required="">
             <span class="help-inline" id="resposta_cpf"></span>
+            
+            <label><strong>E-mail <small>(insira um email para que possamos entrar em contato)</small>:</strong></label>
+            <input class="span5" type="email" id="email_proponente" name="email_proponente" required>
 
             <label><strong>Senha de acesso:</strong></label>
-            <input class="span5" type="password" id="senha_proponente" required>
+            <input class="span5" type="password" id="senha_proponente" name="senha_proponente" required>
             <span class="help-inline" id="senha_tamanho"></span>
 
             <label><strong>Repita a senha:</strong></label>

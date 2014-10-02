@@ -18,7 +18,7 @@
      * @author      Matheus Lopes Santos <fale_com_lopez@hotmail.com>
 	 * @access		Public
 	 * @package		Controllers
-	 * @version		v1.1.0
+	 * @version		v1.2.0
 	 * @since		03/09/2014    
      */
     class Novo_usuario extends MY_Controller
@@ -85,8 +85,9 @@
          */
         function salvar_usuario()
         {
-            $dados['nome_proponente']   = $this->input->post('nome_proponente');
-            $dados['cpf_proponente']    = $this->input->post('cpf_proponente');
+            $dados['nome_proponente']   = mysql_real_escape_string($this->input->post('nome_proponente'));
+            $dados['cpf_proponente']    = mysql_real_escape_string($this->input->post('cpf_proponente'));
+            $dados['email_proponente']	= mysql_real_escape_string($this->input->post('email_proponente'));
             $dados['senha_proponente']  = md5($this->input->post('senha_proponente'));
             
             $resposta = $this->usuarios_model->salvar_usuario($dados); 
