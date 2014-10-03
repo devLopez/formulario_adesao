@@ -98,7 +98,6 @@
                 dataType: 'html',
                 success: function(sucesso)
                 {
-                    alert(sucesso);
                     if (sucesso == 1)
                     {
                         contagem_regressiva();
