@@ -165,8 +165,20 @@
         {
             $dados['id_proponente'] = $this->input->post('id_proponente');
             $dados['observacao']    = $this->input->post('observacao');
+            $dados['email']			= $this->input->post('email_proponente');
+            $dados['nome']			= $this->input->post('nome_proponente');
             
-            echo $this->observacoes->salvar($dados);
+            $this->load->library('envia_email_library');
+            
+            $r_email 	= $this->envia_email_library->enviar_email($dados);
+            $r_banco	= $this->observacoes->salvar($dados);
+            
+            $resposta = array(
+            	'email' => $r_email,
+            	'banco'	=> $r_banco
+            );
+            
+            echo json_encode($resposta);
         }
         //**********************************************************************
         

@@ -21,6 +21,7 @@
         {
             ?>
             <input type="hidden" id="id_usuario" value="<?php echo $row->id ?>">
+            <input type="hidden" id="email_usuario" value="<?php echo $row->email_proponente?>">
             <div class="row">
 
                 <!--Navegação à esquerda do painel -->
@@ -58,13 +59,19 @@
                                 <div class="control-group">
                                     <label><strong>Nome do Proponente:</strong></label>
                                     <div class="control-group">
-                                        <input type="text" class="span5" value="<?php echo $row->nome_proponente ?>" readonly="">
+                                        <input type="text" class="span5" value="<?php echo $row->nome_proponente ?>" readonly="" id="nome_proponente">
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label><strong>CPF do Proponente:</strong></label>
                                     <div class="control-group">
                                         <input type="text" class="span5" value="<?php echo $row->cpf_proponente ?>" readonly="">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label><strong>E-mail do Proponente:</strong></label>
+                                    <div class="control-group">
+                                        <input type="text" class="span5" value="<?php echo $row->email_proponente ?>" readonly="">
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -159,7 +166,11 @@
     }
 ?>
 <script type="text/javascript">
-    var id = $('#id_usuario').val()
+	//Recebe o ID do usuário cadastrado
+    var id = $('#id_usuario').val();
+
+    //Recebe o email do usuário cadastrado
+    var email = $('#email_usuario').val();
 
     /** Chama a função que busca as observações **/
     load_observacoes();
@@ -228,19 +239,21 @@
     $('#form-observacao').submit(function(e) {
         e.preventDefault();
 
-        observacao = $('#observacao').val();
-        id_proponente = id;
+        observacao 			= $('#observacao').val();
+        nome_proponente		= $('#nome_proponente').val();
+        id_proponente 		= id;
+        email_proponente	= email;
 
         $.ajax({
             url: '<?php echo app_baseurl() . 'administrativo/propostas/salvar_observacao'; ?>',
             type: 'POST',
-            data: {observacao: observacao, id_proponente: id_proponente},
-            dataType: 'html',
-            success: function(sucesso)
-            {
-                if (sucesso == 1)
+            data: {observacao: observacao, id_proponente: id_proponente, email_proponente: email_proponente, nome_proponente: nome_proponente},
+            dataType: 'json',
+            success: function(e)
+            {                
+                if (e.banco == 1)
                 {
-                    msg_sucesso('Observação cadastrada');
+                    msg_sucesso('Observação cadastrada. ' + e.email);
                     load_observacoes();
                     limpar_campos($('#form-observacao'));
                     $('#add-observacao').modal('hide');
@@ -249,14 +262,18 @@
                 {
                     msg_erro('Ocorreu um erro ao cadastrar');
                 }
-            },
-            error: function()
-            {
-                msg_erro('Ocorreu um erro ao acessar o recurso');
             }
         });
     });
+    //**************************************************************************
 
+    /**
+     * load_observacoes()
+     *
+     * Função desenvolvida para exibir as observações cadastradas
+     *
+     * @author	:	Matheus Lopes Santos <fale_com_lopez@hotmail.com>
+     **/
     function load_observacoes()
     {
         url_observacoes = '<?php echo app_baseurl() . 'administrativo/propostas/buscar_observacoes/' ?>' + id;
